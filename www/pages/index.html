@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Inject Head -->
+	<script src="../js/head.js"></script>
+	<style>
+		/* Modify White Elements on the Page to Invert */
+		:root{
+		--c-accent: var(--c-accent-bright);
+		}
+
+		/* Set the Background to a Translucent Color */
+		body {
+			background-color: var(--c-smoke);
+		}
+
+		/* Set the Wrapper to be Transparent */
+		div#wrapper {
+			background-color: transparent;
+			/* Set the Wrapper at the Very Back of the Page */
+			z-index: -2;
+		}
+
+		.sectionContainer{
+			--c-white: rgba(25,25,25,0.8);
+			background-color: var(--c-white);
+		}
+
+		.buttonContainer > a > div {
+			--c-white: rgba(255,255,255,1);
+		}
+
+		/* Set Text to Glow Black */
+		.sectionBody,.sectionHead > div {
+			--c-glow: rgb(0,0,0);
+
+			color: var(--c-text);
+			text-shadow: 0px 0px 1px var(--c-glow),0px 0px 1px var(--c-glow),0px 0px 1px var(--c-glow);
+		}
+
+		/* Emulate a Glow similar to the Black Text Glow */
+		hr {
+			background-color: var(--c-accent-bright) !important;
+			border: solid 1px black !important;
+		}
+
+		/* Set the Body Text to White for Legibility Against Dark Elements */
+		.sectionBody {
+			--c-text: var(--c-white-text);
+			color: var(--c-text);;
+		}
+
+		/* Set the Section Header Text to Brighter Green for Legibility Against Dark Elements */
+		.sectionHead > div {
+			--c-text: var(--c-accent-bright);
+		}
+
+		/* For Small Devices */
+		@media screen and (min-width: 0px) and (max-width: 800px) {
+			div#Home > div.flexContainerCol {
+				max-width: 100% !important;
+			}
+		}
+
+		/* For Medium Devices */
+		@media screen and (min-width: 801px) and (max-width: 1200px) {
+			div#Home > div.flexContainerCol {
+				max-width: 80% !important;
+			}
+		}
+
+		/* For Large Devices */
+		@media screen and (min-width: 1201px) and (max-width: 1600px) {
+			div#Home > div.flexContainerCol {
+				max-width: 60% !important;
+			}
+		}
+
+		/* For FHD Devices */
+		@media screen and (min-width: 1601px) and (max-width: 1920px) {
+			div#Home > div.flexContainerCol {
+				max-width: 50% !important;
+			}
+		}
+
+		/* For QHD Devices */
+		@media screen and (min-width: 1921px) and (max-width: 2560px) {
+			div#Home > div.flexContainerCol {
+				max-width: 40% !important;
+			}
+		}
+
+		/* For UHD Devices */
+		@media screen and (min-width: 2561px) /* and (max-width: 5120px) */ {
+			div#Home > div.flexContainerCol {
+				max-width: 33% !important;
+			}
+		}
+
+	</style>
+</head>
+
+<!-- Insert Opening Tags & Navbar -->
+<script src="../js/header.js"></script>
+
+<!-- Background Video -->
+<div id="videoContainer">
+	<div id="curtain"> </div>
+
+	<video id="background-video" autoplay loop muted >
+		<source src="../img/bg.mov" type="video/mp4">
+	</video>
+</div>
+
+
+
+<!-- Page Content -->
+<div id="Home" class="flexContainerRow">
+
+	<div class="flexContainerCol">
+		<div class="sectionContainer">
+			<div class="sectionHead"> <!-- Section Header -->
+				<div> Welcome to My Git Repo! </div>
+			</div>
+
+			<hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+			<div id="quote" class="sectionBody"> <!-- Body Content of Flavor Text-->
+				"If I have seen further than others, it is by standing upon the shoulders of giants."
+				<div> -	 Isaac Newton </div>
+			</div>
+
+			<div class="sectionBody"> <!-- Body Content of Flavor Text-->
+				If you're here, you're most likely me... but if you're not, welcome! You're most likely here to view my Labs for N220: Media Application Development taken with Travis Faas in Spring of 2023 at IUPUI.
+			</div>
+
+
+			<div class="buttonContainer"> <!-- Button to Offer Sequential Progression, leads to Dataset Info -->
+				<a href="labs.html">
+					<div> Labs > </div>
+				</a>
+			</div>
+
+
+			<hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+		</div> <!-- End of Section -->
+
+		<div class="sectionContainer">
+			<div class="sectionHead"> <!-- Section Header -->
+				<div> About Me </div>
+			</div>
+
+			<hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+			<div class="sectionBody"> <!-- Body Content Continued with Abstract-->
+				Aloha! My name is Jay Annadurai. Academically, I'm in my second semester of IUPUI's B.S. Informatics program. I'm a novice programmer beginning to learn HTML, CSS, Javascript, and PHP. This particular website is a demonstration of the web development skills I've learned using HTML, CSS, and JS. I realize there's great potential for improvement, but as the ancient Chinese proverb goes, "A journey of a thousand miles begins with a single step." I'm looking forward to learning about all the various aspects of informatics, from data analysis to web development. Personally, I'm a homebody that loves tinkering and experimenting with several hobbies. Noteworthy obsessions include: wristwatches, fountain pens, photography, stereo music systems, general home theater, and PC video games. I'm always curious to learn more!
+
+			</div><!-- End of Section Body -->
+
+			<div class="buttonContainer"> <!-- Button to Offer Sequential Progression, leads to Dataset Info -->
+				<a href="me.html">
+					<div> Contact Me > </div>
+				</a>
+			</div>
+
+			<hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+		</div> <!-- End of Section -->
+	</div> <!-- End of flexContainerCol 2 -->
+
+</div> <!-- End of Primary Flex Container -->
+
+<!-- Inject Body End and Footer -->
+<script src="../js/footer.js"> </script>
+
+</html>

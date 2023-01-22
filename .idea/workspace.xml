@@ -10,11 +10,18 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Labs/Lab1 - Personal Composition/js/protoDNA.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Labs/Lab01 - Personal Composition/js/protoDNA.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -26,20 +33,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Labs/Lab1 - Personal Composition",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/www/img",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/img" />
       <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Labs/Lab0" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise 1" />
+      <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
+      <recent name="$PROJECT_DIR$/Labs/Lab0/js" />
+      <recent name="$PROJECT_DIR$/www/pages" />
+      <recent name="$PROJECT_DIR$/www" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -50,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674151325155</updated>
-      <workItem from="1674151326419" duration="6588000" />
+      <workItem from="1674151326419" duration="29917000" />
     </task>
     <servers />
   </component>

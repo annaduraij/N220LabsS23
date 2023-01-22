@@ -1,0 +1,795 @@
+/* -----------------------------------------
+                  CSS Import
+   ----------------------------------------- */
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@200;300;400;500;600;700&family=Cairo+Play&family=Odibee+Sans&display=swap');
+
+
+/* -----------------------------------------
+                CSS Variables
+   ----------------------------------------- */
+
+:root {
+    /* Colors */
+    --c-white-text: rgb(255,255,255);
+    --c-white: rgb(255,255,255);
+
+    --c-light_grey: rgb(240,240,240);
+    --c-grey: rgb(100,100,100);
+    --c-dark_grey: rgba(20,20,20);
+
+    --c-smoke: rgba(20, 30, 25, 0.7);
+    --c-black: rgb(0,0,0);
+
+    --c-accent-bright: rgb(14, 135, 62);
+    --c-accent: rgb(0,85,34);
+
+    --c-caution: rgb(135, 14, 14);
+    /* Resolution & Aspect Ratios */
+    --r-aspect-width: 16px;
+    --r-aspect-height: 9px;
+
+    /* Individual Scalars */
+    --r-scalar-graph: 80;
+
+    /* Set Div Border Shadow Width */
+    --shadow-width: 0px;
+    
+}
+
+/* -----------------------------------------
+                  General CSS
+   ----------------------------------------- */
+
+/* General CSS */
+body {
+    background-color: rgba(250, 250, 250, 88%);
+    /*Removes Gap around the Main Body of the Website */
+    margin: 0px;
+    /* Removes URL Underlines */
+    padding: 3.5em 0;
+
+    background-image: url('../img/bg.jpeg');
+    background-size: 12%;
+    background-repeat: repeat;
+    background-blend-mode: soft-light;
+}
+
+/* Implement Shadow Borders to visualize spacing and padding,
+Set variable of shadow-width  or add an ID to enable and disable */
+/* I.e. enabled = 'div {' */
+/* I.e. disabled = 'div#disabled {' */
+
+div {
+    box-shadow:
+        /* Horizontal | Vertical | Blur | Spread | Color | Optional: Inset the Shadow */
+            var(--shadow-width) 0 0 0 #888,
+            0 var(--shadow-width) 0 0 #888,
+            var(--shadow-width) var(--shadow-width) 0 0 #888,   /* Just to fix the corner */
+            var(--shadow-width) 0 0 0 #888 inset,
+            0 var(--shadow-width) 0 0 #888 inset;
+}
+
+a {
+    text-decoration: none;
+}
+
+div#wrapper {
+    /*background-color: var(--c-light_grey); */
+    border-radius: 20px;
+
+
+}
+
+/* -----------------------------------------
+        Page Structure & Organization
+   ----------------------------------------- */
+
+/* General Flex Containers to Establish Page Layout*/
+/* Outermost Flex Container that Sets Secondary Flex Containers into a Row */
+.flexContainerRow {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 15px 30px;
+
+}
+
+/* When the Secondary Flex Container is nested inside a Primary Container,
+constrain max width to 33% to represent the triple section layout */
+.flexContainerRow > .flexContainerCol {
+    max-width: 33%;
+}
+
+/* When the 'large' class is applied to a div within the Primary Flex Container
+Set the growth capacity of it to a bit more than double of a typical max element width of 33% */
+/* This selector is primarily used for graphs and images */
+.flexContainerRow > .flexContainerCol.large {
+    flex-grow: 0;
+    max-width: 67%;
+}
+
+/* The Secondary Flex Container which defines one of three columnar sections in the Three Panel layout */
+.flexContainerCol{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-basis: content; /* Sets the initial Flex Size to that of the Content within */
+    align-items: center;
+}
+
+
+/* When a Section Container is placed within the Columnar/Secondary Flex Container,
+create the visible section body and establish spacing*/
+.flexContainerCol > .sectionContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 10px 15px;
+    padding: 0 15px;
+}
+
+
+
+/* -----------------------------------------
+                   Navigation Bar
+   ----------------------------------------- */
+
+/* Main Navigation Bar Container, it's also a Flex Container Primary */
+#navbar {
+    /* Position the Navbar at the Top of the Page and Span it Across */
+    position: fixed;
+    top: 0;
+    z-index: 3;
+
+    width: calc( 100vw - 60px);
+
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2em;
+
+    color: var(--c-white-text);
+    background-color: var(--c-dark_grey);
+    vertical-align: center;
+    height: fit-content;
+
+    /* From Edges to Navbar */
+    padding: 0 30px;
+
+}
+
+/* Flex CSS for Children of the Navbar Sections, overrides the Secondary Flex Container*/
+#navbar > div.sectionNavBar {
+    flex-flow: row nowrap !important;
+    /* max-width: calc( (100vw - 60px) / 3); */
+}
+
+/* Visual Styling of the Navbar Sections */
+div.sectionNavBar {
+    /* Set Navbar Buttons to be as close to the main body of the Page */
+    margin: auto 0 auto;
+    color: var(--c-white-text);
+    text-align: center;
+}
+
+/* Sets Size of the Navbar Buttons Themselves */
+div.sectionNavBar > div.buttonContainer {
+    flex-grow: 1;
+    width: 50% !important;
+    height: auto;
+
+    /* Style of the Navbar Button Containers */
+    font-family: inherit;
+    color: inherit;
+    border: solid 0px var(--c-dark_grey);
+    text-align: center;
+    padding: 0px 0px;
+}
+
+/* Styles the Website Title, which is in the Central Navbar Section */
+div#websiteTitleContainer {
+    margin: 0 auto;
+}
+
+/* Styles the Website Title Link Container */
+div#websiteTitleContainer > div {
+    margin: auto;
+}
+
+/* Styles the Website Title which itself is a link */
+div#websiteTitleContainer > div > a{
+    color: var(--c-white-text);
+    font-size: 1.5em;
+    font-family: 'Cairo Play', sans-serif;
+    font-weight: 400;
+    margin: auto;
+    display: block;
+    padding: 5px 0;
+
+    transition: font-weight 300ms, text-shadow 500ms;
+}
+
+/* Styles the Interaction States of the Website Title */
+div#websiteTitleContainer > div > a:hover,
+div#websiteTitleContainer > div > a:focus,
+div#websiteTitleContainer > div > a:active {
+    border-radius: 10px;
+
+    text-shadow: 0px 0px 2px var(--c-accent),0px 0px 2px var(--c-accent);
+
+    font-weight: bold;
+
+}
+
+
+/* Styles the Buttons of the Navbar */
+div.buttonContainer {
+
+}
+
+/* Sets the Style of the Links within the Navbar Button Containers */
+div.sectionNavBar > div.buttonContainer a {
+    color:var(--c-white);
+    transition: color 500ms;
+    /* Inherits the lack of text decoration from the Body */
+    text-decoration: inherit;
+}
+
+/* Styles the Clickable Div within the Link */
+div.sectionNavBar > div.buttonContainer a > div {
+    padding: 5px 0;
+    height: fit-content;
+    margin: 3px 15px;
+    width: inherit;
+    background-color: inherit;
+    box-shadow: inset 0 0 0px 0px var(--c-black);
+
+}
+
+/* Styles the Interaction States of the Clickable Div within the Link */
+div.sectionNavBar > div.buttonContainer a> div:hover,
+div.sectionNavBar > div.buttonContainer a> div:focus,
+div.sectionNavBar > div.buttonContainer a> div:active {
+    background-color: var(--c-white-text);
+    border: 0;
+    border-radius: 10px;
+    color: var(--c-accent);
+    font-size: 1.1em;
+    font-weight: bold;
+
+}
+
+/* -----------------------------------------
+                   Footer
+   ----------------------------------------- */
+/* Set Footer Sizing to match Navbar */
+#footer {
+    /* Position the Footer at the bottom of the Page and Span it across the Page */
+    position: fixed;
+    width: calc( 100vw - 60px);
+    /* Set it to the Bottom of the Page */
+    bottom: 0;
+
+    margin: 0;
+    height: 1em;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: var(--c-dark_grey);
+    color: var(--c-white-text);
+    align-content: center;
+}
+
+#footer > div.flexContainerCol > div {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1em;
+    text-align: center;
+
+    padding: 5px 0;
+    margin: auto;
+}
+
+/* -----------------------------------------
+      Actual Aesthetic Style of a Section
+   ----------------------------------------- */
+
+/* Section Container is the container of a Section,
+ flexes to the width of the Content and stylizes the container*/
+.sectionContainer {
+    background-color: var(--c-white);
+    text-align: center;
+    border-radius: 15px;
+}
+
+/* A Section Head should only exist inside a Section Container,
+contains the Title of the Section */
+.sectionContainer > .sectionHead {
+    font-family: "Montserrat", sans-serif;
+    color: var(--c-accent);
+    font-size: 1.4em;
+
+    /* text-shadow: 0px 0px 0px var(--c-black); */
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+}
+
+/* Style Link/Button of a Section Head */
+.sectionHead > a {
+    text-decoration: inherit;
+}
+
+/* Style Link/Button of a Section Head */
+ .sectionHead > a > div {
+     background-color: var(--c-accent);
+     border-radius: 5px;
+
+     color: inherit;
+     width: fit-content;
+
+     margin: 0 auto;
+     padding: 2px 10px;
+
+}
+
+/* Mirror Extra Padding of Section Head Buttons */
+.sectionHead > div {
+    padding: 2px 10px;
+    font-weight: 600;
+}
+
+
+
+/* -----------------------------------------
+                Section Dividers
+   ----------------------------------------- */
+
+/* A general <hr> nested within the Section Container,
+typically serves as an accented divider*/
+.sectionContainer > hr {
+    border: 0px solid black;
+    background-color: #005522;
+    padding: 1px 0;
+    margin: 5px 5px;
+
+}
+
+/* A <hr> nested within the Section Container,
+serves as a divider between the Head of the Section and the content Body*/
+.sectionContainer > hr.sectionStart {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* A <hr> nested within the Section Container,
+serves as a divider between the end of the Content Body and the Bottom Edge of the Section*/
+.sectionContainer > hr.sectionEnd {
+    margin-bottom: 15px;
+}
+
+/* -----------------------------------------
+                Section Body
+ ----------------------------------------- */
+
+/* Section Body only exists within a section container but requires spacing
+Establishes spacing and styling for the Section Content/Body  */
+.sectionContainer > .sectionBody {
+    margin: 8px 10px;
+
+}
+
+
+/* The Section Body contains the text content placed within the center of Section Container
+Contains more readable serif text and classic text alignment */
+.sectionBody {
+    font-family: "Lora", sans-serif;
+    line-height: 1.4em;
+    font-size: 1em;
+    text-align: left;
+}
+
+/* -----------------------------------------
+       Inner Section Body Expanders
+ ----------------------------------------- */
+
+div.sectionBody div.innerSection {
+    cursor: pointer;
+    transition: 0.4s;
+    padding-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+div.sectionBody div.innerSectionBody{
+    display:none;
+    overflow: hidden;
+    padding-bottom: 1em;
+}
+
+.innerSection:after {
+    content: '+';
+    color: var(--c-grey);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.Expanded:after {
+    content: '-';
+}
+
+
+/* -----------------------------------------
+            Section Body Styling
+   ----------------------------------------- */
+
+/* Any lists that exist within the Section Body */
+.sectionBody > ul {
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.sectionBody > ul > li {
+
+}
+
+.inlineBold {
+    color: var(--c-accent);
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+/* Generic Button Styling
+ Action Button typically Leads User to Next Action */
+
+/* Fix the Button Height to prevent Page Movement */
+.buttonContainer {
+    height: 3em;
+    margin: auto 0;
+
+}
+
+/* Style the Content of the Button */
+.buttonContainer > a > div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1em;
+
+    background-color: var(--c-accent);
+    color: var(--c-light_grey);
+
+    width: fit-content;
+    height: 1.4em;
+
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px 1px var(--c-black);
+
+    margin: 10px auto;
+    padding: 4px 10px;
+
+    transition: background-color 200ms,
+                color 200ms,
+                font-size 500ms,
+                font-weight 0ms,
+                border 200ms,
+                border-radius 300ms;
+
+}
+
+/* Styles the Interaction States of the Action Button */
+.buttonContainer a> div:hover,
+.buttonContainer a> div:focus,
+.buttonContainer a> div:active {
+
+    box-shadow: inset 0 0 1px 1px var(--c-black);
+    border-radius: 10px;
+
+    color: var(--c-accent);
+    background-color: var(--c-white);
+
+    font-size: large;
+    font-weight: bold;
+
+    transition: font-weight 150ms;
+    cursor:pointer;
+
+}
+
+.buttonContainer > a > div > span.arrow {
+    font-family: 'Odibee Sans', 'sans-serif';
+    font-size: 2em;
+    padding: 0 3px;
+}
+
+/* Style a General Image */
+img.fluidImg {
+    display: block;
+    width: 95%;
+    height: 95%;
+
+    margin: 0 auto;
+    padding: 10px;
+    object-fit:cover;
+    border-radius: 20px;
+}
+
+/* Generic Graph Stylization */
+img.staticImg {
+    display: block;
+    margin: 0 auto;
+    width: calc(var(--r-scalar-graph)*var(--r-aspect-width));
+    height: calc(var(--r-scalar-graph)*var(--r-aspect-height));
+    z-index: -2;
+}
+
+
+/* -----------------------------------------
+            Specific Page Design
+   ----------------------------------------- */
+
+/* -----------------------------------------
+            Home Page
+   ----------------------------------------- */
+
+#homeContainer {
+
+}
+
+div#quote {
+    font-size: 1.3em;
+    text-align: center;
+    font-style: italic;
+    padding: 0 25%;
+}
+
+div#quote > div {
+    text-align: center;
+    margin: 10px 0;
+
+}
+
+/* Contains a Page Background Video */
+div#videoContainer {
+    /* Set the Video Container at the top of the Page */
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* Could place the top at 3.5em however, there's a hedge in the video so doesn't matter */
+    top: 3.5em;
+    bottom: 0;
+    /* Place the Video behind the Page Contents */
+    z-index: -1;
+}
+
+/* Styles a translucent div that overlays the video and dims it */
+div#videoContainer > div#curtain {
+    position: absolute;
+    /*background-color: var(--c-smoke); */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /* Place the Translucent Curtain Above the Video */
+    z-index: 1;
+}
+
+/*Styles the Background Video within a container */
+div#videoContainer > video {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+
+
+/* -----------------------------------------
+              Dataset Info Page
+   ----------------------------------------- */
+
+/* Specific to Dataset Info, styles the Table within the body */
+img#DataSetTable {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/* Styles the Button that Leads Outside the Website to the CAFE Dataset */
+/* Styles the Clickable Div within the Link */
+div.buttonExternal.buttonContainer a > div {
+    background-color: var(--c-light_grey);
+    font-size: 1.3em;
+    color: var(--c-caution);
+    box-shadow: inset 0 0 1px 1px var(--c-black);
+
+    cursor: pointer;
+}
+
+/* Styles the Interaction States of the Clickable Div within the Link */
+div.buttonExternal.buttonContainer a > div:hover,
+div.buttonExternal.buttonContainer a > div:focus,
+div.buttonExternal.buttonContainer a > div:active
+{
+    background-color: var(--c-caution);
+    color: var(--c-white-text);
+}
+
+
+/* -----------------------------------------
+            Data Visualization Page
+   ----------------------------------------- */
+
+/* Flex the size of the Section with the Graph to the Size of the Graph */
+#graphSectionContainer {
+    flex-basis: content;
+}
+
+/* TBD */
+#descriptionSectionContainer {
+
+}
+
+/* Secondary Navigation Bar Container, it's also a Flex Container Primary
+        Contains the Navigation Buttons for Individual Manufacturer Pages */
+#SecondaryNavBar {
+    /* Position the SecondaryNavBar at the Top of the Page and Span it Across */
+    position: relative;
+    z-index: 2;
+
+    width: calc( var(--r-scalar-graph) * var(--r-aspect-width) + (15px + 15px)*2 /*Section Container Margin and Padding per side*/);
+
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2em;
+
+    color: var(--c-black);
+    background-color: var(--c-light_grey);
+    vertical-align: center;
+    height: fit-content;
+
+    /* From Edges to SecondaryNavBar */
+    padding: 0;
+    margin: 1.2em auto 0;
+
+}
+
+/* Flex CSS for Children of the SecondaryNavBar Sections, overrides the Secondary Flex Container*/
+#SecondaryNavBar > div.sectionSecondaryNavBar {
+    flex-flow: row nowrap !important;
+    max-width: inherit !important;
+    /* max-width: calc( (100vw - 60px) / 3); */
+}
+
+/* Visual Styling of the SecondaryNavBar Sections */
+div.sectionSecondaryNavBar {
+    /* Set SecondaryNavBar Buttons to be as close to the main body of the Page */
+    margin: auto 0 auto;
+    color: var(--c-black);
+    text-align: center;
+}
+
+/* Sets Size of the SecondaryNavBar Buttons Themselves */
+div.sectionSecondaryNavBar > div.buttonContainer {
+    flex-grow: 1;
+    width: 50% !important;
+    height: auto;
+
+    /* Style of the SecondaryNavBar Button Containers */
+    font-family: inherit;
+    color: inherit;
+    border: solid 0px var(--c-dark_grey);
+    text-align: center;
+    padding: 0px 0px;
+}
+
+/* Styles the Buttons of the SecondaryNavBar */
+div.buttonContainer {
+
+}
+
+/* Sets the Style of the Links within the SecondaryNavBar Button Containers */
+div.sectionSecondaryNavBar > div.buttonContainer a {
+    color: var(--c-black);
+    transition: color 500ms;
+    /* Inherits the lack of text decoration from the Body */
+    text-decoration: inherit;
+}
+
+/* Styles the Clickable Div within the Link */
+div.sectionSecondaryNavBar > div.buttonContainer a > div {
+    padding: 5px 0;
+
+    background-color: var(--c-white);
+    color: var(--c-accent);
+    height: fit-content;
+
+    margin: 3px 5px;
+    width: inherit;
+
+    border-radius: 15px;
+
+}
+
+/* Styles the Interaction States of the Clickable Div within the Link */
+div.sectionSecondaryNavBar > div.buttonContainer a> div:hover,
+div.sectionSecondaryNavBar > div.buttonContainer a> div:focus,
+div.sectionSecondaryNavBar > div.buttonContainer a> div:active
+{
+    /*
+    color: var(--c-white);
+    background-color: var(--c-accent);
+    */
+    border: 0;
+    border-radius: 10px;
+
+    font-size: 1.1em;
+    font-weight: 600;
+
+}
+
+/* Styles the Clickable Div within the Link */
+div.sectionSecondaryNavBar > div#buttonOverall.buttonContainer a > div,
+div.sectionSecondaryNavBar > div#buttonData.buttonContainer a > div
+{
+    color: var(--c-white);
+    background-color: var(--c-accent);
+}
+
+/* Styles the Interaction States of the Clickable Div within the Link */
+div.sectionSecondaryNavBar > div#buttonOverall.buttonContainer a> div:hover,
+div.sectionSecondaryNavBar > div#buttonOverall.buttonContainer a> div:focus,
+div.sectionSecondaryNavBar > div#buttonOverall.buttonContainer a> div:active,
+
+div.sectionSecondaryNavBar > div#buttonData.buttonContainer a> div:hover,
+div.sectionSecondaryNavBar > div#buttonData.buttonContainer a> div:focus,
+div.sectionSecondaryNavBar > div#buttonData.buttonContainer a> div:active
+{
+    /*
+     background-color: var(--c-white);
+    color: var(--c-accent);
+    */
+}
+
+
+/* IDs for Javascript Interactivity */
+#Graph
+{
+    cursor: crosshair;
+    border-radius: 15px;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-user-drag: none;
+    -khtml-user-drag: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+
+}
+
+#active {
+    background-color: var(--c-grey);
+    color: var(--c-white-text);
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+area.interactive {
+    cursor: zoom-in;
+}
+
+
+/* -----------------------------------------
+                 About Me Page
+   ----------------------------------------- */
+
+/* Flip Jay's Profile Picture such that All Profile Pictures are Looking the Same Way */
+img#Jay {
+    transform: scaleX(-1);
+}
+
+
+
+
+
