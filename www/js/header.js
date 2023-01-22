@@ -61,7 +61,7 @@ document.write(
     "        <div id=\"websiteTitleContainer\" class=\"sectionNavBar flexContainerCol\">\n" +
     "            <div>\n" +
     "                <a href=\"index.html\">\n" +
-    "                    Jay's Repo\n" +
+    "                    Jays Repo\n" +
     "                </a>\n" +
     "            </div>\n" +
     "        </div> <!-- End of Middle Navbar Section -->\n" +
