@@ -1,0 +1,9 @@
+Goals:
+General Website:
+    -> Modify Text Size generally to be larger and more readable
+    -> Evolve Lab Page with CSS media queries to be more responsive to mobile browsers
+    -> Add a Favicon
+
+Code:
+    -> Integrate Exercises into Website
+        -> At least be able to have general website Header & Footer applied to Lab & Exercise Pages
