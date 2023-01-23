@@ -31,27 +31,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/www/img&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises/Exercise Proto/www",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www" />
+      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www/js" />
+      <recent name="$PROJECT_DIR$/Exercises" />
+      <recent name="$PROJECT_DIR$/Exercises/Exercise 1/js" />
       <recent name="$PROJECT_DIR$/www/img" />
-      <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www" />
       <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
       <recent name="$PROJECT_DIR$/Labs/Lab0/js" />
       <recent name="$PROJECT_DIR$/www/pages" />
       <recent name="$PROJECT_DIR$/www" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -62,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674151325155</updated>
-      <workItem from="1674151326419" duration="30622000" />
+      <workItem from="1674151326419" duration="51418000" />
     </task>
     <servers />
   </component>

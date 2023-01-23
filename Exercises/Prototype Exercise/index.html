@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+        :root {
+            /* Colors */
+            --c-black: rgb(0,0,0);
+            --c-white: rgb(255,255,255);
+
+        }
+
+        * {
+            /* Set Font of Page to Sans-Serif & Montserrat */
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.1em;
+        }
+        body {
+            margin: 0px;
+        }
+
+        div.scriptButton {
+            margin: 0.2rem;
+            padding: 0.3rem;
+            width: fit-content;
+
+            border-radius: 5px;
+            border: 1px solid var(--c-black);
+
+            cursor:pointer;
+            transition: color 300ms, background-color 300ms;
+        }
+
+        /* Styles the Interaction States of the Website Title */
+        div.scriptButton:hover,
+        div.scriptButton:focus,
+        div.scriptButton:active {
+            background: var(--c-black);
+            color: var(--c-white);
+
+            border-radius: 10px;
+
+
+        }
+        div.flexContainerCol{
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+
+        }
+        div.flexContainerRow {
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            width: 50%
+        }
+
+        div#scriptContainer {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="flexContainerCol">
+        <div class="flexContainerRow">
+            <div id="ex1_1" class="scriptButton"> Exercise 1 </div>
+            <div id="ex1_2" class="scriptButton"> Exercise 2 </div>
+            <div id="ex1_3" class="scriptButton"> Exercise 3 </div>
+        </div>
+        <!--<button id="refresh"> Clear </button> -->
+
+        <!-- Applet to Load p5.js Scripts -->
+        <script src="js/app.js"> </script>
+
+        <!-- p5.archive - https://cdnjs.com/libraries/p5.js - First Option-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- Container for Scripts to Use -->
+        <div id="scriptContainer">
+
+        </div>
+    </div>
+    <!-- Actual p5 JS Code -->
+    <!-- <script src="js/ex1_1.js"> </script> -->
+
+</body>
+</html>

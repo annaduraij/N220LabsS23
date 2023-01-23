@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Inject Head -->
+    <script src="../js/head.js"></script>
+</head>
+
+<!-- Insert Opening Tags & Navbar -->
+<script src="../js/header.js"></script>
+
+<!-- Accordion Style Elements -->
+
+
+<!-- Page Content -->
+<div class="flexContainerRow">
+
+    <!-- Start of Flex Container -->
+
+    <!-- Lab 1: Personal Composition -->
+    <div class="flexContainerCol">
+    <div class="sectionContainer">
+        <div class="sectionHead"> <!-- Section Header -->
+            <div> Personal Composition: ProtoDNA </div>
+        </div>
+
+
+        <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+        <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+            <a href="../../Labs/Lab01%20-%20Personal%20Composition/index.html">
+                <div> Lab 1: ProtoDNA > </div>
+            </a>
+        </div>
+
+        <div class="sectionBody"> <!-- Body Content -->
+
+            <!-- Example Expandable Section -->
+            <!--
+            <div class="innerSection inlineBold"> Section Header </div>
+
+            <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                Section Content...
+            </div>
+            -->
+
+            <div class="innerSection inlineBold"> Introduction </div>
+            <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                Yay! The first project of the semester. The project guidelines were fairly minimal to promote exploration of the p5.js library. It's mainly an art piece for show! My initial plan was to plot some repeated, staggered sine waves across the screen to create some form of geometrical art. Alas, I didn't even know how to plot a sine wave in JS! Okay, who does one turn to in that case? God? Well yes, the Google Gods. "p5.js Sine Wave" took me right away to this <a href="https://p5js.org/examples/math-sine-wave.html"> Sine Wave by Daniel Shiffman </a>. Oh my, quite pretty. But as Professor Faas states, the purpose of this class is not to yoink others' code but rather to promote self-innovation and algorithmic thinking.
+                </div>
+            <!--End of Expandable Inner Section -->
+
+            <div class="innerSection inlineBold"> Daniel Shiffman's Algorithm </div>
+            <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                <a href="https://p5js.org/examples/math-sine-wave.html"> Daniel Shiffman's p5.js Sine Wave </a> utilizes an algorithm which builds an array based on how many points need to be plotted on the screen, and then increments through it with each key being an X coordinate of a point. He then inputs that X coordinate into a sine wave function and uses that output to map the y coordinate. Ultimately, he also uses the innate loop nature of the p5.js draw() function to add a second increment directly into the draw call that actually animates the wave by slightly shifting the entire theta start value and then redrawing the entire frame.
+                </div>
+            <!--End of Expandable Inner Section -->
+
+            <div class="innerSection inlineBold"> Early Planning </div>
+            <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                Tangent time! I used to be a Biology & Neuroscience major and something that I've seen over and over and over and over (you're lucky I didn't use a for loop to repeat this!) is the dual helical structure of DNA strands. Frankly it's mesmerizing and I couldn't think of anything better than a systematically evolved chain of pentose sugars and phosphates binding to another opposite chain utilizing nitrogenous bases and dipole-dipole interactions. One problem... I can't model anything that advanced.
+                </div>
+            <!--End of Expandable Inner Section -->
+
+            <div class="innerSection inlineBold"> Project Development </div>
+            <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                Okay then, let's start simple. What do I want to accomplish? The core of my program is to have a sine wave and an opposite sine wave and line segments linking them. Daniel Shiffman already built the main sine wave algorithm but to fully understand it, I reverse engineered it with variable titles that made more sense to me and added more parameters. To have the opposite wave, my first idea was to use a cosine wave which I then remembered is computationally equivalent to a phase shifted sine wave. Great! The Line segments were not difficult either, just plot a line from the wave particle of one wave to the corresponding particle of the opposite wave. I initialized arrays that ran simultaneously with the primary wave calculation and render functions. One issue, it was dull. To give it some visual oomph I added an inconsequential multiplier which I called the dilation that applied a slightly larger wave amplitude for the actual particles to build space. I also added a computation that adjusted the elliptical particles' height depending on it's rate of change compared to the previous frame. Interestingly, this had the pleasant and unintentional side effect of creating a specialization effect, as if the particles were rotating on disks rather than one dimensional vertical translations. Fantastic! Lastly I added a bit of color to the line segments with if statements depending on the size of the line segments.
+                </div>
+            <!--End of Expandable Inner Section -->
+
+            <div class="innerSection inlineBold"> Reflection </div>
+            <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                Future work on this project should optimize the code to increase FPS and allow for more dense waves as well as make more meaningful aspects of the animation such that it's less 'Proto' DNA and more like actual DNA. Anyways, I had a great time learning about some basics of p5.js in this project and I'm sure I can apply some lessons to future projects!
+                </div>
+            <!--End of Expandable Inner Section -->
+
+        </div> <!-- End of Section Body -->
+
+        <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+    </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 1 -->
+
+</div> <!-- End of Primary Flex Container -->
+
+
+<!-- Insert Closing Tags & Footer -->
+<script src="../js/footer.js"></script>
+

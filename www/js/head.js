@@ -10,11 +10,11 @@ Description: Injects CSS & References into All Pages
 // Function Content
 //-------------------------------------
 
-//Path to Root
-const pathtoRoot = '../';
 
 //Create a constant that contains the HTML filename
-const fileName = location.href.split("/").slice(-1);
+let fileName = location.href.split("/").slice(-1);
+//Remove any URL parameters and arguments from the HTML filename
+fileName = fileName.toString().split("?").slice(0,1).toString();
 
 /* Function to Inject Characterset
 function injectMeta(charset){
@@ -30,8 +30,8 @@ function injectTitle(page){
 }
 
 //Function to inject CSS
-function injectCSS(css){
-    return  "<link href=\"" + pathtoRoot + "css/" + css + "\" rel=\"stylesheet\" type=\"text/css\">\n";
+function injectCSS(css,pathRoot){
+    return  "<link href=\"" + pathRoot + "css/" + css + "\" rel=\"stylesheet\" type=\"text/css\">\n";
 }
 
 //Refresher on Objects:
@@ -52,17 +52,19 @@ const sitePrefix = "Jay - ";
 const cssGeneral = 'general.css';
 
 //Function to Create Page Objects
-function Page(pageFile, pageTitle) {
+function Page(pageFile, pageTitle,pathRoot) {
     //File of Page, used to match file with title
     this.file = pageFile+".html";
     //Title of HTML Page
     this.title = sitePrefix+pageTitle;
+    //Path to Root of Directory, used to reroute all path requests to the Root file
+    this.pathtoRoot = pathRoot;
     //Uses function series 'inject' to add HTML elements
     this.injectTitle = injectTitle(this.title);
     //Uses function series 'inject' to add HTML Meta tag
     //this.injectMeta = injectMeta(charSet);
     //Uses function series 'inject' to add HTML elements to general CSS
-    this.injectCSSGeneral = injectCSS(cssGeneral);
+    this.injectCSSGeneral = injectCSS(cssGeneral,this.pathtoRoot);
     //Creates the combined page head that will be written into the HTML document <head>
     this.injectHead =
         this.injectTitle +
@@ -76,13 +78,11 @@ function Page(pageFile, pageTitle) {
 
 //Creates New Page Objects
 //Home Page
-const pageHome = new Page("index","Home");
+const pageHome = new Page("index","Home",'../');
 //Data Source & Dataset Info Page
-const pageDataSrc = new Page("labs","Labs");
-//Data Visualization Page
-const pageDataVis = new Page("datasetVisualization","Visualization");
+const pageDataSrc = new Page("labs","Labs",'../');
 //'About Me' Page
-const pageAboutUs = new Page("me","About Me");
+const pageAboutUs = new Page("me","About Me",'../');
 
 //-------------------------------------
 // Actual Injections
@@ -106,14 +106,6 @@ switch (fileName.toString()){
         )
         break;
 
-    case pageDataVis.file:
-        document.write(
-            //Injects Title, General CSS, and Page-Specific CSS
-            pageDataVis.injectHead
-        )
-        break;
-
-
     case pageAboutUs.file:
         document.write(
             //Injects Title, General CSS, and Page-Specific CSS
@@ -127,111 +119,9 @@ switch (fileName.toString()){
 
         document.write(
             //Inject Error Title
-            injectTitle("CAFE") +
+            injectTitle("Jay") +
             //Inject General CSS, always True
             injectCSS(cssGeneral)
         )
         break;
 }
-
-
-/*
-//-------------------------------------
-// Deprecated Code
-// Switched to Objects
-//-------------------------------------
-
-//Home Page
-//const pageHome = "CAFE - Home";
-//const fileHome = 'index.html';
-//const cssHome = 'home.css';
-
-
-//Dataset Information Page
-const pageDataSrc = "CAFE - Source";
-const fileDataSrc = 'labs.html';
-const cssDataSrc = 'threeBar.css';
-
-//Dataset Visualization Page
-const pageDataVis = "CAFE - Visualization";
-const fileDataVis = 'datasetVisualization.html';
-const cssDataVis = 'dataVis.css';
-
-//About Me Page
-const pageAboutUs = "CAFE - About Me";
-const fileAboutUs = 'me.html';
-const cssAboutUs = 'me.css';
-
-
-
-
-
-//Switch Based on HTML file name
-switch (fileName.toString()){
-
-    case fileHome:
-        document.write(
-            //Inject Title
-            injectTitle(pageHome) +
-            //Inject General CSS, always True
-            injectCSS(cssGeneral) +
-            //Inject Page-Specific CSS
-            injectCSS(cssHome)
-        )
-        break;
-
-
-    case fileDataSrc:
-        document.write(
-            //Inject Title
-            injectTitle(pageDataSrc) +
-            //Inject General CSS, always True
-            injectCSS(cssGeneral) +
-            //Inject Page-Specific CSS
-            injectCSS(cssDataSrc)
-        )
-        break;
-
-    case fileDataVis:
-        document.write(
-            //Inject Title
-            injectTitle(pageDataVis) +
-            //Inject General CSS, always True
-            injectCSS(cssGeneral) +
-            //Inject Page-Specific CSS
-            injectCSS(cssDataVis)
-        )
-        break;
-
-
-    case fileAboutUs:
-        document.write(
-            //Inject Title
-            injectTitle(pageAboutUs) +
-            //Inject General CSS, always True
-            injectCSS(cssGeneral) +
-            //Inject Page-Specific CSS
-            injectCSS(cssAboutUs)
-        )
-        break;
-
-    default:
-        //Page Error
-        //Default Code
-
-        document.write(
-            //Inject Title
-            injectTitle("CAFE - ERROR") +
-            //Inject General CSS, always True
-            injectCSS(cssGeneral)
-        )
-        break;
-}
-
-//Note: Meta Char Set cannot be added dynamically
-//Inject Meta Char Set
-//const meta = "<meta charset=\"utf-8\">\n";
-//document.write(meta);
-
-
- */

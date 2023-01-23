@@ -50,7 +50,7 @@ body {
     /* Removes URL Underlines */
     padding: 3.5em 0;
 
-    background-image: url('../img/bg.jpeg');
+    background-image: url('../../../../www/img/bg.jpeg');
     background-size: 12%;
     background-repeat: repeat;
     background-blend-mode: soft-light;
