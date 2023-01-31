@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/Annadurai - Ex3.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/bak.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/pre-app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/Annadurai - Ex2.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/Annadurai - Ex2.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +78,7 @@
       <updated>1674151325155</updated>
       <workItem from="1674151326419" duration="75956000" />
       <workItem from="1675106170097" duration="6332000" />
-      <workItem from="1675113491702" duration="2456000" />
+      <workItem from="1675113491702" duration="6461000" />
     </task>
     <servers />
   </component>
@@ -102,5 +95,41 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
+          <line>38</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
+          <line>46</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
+          <line>95</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
+          <line>69</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
+          <line>67</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
