@@ -33,8 +33,8 @@ function setup(){
     //Initialize colorRandom
     colorRandom = color(0,0,0);
 
-    //Set FrameRate to 5 as 60 strobes the color
-    frameRate(60);
+    //Set FrameRate to maximum for fluid motion
+    frameRate(120);
 
 }
 
@@ -55,10 +55,12 @@ function draw(){
 
     /*Due to the Nature of the Color Interpolation Rounding being slightly off
         Must use a series of comparisons between the parsed color values of the ColorIn and ColorRandom
-        As long as it's roughly the same, I chose a tolerance level of 2
+        As long as it's roughly the same, tolerance level is proportionate to steps in the color fade,
         Assume the colorIn has reached the colorRandom and it's time to assign a new Random Color
      */
-    const colorTolerance = 10;
+    const fadeRate = 0.03
+    const colorTolerance = 0.5/0.03 + 1;
+
     //Once ColorIn Matches the Random Color, reset the Random Color
     if(
         (Math.abs(colorIn[0] - colorRandom[0]) <= colorTolerance)
@@ -77,7 +79,7 @@ function draw(){
     colorRandom = color(colorRandom[0],colorRandom[1],colorRandom[2])
 
     //Slowly fade colorIn to colorRandom with increments of 5% using the lerpColor function
-    let interpolatedColor = lerpColor(colorIn, colorRandom, 0.05);
+    let interpolatedColor = lerpColor(colorIn, colorRandom, 0.03);
     //Log the Interpolated Color
     //console.log("Interpolated Color:",interpolatedColor);
 
