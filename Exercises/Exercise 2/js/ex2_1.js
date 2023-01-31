@@ -18,6 +18,9 @@ function setup(){
     //Create Canvas
     createCanvas(canvasW,canvasH);
 
+    //Increase Frame Rate to Maximum
+    frameRate(120);
+
 }
 
 
