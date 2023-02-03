@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Practices/W4 - Object/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Practices/W4 - Object/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/bak.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/pre-app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practices/Practice M3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Practices/W3 - Function/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practices/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Practices/W3 - Function/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Practices/W4 - Object",
     "settings.editor.selected.configurable": "preferences.editor",
     "vue.rearranger.settings.migration": "true"
   },
@@ -54,18 +62,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Practices/W4 - Object" />
+      <recent name="$PROJECT_DIR$/Exercises/Exercise 3/js" />
       <recent name="$PROJECT_DIR$/Exercises" />
       <recent name="$PROJECT_DIR$/Practices" />
       <recent name="$PROJECT_DIR$/Exercises/Exercise 2/js" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Practices/W3 - Function" />
       <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www" />
       <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
       <recent name="$PROJECT_DIR$/Labs/Lab0/js" />
       <recent name="$PROJECT_DIR$/www/pages" />
-      <recent name="$PROJECT_DIR$/www" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -78,7 +86,7 @@
       <updated>1674151325155</updated>
       <workItem from="1674151326419" duration="75956000" />
       <workItem from="1675106170097" duration="6332000" />
-      <workItem from="1675113491702" duration="7405000" />
+      <workItem from="1675113491702" duration="29643000" />
     </task>
     <servers />
   </component>
@@ -112,22 +120,22 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
-          <line>71</line>
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_3.js</url>
+          <line>24</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
-          <line>69</line>
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js</url>
+          <line>57</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
-          <line>64</line>
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js</url>
+          <line>63</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

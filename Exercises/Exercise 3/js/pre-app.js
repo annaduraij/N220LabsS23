@@ -2,7 +2,7 @@
 //   Ex2.1 - Drawing Drawer:
 //------------------------------
 /*
-Drawing Drawer
+Object Drawer
 
 Create a composition of some object - a car, a rocket, a set of keys.
 Move that composition code into a new function ("drawKeys()", for instance).
@@ -15,99 +15,226 @@ Draw 3+ of your compositions in different spaces on the screen by writing your f
 
 //Pre-p5.js
     //Create canvasW and canvasH variables to eventually represent canvas Width and canvas height; user customizable but will be set to window width and window height
+    //Declare a variable to store the Rocket Height Argument
+    //Declare a constant integer to store the Star Grid's Density
 
 //In p5.js setup()
     //Assign Window Width and Window Height respectively to Canvas Width and Canvas Height Variables
+    //Assign a nominal value to the rocketHeight
+
     //Create the Canvas
-    //Set Background Color
+
+    //Set the Framerate to 120 for fluid motion
+
 
 //In p5.js draw()
-    //Clear any Previous Draw Call
     //Translate the frame such that the origin is set to mouseX and mouseY coordinates
-    //Use a function to draw the rocket composition
+
+    //Starry Sky Background
+        //Set Background Color to translucent Midnight to wipe Canvas
+
+        //Create a Star Grid
+            //Outer For Loop that loops through columns
+            //Column Count based on canvasW / Star Grid density integer
+
+                //Inner For Loop that loops through rows
+                //Row Count based on canvasH / Star Grid density integer
+
+                    //Draw a circle with 'Jitter' at the current 'cell' AKA at the specific row/grid combination
+                        //Jitter ahicieved with generating a random value between -0.5i and 0.5i where is respectively the current row/column value such that the star is randomly generated +/- half a column and half a row from the exact position
+
+        //Build a New Rocket Object
+
+        //Draw the Rocket Object using a .draw method
 
 //Functions
-    //Draw Rocket (size, color)
-        //Set Strokeweight to 0
-        //Set fill to color
-        //Define Proportions,and General Positions of the Rocket
-            //i.e. Rocket is 1/3 as wide as the height of the Rocket
-            //i.e. Fuselage is 2/3 the height of the Rocket, and is the width of the Rocket
-            //i.e. Nosecone is 1/3 the height of the Rocket, and is the width of the Rocket, starts above the Fuselage
-            //i.e. Rocket Fins are 1/3 the height of the fuselage, and are 1/4 the width of the Rocket each, start at the bottom corners of the Rocket
-        //Draw the Rocket
-            //Triangle for Nosecone
-            //Quadrilateral for Fuselage
-            //Triangle for each of the Stabilizer Fins
-        //Draw the Rocket Fire
-            //Create 3 Nested Triangles with slightly smaller width and height with increasing color value
-            //Initial width and height set to fuselage width, and perhaps 1/3 of the Rocket height
-                //For Loop with counter that nominally decrements width and height, but also increments the color
-                //Draw Triangle
-    //End Draw Rocket Function
+    //Parse Color (yoinked from Ex2_2 Red Remover)
+        //Takes a p5 Color Object
+
+        //Convert p5 Color Object to a string
+
+        //Convert p5 Color String to an Array
+            //Arrives in the form of rgba(r,g,b,a)
+            //Trim by ...( with Split method
+            //Trim by )... with Split method
+            //Split by ',' which will return an array with r | g | b | a
+
+        //Return the Array of RGBA values
+
+    //Rocket Class Constructor
+        //Add required parameters of rocketHeight, rocketWidth, rocketPosX,rocketPosY, rocketClor
+
+        //Properties
+            //Height = rocketHeight
+            //Width = rocketWidth
+
+            //x = rocketPosX
+            //y = rocketPosY
+
+            //color = rocketColor
+
+            //colorFuselage would require the regular color to be parsed, add the desire damount, and then re-encoded as a p5 color object
+
+            //colorWindow = light blue
+
+            //*Assuming Proportions are Copied Over from Ex2_1*
+            //fuselageWidth = 3/5 * width
+            //fuselageHeight = 7/10 * height
+            //... Assume the aforementioned properties for all other parts are copied from Ex2_1.js, or look to final program
+
+        //Methods
+            //Draw Method
+                //Translate by rocketPosX and rocketPosY parameters
+
+                //Everything else is practically the same as Ex2.1 js except variables are replaced with attributes generally speaking:
+
 
 //End JS
 
 //------------------------------
-//     Ex2.2 - Red Remover
+//     Ex3.2 - Reverse Tennis
 //------------------------------
 
 /*
-Write a function that
+Create two objects with properties for the x, y, width, and height for a 'tall' rectangle. Set their 'x' properties so that when drawn, one will appear on the left side of the composition, and the other on the right side.
 
-takes a color as an argument ( you can use color(170, 200, 150) )
-sets the red component of that color to zero  ( colorVariableArgumentName.setRed(0) )
-Returns that new color without red
-Then, test this function by drawing a circle to the screen using the result. You might have something like:
-let noRed = removeRed( color(170, 200, 150) );
+In the draw function,
 
-fill(noRed);
+draw both of the rectangles in the objects to the screen, based on their properties
+if the up key is pressed, make the first object move up, and the second object move down
+if the down key is pressed, make the first object move down, and the other object move up
 
-//draw circle
+ if (keyIsDown(UP_ARROW)) {
+    //change properties
+  }
+
  */
 
 //Pre-p5.js
     //Create canvasW and canvasH variables to eventually represent canvas Width and canvas height; user customizable but will be set to window width and window height
 
-    //Declare nominal vars 'circleX' and 'circleY' to represent circle (x,y) coordinates
-    //Declare nominal var 'circleR' to represent radius of the drawn circle
-
-    //Declare nominal var 'colorIn' to represent the input color into the Red Remover Function
-    //Declare nominal var 'colorOut' to represent the input color output of the Red Remover Function, which shall be titled 'removeColorRed'
+    //Create constants to store rectangle width and height
 
 //In p5.js setup()
     //Assign Window Width and Window Height respectively to Canvas Width and Canvas Height Variables
 
-    //Assign nominal var 'colorIn' with random RGB values
-        //i.e. colorIn = color(random(0,255),random(0,255),random(0,255))
-        //May be useful to log this into the console
-    //Assign nominal var 'colorOut' as output of the removeColorRed with colorIn as its input
-        //i.e. colorOut = removeColorRed(colorIn);
-        //May be useful to log this into the console
     //Create the Canvas
+
+    //Set Frame Rate to 120 for fluid motion
+
+    //Set constants for Rectangle Width and Height
+        //Horizontal Span: 1/16 * canvasW
+        //Vertical Span: 1/8 * canvasH
+
 
 //In p5.js draw()
     // Remember: [Draw() is inherently a continual loop that executes its contents once per frame]
 
     //Clear the Canvas of the Previous Drawings
 
-    //Set Fill color with 'removeColorRed''s output color
-        //i.e. fill(colorOut);
+    //Create a pair of rectangle objects
+        //Create a Left Rectangle Object
+            /* Position:
+                Horizontal Center of the left half of the screen: 1/4 * canvasW
+                Vertical Center of the screen: 1/2 * canvasH
+
+                Horizontal Span: declared rectangle width variable
+                Vertical Span: declared rectangle height variable
+
+                Color: [0,200,100,1]
+             */
+        //Create a Right Rectangle Object
+            /* Position:
+                Horizontal Center of the right half of the screen: 3/4 * canvasW
+                Vertical Center of the screen: 1/2 * canvasH
+
+                Horizontal Span: declared rectangle width variable
+                Vertical Span: declared rectangle height variable
+
+                Color: [200,100,0,1]
+             */
+
+    //Control Structure to Check If 'W' or 'UP_ARROW' is pressed
+        //Use Boolean: keyIsDown(UP_ARROW) || keyIsDown(W)
+            //If Pressed, use the move method of the Rectangle class to apply a positional change vector to each rectangle object
+                //Specifically, move each rectangle roughly 1% of the CanvasH
+                //Move the left rectangle up or 90 degrees
+                //Move the right rectangle down, or 270 degrees
+
+    //Draw the Rectangles
+        //Use individual rectangles' draw methods
 
 
-    // Circle X Coordinate == Mouse X Coordinate | Circle Y Coordinate == Mouse Y Coordinate
-    //Assign Vars 'circleX' and 'circleY' respectively to mouseX and mouseY - Must be in Draw as mouseX and mouseY are dynamic and the variable values must be refreshed
-
-    //Draw a circle at coordinates circleX,circleY with nominal radius 'circleR'
 
 //Functions
-    // removeColorRed(color){
-        //Color is a variable that represents a p5.js RGB value, such as color(r,g,b)
+    //Rectangle Class Constructor
+        //Parameters for int: initialPosX, int: initialPosY, int: rectWidth, int: rectHeight, array: rectColor[r,g,b,a]
 
-        //Set the color's red value to zero and return it
-        //i.e. return color.setRed(0);
+            //Represent the Rectangle Initial Position
+                //this.x = initialPosX
+                //this.y = initialPosY
 
-    //} End removeColorRed function
+            //Represent the Rectangle Dimensions
+                //this.width = rectWidth;
+                //this.height = rectHeight;
+
+            //Represent the Rectangle Color as a p5.js color object
+                //this.color = color(rectColor[0], rectColor[1], rectColor[2], rectColor[3])
+
+            //Method to apply Positional Change Vector to the Rectangle
+                /*this.move = function (int: angle in degrees, int: mag ) {
+                    //Convert Angle to X & Y component vectors with Sine and Cosine functions
+                        let vector = {
+                            x: Math.cos(angle)*mag,
+                            //Remember Y axis is inverted for programming
+                            y: Math.sin(angle)*mag*-1
+                        }
+
+
+                    //Apply component X & Y vectors to Rectangle Position
+                        this.x += vector.x;
+                        this.y += vector.y;
+
+                }
+                 */
+
+            //Method to draw the Rectangle
+                /*this.draw = function {
+
+                    //Create a new drawing instance
+                        push();
+
+                    //Set drawing x and drawing y coordinates to the center of the rectangle
+                        let x = this.width/2;
+                        let y = this.height/2;
+
+                   //Translate the drawing frame such that the origin shifts to the center of the rectangle.
+                        translate(x,y);
+
+                   //Set Fill Color of the Rectangle
+                        fill(this.color);
+
+                   //Draw the actual Rectangle
+                        rect(0,0, this.width, this.height);
+
+                   //Break the current drawing instance and return to the original drawing instance
+                        pop();
+                }
+                 */
+
+//Supplmentary Functions
+    //Parse Color (yoinked from Ex2_2 Red Remover)
+        //Takes a p5 Color Object
+
+        //Convert p5 Color Object to a string
+
+        //Convert p5 Color String to an Array
+            //Arrives in the form of rgba(r,g,b,a)
+            //Trim by ...( with Split method
+            //Trim by )... with Split method
+            //Split by ',' which will return an array with r | g | b | a
+
+        //Return the Array of RGBA values
 
 //End JS
 
@@ -115,31 +242,10 @@ fill(noRed);
 
 
 //------------------------------
-//   Ex2.3 - Polar Points
+//   Ex3.3 - Bouncing Ball / World Wrap Reflector
 //------------------------------
 /*
-Polar Points
-
-Polar coordinates are coordinates on a circle, rather than on a cartesian grid. They can be calculated by taking the sin and cosine of a number. For this exercise, you will write a function that calculates polar coordinates and returns a value that will be used to draw a circle at those coordinates.
-
-For this exercise
-
-In addition to your setup() and draw() calls, add a new function named polarPoint()
-Add one argument to polar point (r)
-In the polar point function, create an x variable and set it to r * Math.sin(mouseX);
-Create a Y variable, set it to the result of r * Math.cos(mouseX);
-Finally, at the end of the function, write return createVector(x,y);
-To test this function:
-
-Set a variable (perhaps res) equal to the result of calling polarPoint() in your draw call
-Add a translate(100,100); line before your drawing methods
-Draw a circle at res.x, res.y, and with a radius of 10.
-(res is technically an 'object', which we will learn more about next week)
-The result will look something like below.
-
-polarPoints.PNG
-
-For more information about polar coordinates: https://en.wikipedia.org/wiki/Polar_coordinate_system
+Take your ball bounce or world wrap assignment and recode it using an object to store the ball's size, color, and velocity. No global variables or hardcoded values should be used in your update function.
  */
 
 //Start JS

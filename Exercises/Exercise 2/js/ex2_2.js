@@ -59,7 +59,7 @@ function draw(){
         Assume the colorIn has reached the colorRandom and it's time to assign a new Random Color
      */
     const fadeRate = 0.03
-    const colorTolerance = 0.5/0.03 + 1;
+    const colorTolerance = 0.5/fadeRate + 1;
 
     //Once ColorIn Matches the Random Color, reset the Random Color
     if(
@@ -147,7 +147,7 @@ function parseColor(colorObj){
     //Return the Color Values
     return [r, g, b, a];
 
-}// End of removeColorRed function
+}// End of parseColor function
 
 //Function that removes the red color value from an input color
 //Argument must be a p5.js rgb color fed in the form of 'color(r,g,b)'

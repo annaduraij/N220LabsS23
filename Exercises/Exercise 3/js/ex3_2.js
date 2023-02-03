@@ -1,16 +1,18 @@
-//Exercise 2.2: Red Remover
+//Exercise 3.2: Rectangle Objects | Reverse Tennis
 //------------------------------------------------------------
 //             Pre-Setup: Variable Declarations
 //------------------------------------------------------------
 //Canvas Width & Height
 let canvasW,canvasH;
 
-//Circle Vars for Circle Coordinates and a Radius
-let circleX,circleY,circleR;
+//Rectangle Width and Height Vars
+let rectangleWidth, rectangleHeight;
 
-//Color Vars that will be respectively the input and output of the removeColorRed function that is the highlight of the exercise
-//Will assigned with a 'color(r,g,b)' value in setup()
-let colorIn,colorOut;
+//Create placeholders for Rectangle Objects
+let leftRectangle, rightRectangle;
+
+//Create constant Velocity Vector Magnitude for the Rectangle Objects
+let vectorMag = 0.001 * canvasH;
 
 
 //------------------------------------------------------------
@@ -25,11 +27,52 @@ function setup(){
     //Create Canvas
     createCanvas(canvasW,canvasH);
 
-    //Set a nominal radius value that somewhat scales off of the user's window size
-    circleR = 1/8 * canvasH;
+    //Set FrameRate to maximum for fluid motion
+    frameRate(120);
 
-    //Set FrameRate to 5 as 60 strobes the color
-    frameRate(4);
+    //Set Rectangle Width and Heights nominally but scale them to Window Size
+    rectangleWidth = canvasW/10;
+    rectangleHeight = canvasH/5;
+
+    //Specifically, move each rectangle roughly 0.1% of the CanvasH
+    vectorMag = 0.001 * canvasH;
+
+    //Build the Rectangle Objects
+    //Create a Left Rectangle Object
+    /* Position:
+        Horizontal Center of the left half of the screen: 1/4 * canvasW
+        Vertical Center of the screen: 1/2 * canvasH
+
+        Horizontal Span: declared rectangle width variable
+        Vertical Span: declared rectangle height variable
+
+        Color: [0,200,100,1]
+     */
+    leftRectangle = new Rectangle(
+        1/4*canvasW,
+        1/2*canvasH,
+        rectangleWidth,
+        rectangleHeight,
+        [0,200,100,255]
+    );
+
+    //Create a Right Rectangle Object
+    /* Position:
+        Horizontal Center of the right half of the screen: 3/4 * canvasW
+        Vertical Center of the screen: 1/2 * canvasH
+
+        Horizontal Span: declared rectangle width variable
+        Vertical Span: declared rectangle height variable
+
+        Color: [200,100,0,1]
+     */
+    rightRectangle = new Rectangle(
+        3/4*canvasW,
+        1/2*canvasH,
+        rectangleWidth,
+        rectangleHeight,
+        [200,100,0,255]
+    );
 
 }
 
@@ -38,39 +81,40 @@ function setup(){
 //------------------------------------------------------------
 
 function draw(){
-    //Clear the Canvas of the Previous Circle
+    //Clear the Canvas of the Previous Rectangles
     clear();
 
-    //Initialize colorIn with a random RGB value
-    colorIn = color(random(0,255), random(0,255), random(0,255));
+    //Control Structure to Check If 'W' or 'UP_ARROW' is pressed
+    //Use Boolean: keyIsDown(UP_ARROW) || keyIsDown(W)
+    if(keyIsDown(UP_ARROW)){
+        //If Pressed, use the move method of the Rectangle class to apply a positional change vector to each rectangle object
 
-    //Log the value
-    console.log("Color In:",colorIn);
+        //Move the left rectangle up or 90 degrees
+        leftRectangle.move(90,vectorMag);
+        //Move the right rectangle down, or 270 degrees
+        rightRectangle.move(270,vectorMag);
+    }
+    //Otherwise Reset the Rectangle Position
+    else {
+        //Only Engage the Counter-Movement if the Rectangle is not at the Original Y Position
+        if(leftRectangle.y !== canvasH/2 ){
+            //Move the rectangle in the opposite direction by inverting vector magnitude
+            leftRectangle.move(90,-1*vectorMag);
+        }
 
-    //Assign colorOut to the array output of 'removeColorRed(colorIn)
-    colorOut = removeColorRed(colorIn);
-    //Use p5.js inline to parse the array's color values as a color
-    colorOut = color(colorOut[0],colorOut[1],colorOut[2])
-
-    //Log the value
-    console.log("Color Out:",colorOut);
-
-
-
-    //Set Circle Center's X & Y coordinates to the mouseX and mouseY coordinates
-    circleX = mouseX;
-    circleY = mouseY;
-
-    //Set the Color Fill
-    fill(colorOut);
-    //Draw an Outer Circle with the post-removed color
-    circle(circleX,circleY,circleR);
+        //Only Engage the Counter-Movement if the Rectangle is not at the Original Y Position
+        if(rightRectangle.y !== canvasH/2 ){
+            //Move the rectangle in the opposite direction by inverting vector magnitude
+            rightRectangle.move(270,-1*vectorMag);
+        }
+    }
 
 
-    //Set the Color Fill
-    fill(colorIn);
-    //Draw an Inner Circle with pre-removed color
-    circle(circleX,circleY,circleR/2);
+    //Draw the Rectangles
+    //Use individual rectangles' draw methods
+    leftRectangle.draw();
+    rightRectangle.draw();
+
 
 
 }//End of Draw Loop
@@ -79,11 +123,11 @@ function draw(){
 //                     P5 User Functions
 //------------------------------------------------------------
 
-//Function that removes the red color value from an input color
+//Function that returns a parsed [r,g,b,a] array from a p5.js color
 //Argument must be a p5.js rgb color fed in the form of 'color(r,g,b)'
-function removeColorRed(color){
+function parseColor(colorObj){
     //Convert the Color Object into a String
-    let colorStr = color.toString();
+    let colorStr = colorObj.toString();
 
     //Trim the 'rgba(' portion by splitting on '(' and grabbing the string after it
     colorStr = colorStr.split("(")
@@ -100,11 +144,76 @@ function removeColorRed(color){
     let r = colorStr[0];
     let g = colorStr[1];
     let b = colorStr[2];
-
-    //Set red component to zero
-    r = 0;
+    let a = colorStr[3];
 
     //Return the Color Values
-    return [r, g, b];
+    return [r, g, b, a];
 
-}// End of removeColorRed function
+}// End of parseColor function
+
+//Rectangle Class Constructor
+//Parameters for int: initialPosX, int: initialPosY, int: rectWidth, int: rectHeight, array: rectColor[r,g,b,a]
+function Rectangle(initialPosX, initialPosY, rectWidth, rectHeight, rectRGBA){
+
+    //Represent the Rectangle Initial Position
+    this.x = initialPosX
+    this.y = initialPosY
+
+    //Represent the Rectangle Dimensions
+    this.width = rectWidth;
+    this.height = rectHeight;
+
+    //Represent the Rectangle Color as a p5.js color object
+    this.color = color(
+        rectRGBA[0],
+        rectRGBA[1],
+        rectRGBA[2],
+        rectRGBA[3]);
+
+    //Method to apply Positional Change Vector to the Rectangle
+    this.move = function (angle,magnitude) {
+        //Convert Angle to X & Y component vectors with Sine and Cosine functions
+
+            //Convert Angle to Radians
+            let theta = angle * (2*Math.PI)/360;
+
+            //Generate Component Vectors of the Vector
+            let vector = {
+                x: Math.cos(theta)*magnitude,
+                //Remember Y axis is inverted for programming
+                y: Math.sin(theta)*magnitude*-1
+            }
+
+            //Debug: Log Vector
+            //console.log(vector);
+
+        //Apply component X & Y vectors to Rectangle Position
+            this.x += vector.x;
+            this.y += vector.y;
+
+    }//End of Rectangle Move Method
+
+
+    //Method to draw the Rectangle
+    this.draw = function (){
+
+        //Create a new drawing instance
+            push();
+
+        //Set drawing x and drawing y coordinates to the center of the rectangle
+            let x = this.width/2;
+            let y = this.height/2;
+
+       //Translate the drawing frame such that the origin shifts to the center of the rectangle.
+            translate(-1*x,-1*y);
+
+       //Set Fill Color of the Rectangle
+            fill(this.color);
+
+       //Draw the actual Rectangle
+            rect(this.x,this.y, this.width, this.height);
+
+       //Break the current drawing instance and return to the original drawing instance
+            pop();
+    }//End of Rectangle Draw Method
+}
