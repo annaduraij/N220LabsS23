@@ -210,7 +210,7 @@ function Rectangle(initialPosX, initialPosY, rectWidth, rectHeight, rectRGBA){
        //Set Fill Color of the Rectangle
             fill(this.color);
 
-       //Draw the actual Rectangle
+       //Draw the actual Rectangle at the Rectangle's coordinates [remember the origin is already shifted to accommodate the fact Rectangle are drawn from the top left corner rather than the center]
             rect(this.x,this.y, this.width, this.height);
 
        //Break the current drawing instance and return to the original drawing instance

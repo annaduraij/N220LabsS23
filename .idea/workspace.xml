@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Practices/W4 - Object/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/W4 - Object/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/bak.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/ex3_3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Practices/Practice M3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Practices/W3 - Function/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Practices/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Practices/W3 - Function/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +79,7 @@
       <updated>1674151325155</updated>
       <workItem from="1674151326419" duration="75956000" />
       <workItem from="1675106170097" duration="6332000" />
-      <workItem from="1675113491702" duration="29643000" />
+      <workItem from="1675113491702" duration="44599000" />
     </task>
     <servers />
   </component>

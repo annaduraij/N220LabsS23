@@ -1,4 +1,4 @@
-//Exercise 2.3: Circle Rebound
+//Exercise 3.3: Bouncing Ball | World Wrap Reflector
 //------------------------------------------------------------
 //             Pre-Setup: Variable Declarations
 //------------------------------------------------------------
@@ -76,7 +76,7 @@ function polarPoint(radius){
     //Horizontal Polar Conversion, x = r*cos(theta)
         x = radius * Math.sin(mouseX);
 
-    //Vertical Polar Converstion, x = r*sin(theta)
+    //Vertical Polar Conversion, x = r*sin(theta)
         y = radius * Math.cos(mouseX);
 
     //Return a vector <x,y> with:

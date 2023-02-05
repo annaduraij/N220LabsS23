@@ -184,6 +184,7 @@ if the down key is pressed, make the first object move down, and the other objec
             //Method to apply Positional Change Vector to the Rectangle
                 /*this.move = function (int: angle in degrees, int: mag ) {
                     //Convert Angle to X & Y component vectors with Sine and Cosine functions
+                    //Convert Angle from degrees to Radians with Angle * 2pi / 360 degrees
                         let vector = {
                             x: Math.cos(angle)*mag,
                             //Remember Y axis is inverted for programming
@@ -222,7 +223,7 @@ if the down key is pressed, make the first object move down, and the other objec
                 }
                  */
 
-//Supplmentary Functions
+//Supplementary Functions
     //Parse Color (yoinked from Ex2_2 Red Remover)
         //Takes a p5 Color Object
 
@@ -238,9 +239,6 @@ if the down key is pressed, make the first object move down, and the other objec
 
 //End JS
 
-//Note: Final Algorithim Drastically Shifted due to the nature of JS and assigning objects. P5.js uses a color object and when copying the output, it actually just references the original color object. Therefore any methods or transformations applied to one instance of the color variable apply to all color variables. As such, in the final project I converted the input color to a string, converted it into an array containing r,g,b values and then returned the array. Inside the draw call, I then parsed the array into a color.
-
-
 //------------------------------
 //   Ex3.3 - Bouncing Ball / World Wrap Reflector
 //------------------------------
@@ -248,53 +246,252 @@ if the down key is pressed, make the first object move down, and the other objec
 Take your ball bounce or world wrap assignment and recode it using an object to store the ball's size, color, and velocity. No global variables or hardcoded values should be used in your update function.
  */
 
+//Note: Pre-Program Algorithim Is Copied and Augmented from Ex1_3.js
+//Note: Velocity Method is taken from Ex3_2.js
+
 //Start JS
 
 //Outside Setup
 
-    //Declare Vars 'canvasW' and 'canvasH' to represent width and height of the canva
+    //Declare Vars 'canvasW' and 'canvasH' to represent width and height of the canvas
+    //Declare Vars 'canvasNB', 'canvasEB', 'canvasSB','canvasWB' to represent the bounds of the canvas
 
-    //Declare Vars 'circleX' and 'circleY' to represent circle (x,y) coordinates
+    //Declare Var 'canvas' which will contain a canvas object literal
+
+    //Declare Var 'circle' which will represent the circle Object
+
     //Declare nominal var 'circleR' to represent radius of the drawn circle
 
-    //Declare carrier var 'polarVector' to hold the value of the 'polarPoint(radius)' function
 
 //Within Setup:
 
-    //Assign Vars 'canvasW' and 'canvasH' in setup() to canvas width and height
-    //Create Canvas
-
     //Assign Var 'circleR' to a nominal fixed integer value
+
+    //Create a Circle Object and assign it to the circle variable
+    /*
+        circle = new Circle(0,0,circleR,circleColor[0,0,0,255]);
+     */
+
+    //Create a Vector Object for the Circle's Velocity and Assign it to the Circle
+    //Proportionately Scale the Vector's Magnitude to Window Size
+    //Randomize Initial Angle in Degrees from 0 to 360
+
+    //Create Canvas Object Literal and Assign it to Canvas variable
+    /*
+        canvas {
+        //Canvas Width
+        w: windowWidth,
+        //Canvas Height
+        h: windowHeight,
+
+        //Remember Bounds mathematically interact with the circle center and not the circle edge but interactions visually are from the circle edge so all bounds are the bounds +/- the circlr radius value
+
+        //Assign North bound 'nb' to 0 + circleR
+        nb: 0 + circle.r,
+        //Assign East bound 'eb' to canvasW - circleR
+        eb: this.w - circle.r,
+        //Assign South bound 'sb' to canvasH - circleR
+        sb: this.h - circle.r,
+        //Assign West bound 'wb' to 0 + circleR
+        wb: 0 + circle.r,
+        }
+     */
+
+
 
 //Within Draw Call:
 //Remember: [Draw() is inherently a continual loop that executes its contents once per frame]
 
-    //Call 'polarPoint(circleR)' and assign to var polarVector
+    //Clear the Canvas of the Previous Drawings
 
-    //Translate the drawing by x=100 and y=100
+    //Execute a control structure to check if X coordinate of circle center, circle.x, has reached or exceeded either of the horizontal edges, AKA the canvas East and West bounds 'canvas.eb' and 'canvas.wb'
+        //If so, negate/reverse the horizontal or i velocity using the vector class set method, setI with the argument 'circle.velocity.i * -1'
+    //End Control Structure
 
-    //Draw a circle with center coordinates of polarVector.x and polarVector.y with radius of circleR
+    //Execute a control structure to check if Y coordinate of circle center, circle.y, has reached or exceeded either of the horizontal edges, AKA the canvas North and South bounds 'canvas.nb' and 'canvas.sb'
+        //If so, negate/reverse the vertical or j velocity using the vector class set method, setJ with the argument 'circle.velocity.j * -1'
+    //End Control Structure
+
+    //Move the Circle Object according to it's Velocity Vector Object using the Circle Class's Move Method
+
+    //Draw a Circle using the Circle Class's Draw Method
 
 //Functions
-    // polarPoint(radius){
+    //Circle Class Constructor
+        //Parameters for Circle { int: initialPosX, int: initialPosY, int: circleRadius, array: circleColor[r,g,b,a] }
 
-        //Declare block variables x & y that store vectors to describe the polar point
+            //Represent the Circle Initial Position
+                //this.x = initialPosX
+                //this.y = initialPosY
 
-        //Invoke the Math library for the cosine and sine methods
+            //Represent the Circle Velocity as a vector object that contains component vectors, vector magnitude, vector angle in degrees and radians
+            //Declared but needs a vector Object to be passed to it
+                //this.velocity;
 
-            //Note, radius = sqrt(x^2 + y^2)
-            //Note, theta = inverse tangent (y / x)
+            //Represent the Circle Dimensions
+                //this.radius = circleRadius
 
-        //Horizontal Polar Conversion, x = r*cos(theta)
-        //x = radius * Math.cos(mouseX);
+            //Represent the Circle Color as a p5.js color object using the array of RGBA values from the input
+                //this.color = color(circleColor[0], circleColor[1], circleColor[2], circleColor[3])
 
-        //Vertical Polar Converstion, x = r*sin(theta)
-        //y = radius * Math.sin(mouseX);
+            //Method to apply Velocity Vector to the Circle Position
+                /*this.move = function ( ) {
+                    //Apply component X & Y velocity vectors to Circle Position
+                        this.x += this.velocity.i;
+                        //Remember Y axis is inverted for programming
+                        this.y -= this.velocity.j;
+                }
+                 */
 
-        //Return a vector <x,y> with:
-        //return createVector(x,y)
+            //Method to draw the Circle
+                /*this.draw = function {
 
-    //} End polarPoint vector generation function
+                    //Create a new drawing instance
+                        push();
 
+                   //Set Fill Color of the Circle
+                        fill(this.color);
+
+                   //Draw the actual Circle at the Circle Coordinates with its given radius
+                        circle(this.x,this.y, this.r);
+
+                   //Break the current drawing instance and return to the original drawing instance
+                        pop();
+                }
+                 */
+
+
+// Vector Class
+/*
+//Template Class for 2D Vector Objects
+//Builds Vector Objects with Angles in Degrees and Radians, Magnitude, and Component Vectors
+class Vector {
+    //Default Constructor to Accept a Vector's Magnitude and Angle
+    constructor(mag, angle) {
+
+        //Vector Object Attributes
+        //---------------------------------------------
+        //Convert Angle in Degrees to Angle in Radians
+        //Recall the Conversion 360 Degrees = 2pi Radians
+        //Use the Math.PI constant to approximate Pi
+        this.theta = angle * ((2 * Math.PI) / 360);
+
+        //Convert Angle to X & Y component vectors with Sine and Cosine functions
+        //X/i Component of a Vector = mag * cos(theta)
+        this.i = Math.cos(theta) * mag;
+        //Y/j Component of a Vector = mag * sin(theta)
+        this.j = Math.sin(theta) * mag;
+
+        //Store Constructor Argument directly as Vector Magnitude and Angle
+        this.mag = mag;
+        //Angle in Degrees
+        this.angle = angle;
+
+        //Functions to Rebuild Properties
+        //---------------------------------------------
+        //As there are Redundant Attributes that Contain the Same Values but in Different Units, these rebuild functions are required in the Setters to Update the Alternate but Equivalent Values
+
+        //Rebuilding Angles Requires Component Vectors
+        this.rebuildVector = function () {
+            //Rebuild the Angle in Radians
+            this.theta = Math.atan(this.j / this.i);
+            //Rebuild the Angle in Degrees
+            this.angle = this.theta * (360/(2 * Math.PI));
+            //Rebuild the Vector's Overall Magnitude
+            this.mag = Math.sqrt(Math.pow(this.i, 2) + Math.pow(this.j, 2));
+        }
+
+        //Rebuilding Component Vectors requires Magnitude and Angle
+        this.rebuildComponents= function () {
+            //Reuse Formula to Compute x/i and y/j component vectors
+            this.i = Math.cos(this.theta) * this.mag;
+            this.j = Math.sin(this.theta) * this.mag;
+        }
+
+        //Setters for Vector Object Values
+        //---------------------------------------------
+        //Requires Setters to Update other Vector Values
+
+        //Method to Change Horizontal Unit Vector
+        this.setI = function (i) {
+            //Set the Attribute of the Vector Object to the Argument
+            this.i = i;
+
+            //Update the Alternate Representation of the Equivalent Values within the Object
+            //Rebuild the Angle & Overall Magnitude
+            this.rebuildVector();
+        }
+
+        //Method to Change Vertical Unit Vector
+        this.setJ = function (j) {
+            //Set the Attribute of the Vector Object to the Argument
+            this.j = j;
+
+            //Update the Alternate Representation of the Equivalent Values within the Object
+            //Rebuild the Angle & Overall Magnitude
+            this.rebuildVector();
+        }
+
+        //Method to Change Vector's Angle in Degrees
+        this.setAngle = function (angle) {
+            //Set the Attribute of the Vector Object to the Argument
+            this.angle = angle;
+            //Set the Directly Associated Attribute of the Argument
+            this.theta = this.angle * ((2 * Math.PI) / 360);
+
+            //Update the Alternate Representation of the Equivalent Values within the Object
+            //Rebuild the Component Vectors to Match New Angle
+            this.rebuildComponents();
+        }
+
+        //Method to Change Vector's Angle in Radians
+        this.setTheta = function (theta) {
+            //Set the Attribute of the Vector Object to the Argument
+            this.theta = theta;
+            //Set the Directly Associated Attribute of the Argument
+            this.angle = this.theta * (360/(2 * Math.PI));
+
+            //Update the Alternate Representation of the Equivalent Values within the Object
+            //Rebuild the Component Vectors to Match New Angle
+            this.rebuildComponents();
+        }
+
+        //Method to Change Vector's Overall Magnitude
+        this.setMag = function (mag) {
+            //Set the Attribute of the Vector Object to the Argument
+            this.mag = mag;
+
+            //Update the Alternate Representation of the Equivalent Values within the Object
+            //Rebuild the Component Vectors to Match New Magnitude
+            this.rebuildComponents();
+        }
+
+    }//End of Primary Vector Object Constructor
+
+    //Static Method to build Vector Object from Component Vectors instead
+    //Static Methods allow the method to be called from the constructor and thus be used without an instantiated object from the class
+    static fromComponents(i, j) {
+        //Computes the Magnitude of the Component Vector
+        //Uses the formula Mag = sqrt( i^2 + j^2 + k^2 )
+        let mag = Math.sqrt(
+            Math.pow(i, 2)
+            +
+            Math.pow(j, 2)
+        );
+
+        //Computes the Angle of the Vector Object
+        //Uses the formula Theta = inverse tangent (j/i)
+        //Uses the conversion from Radians to Degrees of radians*360/2pi
+        let angle = ((360 / (2 * Math.PI)) * Math.atan(j / i));
+
+        //Create a Vector Object
+        return new Vector(mag, angle);
+    }//End of Static Method which is an Alternate Constructor
+
+}//End of Vector Class
+
+ */
+//Supplementary Functions
 
 //End JS
+
