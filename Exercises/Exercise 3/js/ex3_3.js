@@ -6,6 +6,7 @@
 let canvas;
 
 //Circle Object, Child of Circle Class
+let circleObj;
 
 //Fade Object, Child of ColorFade Class
 let colorFade;
