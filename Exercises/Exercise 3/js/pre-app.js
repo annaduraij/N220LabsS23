@@ -253,9 +253,6 @@ Take your ball bounce or world wrap assignment and recode it using an object to 
 
 //Outside Setup
 
-    //Declare Vars 'canvasW' and 'canvasH' to represent width and height of the canvas
-    //Declare Vars 'canvasNB', 'canvasEB', 'canvasSB','canvasWB' to represent the bounds of the canvas
-
     //Declare Var 'canvas' which will contain a canvas object literal
 
     //Declare Var 'circle' which will represent the circle Object
@@ -284,16 +281,16 @@ Take your ball bounce or world wrap assignment and recode it using an object to 
         //Canvas Height
         h: windowHeight,
 
-        //Remember Bounds mathematically interact with the circle center and not the circle edge but interactions visually are from the circle edge so all bounds are the bounds +/- the circlr radius value
+        //Remember Bounds mathematically interact with the circle center and not the circle edge but interactions visually are from the circle edge so all bounds are the bounds +/- the circle radius value
 
-        //Assign North bound 'nb' to 0 + circleR
-        nb: 0 + circle.r,
-        //Assign East bound 'eb' to canvasW - circleR
-        eb: this.w - circle.r,
-        //Assign South bound 'sb' to canvasH - circleR
-        sb: this.h - circle.r,
-        //Assign West bound 'wb' to 0 + circleR
-        wb: 0 + circle.r,
+        //Assign North bound 'nb' to 0 + circle.radius
+        nb: 0 + circle.radius,
+        //Assign East bound 'eb' to canvasW - circle.radius
+        eb: this.w - circle.radius,
+        //Assign South bound 'sb' to canvasH - circle.radius
+        sb: this.h - circle.radius,
+        //Assign West bound 'wb' to 0 + circle.radius
+        wb: 0 + circle.radius,
         }
      */
 
@@ -312,13 +309,13 @@ Take your ball bounce or world wrap assignment and recode it using an object to 
         //If so, negate/reverse the vertical or j velocity using the vector class set method, setJ with the argument 'circle.velocity.j * -1'
     //End Control Structure
 
-    //Move the Circle Object according to it's Velocity Vector Object using the Circle Class's Move Method
+    //Move the Circle Object according to its Velocity Vector Object using the Circle Class's Move Method
 
     //Draw a Circle using the Circle Class's Draw Method
 
 //Functions
     //Circle Class Constructor
-        //Parameters for Circle { int: initialPosX, int: initialPosY, int: circleRadius, array: circleColor[r,g,b,a] }
+        //Parameters for Circle { int: initialPosX, int: initialPosY, int: circleRadius, array: circleColor[r,g,b,a] } {
 
             //Represent the Circle Initial Position
                 //this.x = initialPosX
@@ -359,6 +356,7 @@ Take your ball bounce or world wrap assignment and recode it using an object to 
                         pop();
                 }
                  */
+        //} End of Circle Class
 
 
 // Vector Class
@@ -378,9 +376,9 @@ class Vector {
 
         //Convert Angle to X & Y component vectors with Sine and Cosine functions
         //X/i Component of a Vector = mag * cos(theta)
-        this.i = Math.cos(theta) * mag;
+        this.i = Math.cos(this.theta) * mag;
         //Y/j Component of a Vector = mag * sin(theta)
-        this.j = Math.sin(theta) * mag;
+        this.j = Math.sin(this.theta) * mag;
 
         //Store Constructor Argument directly as Vector Magnitude and Angle
         this.mag = mag;
