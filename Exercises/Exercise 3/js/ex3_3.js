@@ -324,18 +324,18 @@ class Vector {
 function Circle (initialPosX, initialPosY, circleRadius, circleColor = [0,0,0,200]){
 
     //Represent the Circle Initial Position
-    this.x = initialPosX
-    this.y = initialPosY
+    this.x = initialPosX;
+    this.y = initialPosY;
 
     //Represent the Circle Velocity as a vector object that contains component vectors, vector magnitude, vector angle in degrees and radians
     //Declared but needs a vector Object to be passed to it
     this.velocity = {i: 0, j:0};
 
     //Represent the Circle Dimension with Radius
-    this.radius = circleRadius
+    this.radius = circleRadius;
 
     //Represent the Circle Color as a p5.js color object using the array of RGBA values from the input
-    this.color = color(circleColor[0], circleColor[1], circleColor[2], circleColor[3])
+    this.color = color(circleColor[0], circleColor[1], circleColor[2], circleColor[3]);
 
     //Method to apply Velocity Vector to the Circle Position
     this.move = function () {

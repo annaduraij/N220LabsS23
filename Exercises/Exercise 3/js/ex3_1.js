@@ -82,7 +82,7 @@ function parseColor(colorObj){
     colorStr = colorStr.split("(")
     colorStr = colorStr[1];
 
-    //Trim the ')' porition at the end by splitting on ')' and grabbing the string before it
+    //Trim the ')' portion at the end by splitting on ')' and grabbing the string before it
     colorStr = colorStr.split(")");
     colorStr = colorStr[0];
 

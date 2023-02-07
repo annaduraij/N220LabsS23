@@ -215,5 +215,6 @@ function Rectangle(initialPosX, initialPosY, rectWidth, rectHeight, rectRGBA){
 
        //Break the current drawing instance and return to the original drawing instance
             pop();
+
     }//End of Rectangle Draw Method
 }
