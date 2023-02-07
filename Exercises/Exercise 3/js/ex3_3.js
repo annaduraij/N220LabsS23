@@ -5,6 +5,9 @@
 //Canvas Object
 let canvas;
 
+//Number of Bouncing Circles
+const circles = 100;
+
 //Circle Object, Child of Circle Class
 let circleObj;
 
@@ -18,24 +21,69 @@ let colorFade;
 
 function setup(){
     //Fixed Integer Value to Circle Radius in px
-    let circleR = windowHeight/16;
+    let circleR = windowHeight/32;
 
+    // GODLIKE way to create objects in a loop
+    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    // https://www.codecademy.com/forum_questions/51068e93f73ad4947a005629
+
+    //Loop to DYNAMICALLY GENERATE CIRCLE OBJECTS ON RUN TIME
+    for (let i = 1; i <= circles; i++) {
+
+        //Define Title of the Objects: 'circleObj#'
+        let circleObject = "circleObj"+i.toString();
+
+        //All Variables and Objects are technically speaking a part of the Window Object, and you can refer to it as window.object or window["Object"]
+        window[circleObject] =
+            //Build a Circle Object from the Circle Class
+            circleObj = new Circle(
+                //Begin it at a Random Point on the Window
+                random(0,windowWidth),random(0,windowHeight),
+                //Define its Radius as the predefined Circle Radius
+                circleR,
+                //Default Color is to Set the Circle Color to almost-solid black
+            );
+
+        
+
+        //Apply a Velocity to the Circle in the Form of a Vector Object
+        //Scale the Velocity to Window Size
+        //Set the Initial Velocity to a Random Direction
+        window[circleObject].velocity = new Vector(random(windowHeight/400,windowHeight/80),random(0,360));
+
+        //Define Title of the ColorFade Objects: 'circleColorFade#'
+        let circleColor = "circleColorFade"+i.toString();
+
+        //Dynamically Create Color Fade Objects
+        window[circleColor] = new ColorFade();
+
+        //Log Creation of Objects
+        console.log(window[circleObject],window[circleColor]);
+
+    }//End of Dynamic Circle Object and Corresponding Color Fade Generation
+
+    //Individual Circle Code
     //Build a Circle Object from the Circle Class
     circleObj = new Circle(
         //Begin it at a Random Point on the Window
         random(0,windowWidth),random(0,windowHeight),
         //Define its Radius as the predefined Circle Radius
-        circleR,
+        circleR*2,
         //Default Color is to Set the Circle Color to almost-solid black
     );
 
+
     //Apply a Velocity to the Circle in the Form of a Vector Object
         //Scale the Velocity to Window Size
-        //Set the Initial Velocity to a Random Direction
-    circleObj.velocity = new Vector(windowHeight/100,random(0,360))
+        //Set the Initial Velocity to a somewhat Random Direction
+    circleObj.velocity = new Vector(windowHeight/60,random(120,150));
+
+    //Log the Circle Object
+    console.log("Circle Object",circleObj);
 
     //Create colorFade Object, child of ColorFade Class
     colorFade = new ColorFade();
+
 
     //Define Canvas Object Literal
     canvas = {
@@ -46,13 +94,13 @@ function setup(){
         //Remember Bounds mathematically interact with the circle center and not the circle edge but interactions visually are from the circle edge so all bounds are the bounds +/- the circle radius value
 
         //Assign North bound 'nb' to 0 + circle.r
-        nb: 0 + circleObj.radius,
+        nb: 0 + (circleR/2),
         //Assign East bound 'eb' to canvasW - circle.r
-        eb: windowWidth - circleObj.radius,
+        eb: windowWidth - circleR,
         //Assign South bound 'sb' to canvasH - circle.r
-        sb: windowHeight - circleObj.radius,
+        sb: windowHeight - circleR,
         //Assign West bound 'wb' to 0 + circle.r
-        wb: 0 + circleObj.radius
+        wb: 0 + circleR
     }
 
     //Log the Bounds of the Canvas
@@ -78,10 +126,47 @@ function draw(){
 
     //Fade the Background per Frame to gently erase the previous drawing
     //Fade Rate = %fade per second / FPS
-    background('rgba(250,250,250,0.5)');
+    background('rgba(250,250,250,0.004)');
+
+    //Remove Stroke
+    strokeWeight(0);
+
+    //Loop to engage p5 draw calls on Dynamically-Generated Circle Objects
+    for (let i = 1; i <= circles; i++) {
+
+        //Define Title of the Objects: 'circleObj#'
+        let circleObject = "circleObj"+i.toString();
+        //Define Title of the ColorFade Objects: 'circleColorFade#'
+        let circleColor = "circleColorFade"+i.toString();
+
+        //Fade the Circle Color
+        window[circleObject].color = window[circleColor].randomFade();
+
+        //Execute a control structure to check if X coordinate of circle center, circle.x, has reached or exceeded either of the horizontal edges, AKA the canvas East and West bounds 'canvas.eb' and 'canvas.wb'
+        if((window[circleObject].x >= canvas.eb) || (window[circleObject].x <= canvas.wb)){
+            //If so, negate/reverse the existing horizontal or i velocity using the vector class set method, setI
+            window[circleObject].velocity.setI(window[circleObject].velocity.i * -1);
+            console.log("Horizontal Collision");
+        }//End Control Structure
+
+        //Execute a control structure to check if Y coordinate of circle center, window[circleObject].y, has reached or exceeded either of the horizontal edges, AKA the canvas North and South bounds 'canvas.nb' and 'canvas.sb'
+        if((window[circleObject].y >= canvas.sb) || (window[circleObject].y <= canvas.nb)){
+            //If so, negate/reverse the existing vertical or j velocity using the vector class set method, setJ
+            window[circleObject].velocity.setJ(window[circleObject].velocity.j * -1);
+            console.log("Vertical Collision");
+        }//End Control Structure
+
+        //Move the Circle Object according to its Velocity Vector Object using the Circle Class's Move Method
+        window[circleObject].move();
+
+        //Draw a Circle using the Circle Class's Draw Method
+        window[circleObject].draw();
+
+    }//End of Dynamic Circle Object and Corresponding Color Fade Generation
+
+    //Individual Circle Code:
 
     //Fade the Circle Color
-    circleObj.color = colorFade.randomFade();
 
     //Execute a control structure to check if X coordinate of circle center, circle.x, has reached or exceeded either of the horizontal edges, AKA the canvas East and West bounds 'canvas.eb' and 'canvas.wb'
     if((circleObj.x >= canvas.eb) || (circleObj.x <= canvas.wb)){
@@ -271,7 +356,8 @@ function Circle (initialPosX, initialPosY, circleRadius, circleColor = [0,0,0,20
             fill(this.color);
 
        //Draw the actual Circle at the Circle Coordinates with its given radius
-            circle(this.x,this.y, this.radius);
+            //Note Circle Function actually uses Circle Diameter
+            circle(this.x,this.y, 2*this.radius);
 
        //Break the current drawing instance and return to the original drawing instance
             pop();
@@ -283,7 +369,7 @@ function Circle (initialPosX, initialPosY, circleRadius, circleColor = [0,0,0,20
 //Class 'ColorFade' Constructor
 //Builds Children Objects that can take Three p5 Color Objects and then Fade Colors
 //Built as an object to have self-contained Information
-function ColorFade (colorInitial = color(0,0,0),colorIntermediate = color(0,0,0),colorFinal = color(0,0,0), colorFadeSpeed = 1/(120*3)) {
+function ColorFade (colorInitial = color(0,0,0),colorIntermediate = color(0,0,0),colorFinal = color(0,0,0), colorFadeSpeed = 1/(random(50,400)) ) {
 
     //Initialize Object Attributes with Arguments
         //Note: These Attributes link to p5 Color Objects, So they will always reference the original Color Objects
