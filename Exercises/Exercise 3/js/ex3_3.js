@@ -369,7 +369,7 @@ function Circle (initialPosX, initialPosY, circleRadius, circleColor = [0,0,0,20
 //Class 'ColorFade' Constructor
 //Builds Children Objects that can take Three p5 Color Objects and then Fade Colors
 //Built as an object to have self-contained Information
-function ColorFade (colorInitial = color(0,0,0),colorIntermediate = color(0,0,0),colorFinal = color(0,0,0), colorFadeSpeed = 1/(random(50,400)) ) {
+function ColorFade (colorInitial = color(0,0,0,200),colorIntermediate = color(0,0,0,200),colorFinal = color(0,0,0,200), colorFadeSpeed = 1/(random(50,400)) ) {
 
     //Initialize Object Attributes with Arguments
         //Note: These Attributes link to p5 Color Objects, So they will always reference the original Color Objects
@@ -449,6 +449,7 @@ function ColorFade (colorInitial = color(0,0,0),colorIntermediate = color(0,0,0)
                 random(0,255),
                 random(0,255),
                 random(0,255),
+                200,
             );
 
             //Reset Fade State Progression to 0 out of 1
