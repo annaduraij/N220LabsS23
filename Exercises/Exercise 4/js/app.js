@@ -5,7 +5,7 @@
 //------------------------------------------------------------
 
 //Exercise Number
-const EXERCISE = 3;
+const EXERCISE = 4;
 //Number of Sub Exercises
 const SUB_EXERCISES = 3;
 //Path to JS Folder - REQUIRED for function 'runScript'
