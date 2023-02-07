@@ -15,10 +15,78 @@ to set the height and width, set to varName + "px"
  */
 
 //General JS
-    //
+    //Create Obj Literal for Square Div
+        //Properties of 'divObj':
+            //tag: 'div'
+            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'green'}
+
+    //Append Element as Child Node to HTML Body
+        //Get and bind HTML Body Element using
+            //const pageBody = document.getElementsByTagName('body');
+
+        //Build Child Node using buildHTML function and then Append to HTML Body
+            //pageBody.appendChild(buildHTML(divObj));
+
+    //Build Event Listener for HTML Onclick
+        //Acquire Element via ID
+            //let divHTML = document.getElementById(divObj.attributes.id);
+
+        //Attach 'click' Event Listener that runs the Scale Function
+            //Use an Anonymous Function for the Scale Function
+            //divHTML.addEventListener('click', function () { scale (divObj); } );
+
+
+
 
 //Functions
-    //
+    // Build HTML Element from JS
+    /* function buildHTML(elementObj)
+    {
+        //Create HTML Element and Implant into Carrier Variable
+        let element = document.createElement(elementObj.tag);
+
+        //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
+        for (let attribute in elementObj.attributes){
+
+            //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
+            if (attribute == "backgroundColor") {
+                element.setAttribute(background-color,elementObj.attributes[attribute]);
+            }
+            //Set Element Attribute
+            else {
+                element.setAttribute(attribute,divObj.attributes[attribute]);
+            }
+
+        } //End of forIn Loop
+
+        //Return the Completed HTML Object
+        return element;
+
+    } //End of function buildHTML()
+    */
+
+    // Signature Function of the Exercise
+    // Scale the JS Object Size Attributes and Update the HTML
+    /* function scale(elementObj)
+    {
+        //Scale existing JS Object's Height and Width by 10%
+        elementObj.attributes.width *= 1.1;
+        elementObj.attributes.height *= 1.1;
+
+        //Get the Document Element with ID
+        let docElement = document.getElementById(elementObj.attributes.id);
+
+        //Convert JS Object Attributes to Strings and Append 'px' to the end
+        let width = elementObj.attributes.width.toString() + 'px';
+        let height = elementObj.attributes.width.toString() + 'px';
+
+        //Set the Document Elements' New Size Attributes
+        docElement.setAttribute('width', width);
+        docElement.setAttribute('height', height);
+
+    } //End of function scale()
+    */
+
 
 
 //End JS
@@ -33,10 +101,85 @@ Put a div on the page. When the div is clicked, append the text "mc" to whatever
  */
 
 //General JS
-//
+    //Create Obj Literal for McDiv
+        //Properties of 'mcDivObj':
+            //tag: 'div'
+            //attributes: {id: 'mcDiv', color: black, backgroundColor: 'yellow'}
+            //innerHTML: ''
+            //clicks: 0
+
+    //Append Element as Child Node to HTML Body
+        //Get and bind HTML Body Element using
+            //const pageBody = document.getElementsByTagName('body');
+
+        //Build Child Node using buildHTML function and then Append to HTML Body
+            //pageBody.appendChild(buildHTML(mcDivObj));
+
+    //Build Event Listener for HTML Onclick
+        //Acquire Element via ID
+            //let divHTML = document.getElementById(mcDivObj.attributes.id);
+
+        //Attach 'click' Event Listener that runs the mcDiv function
+            //Use an Anonymous Function for the mcDiv
+            //divHTML.addEventListener('click', function () { mcDiv (mcDivObj); } );
+
 
 //Functions
-//
+    //Build HTML Element from JS
+        /* function buildHTML(elementObj)
+        {
+            //Create HTML Element and Implant into Carrier Variable
+            let element = document.createElement(elementObj.tag);
+
+            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
+            for (let attribute in elementObj.attributes){
+
+                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
+                if (attribute == "backgroundColor") {
+                    element.setAttribute(background-color,elementObj.attributes[attribute]);
+                }
+                //Set Element Attribute
+                else {
+                    element.setAttribute(attribute,divObj.attributes[attribute]);
+                }
+
+            } //End of forIn Loop
+
+            //Set Element InnerHTML as dictated by Object Literal
+            element.innerHTML = elementObj.innerHTML;
+
+            //Return the Completed HTML Object
+            return element;
+
+        } //End of function buildHTML()
+        */
+
+
+    // Signature Function of the Exercise
+    // Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
+    // Built into Event Listener
+        /* function mcDiv(elementObj)
+        {
+            //Increment existing JS Object's 'clicks' property
+            elementObj.clicks ++;
+
+            //Execute Control Structure to Check If Clicks >= 3
+            if (elementObj.clicks >= 3){
+                //If so, set JS Obj's innerHTML property to 'divdivdiv'
+                elementObj.innerHTML = 'divdivdiv';
+            } else {
+                //Otherwise, append ' mc' onto existing JS Object's innerHTML
+                elementObj.innerHTML += ' mc';
+            }//End If Else
+
+            //Get the HTML Document Element with ID matching JS Object's ID
+            let elementHTML = document.getElementById(elementObj.attributes.id);
+
+            //Set the innerHTML of the HTML Document to match JS Obj
+            elementHTML.innerHTML = elementObj.innerHTML;
+
+        } //End of function 'mcDiv'
+        */
 
 
 //End JS
@@ -51,10 +194,78 @@ Write the markup and JavaScript to place a square div on the page (100px x 100px
  */
 
 //General JS
-//
+
+//General JS
+    //Create Obj Literal for Square Div
+        //Properties of 'divObj':
+            //tag: 'div'
+            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'blue'}
+
+    //Append Element as Child Node to HTML Body
+        //Get and bind HTML Body Element using
+            //const pageBody = document.getElementsByTagName('body');
+
+        //Build Child Node using buildHTML function and then Append to HTML Body
+            //pageBody.appendChild(buildHTML(divObj));
+
+    //Build Event Listener for HTML Onclick
+        //Acquire Element via ID
+            //let divHTML = document.getElementById(divObj.attributes.id);
+
+    //Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
+        //Attach 'onmouseover' Event Listener that runs the changeColor Function
+            //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
+            //divHTML.addEventListener('onmouseover', function () { changeColor (divObj,'black'); } );
+
+        //Attach 'onmouseout' Event Listener that runs the changeColor Function
+            //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
+            //divHTML.addEventListener('onmouseout', function () { changeColor (divObj,'blue'); } );
+
 
 //Functions
-//
+    //Build HTML Element from JS
+        /* function buildHTML(elementObj)
+        {
+            //Create HTML Element and Implant into Carrier Variable
+            let elementHTML = document.createElement(elementObj.tag);
+
+            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
+            for (let attribute in elementObj.attributes){
+
+                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
+                if (attribute == "backgroundColor") {
+                    elementHTML.setAttribute(background-color,elementObj.attributes[attribute]);
+                }
+                //Set Element Attribute
+                else {
+                    elementHTML.setAttribute(attribute,divObj.attributes[attribute]);
+                }
+
+            } //End of forIn Loop
+
+            //Return the Completed HTML Object
+            return elementHTML;
+
+        } //End of function buildHTML()
+        */
+
+
+    // Signature Function of the Exercise
+    // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+    // Built into Event Listener
+        /* function changeColor(elementObj,color)
+        {
+            //Set JS Obj's backgroundColor Attribute to the Provided Color
+            elementObj.attributes.backgroundColor = color;
+
+            //Get the HTML Document Element with ID matching JS Object's ID
+            let elementHTML = document.getElementById(elementObj.attributes.id);
+
+            //Set the attribute of the HTML element to reflect Updated JS Object
+            element.setAttribute(background-color,elementObj.attributes.backgroundColor)
+
+        } //End of function 'changeColor'
+        */
 
 
 //End JS
