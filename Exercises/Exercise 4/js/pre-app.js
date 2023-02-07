@@ -69,20 +69,26 @@ to set the height and width, set to varName + "px"
     // Scale the JS Object Size Attributes and Update the HTML
     /* function scale(elementObj)
     {
+        //Split 'px' Unit from JS Object's Height and Width Attributes
+            //Split String into Array of Segmented Strings
+            //Retain only the first part, [0], which should contain the number
+        elementObj.attributes.width = elementObj.attributes.width.split('px')[0];
+        elementObj.attributes.height = elementObj.attributes.height.split('px')[0];
+
         //Scale existing JS Object's Height and Width by 10%
         elementObj.attributes.width *= 1.1;
         elementObj.attributes.height *= 1.1;
 
+        //Append 'px' unit back on to the end of JS Object's Height and Width Attributes
+        elementObj.attributes.width += 'px';
+        elementObj.attributes.height += 'px';
+
         //Get the Document Element with ID
         let docElement = document.getElementById(elementObj.attributes.id);
 
-        //Convert JS Object Attributes to Strings and Append 'px' to the end
-        let width = elementObj.attributes.width.toString() + 'px';
-        let height = elementObj.attributes.width.toString() + 'px';
-
         //Set the Document Elements' New Size Attributes
-        docElement.setAttribute('width', width);
-        docElement.setAttribute('height', height);
+        docElement.setAttribute('width', elementObj.attributes.width);
+        docElement.setAttribute('height', elementObj.attributes.width);
 
     } //End of function scale()
     */
