@@ -268,7 +268,7 @@ Write the markup and JavaScript to place a square div on the page (100px x 100px
             let elementHTML = document.getElementById(elementObj.attributes.id);
 
             //Set the attribute of the HTML element to reflect Updated JS Object
-            element.setAttribute(background-color,elementObj.attributes.backgroundColor)
+            elementHTML.setAttribute(background-color,elementObj.attributes.backgroundColor)
 
         } //End of function 'changeColor'
         */
