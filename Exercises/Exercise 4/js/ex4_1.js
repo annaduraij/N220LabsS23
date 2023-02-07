@@ -13,9 +13,12 @@ divObj = {
     tag:'div',
     //HTML Attributes as internal object
     attributes: {
+        //Object DOM ID
         id: 'squareDiv',
+        //Object Size
         width: '100px',
         height: '100px',
+        //Object Background Color
         backgroundColor: 'green'
     }//End of inner Attributes Object
 }//End of JS Object Literal to represent HTML
