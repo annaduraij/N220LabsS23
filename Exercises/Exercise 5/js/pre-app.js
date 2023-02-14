@@ -384,6 +384,10 @@ function minToMax (arrayToSort) {
         }//End of Inner Loop to Bubble Values
 
     } //End of Outer Loop to Inspect Each Index
+
+    //Return the Sorted Array
+    return arrayToSort;
+
 }//End of Bubble Sort Function 'minToMax'
 */
 
