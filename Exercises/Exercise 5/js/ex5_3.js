@@ -179,7 +179,7 @@ class HTMLasJS {
         // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
         this.setInnerHTML = function (newInnerHTML, existingObj = true) {
 
-            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            //Set JS Object's innerHTML Attribute to the Provided innerHTML
             this.innerHTML = newInnerHTML.toString();
 
             //Update the Actual HTML Object encoded into the JS Object
@@ -242,6 +242,33 @@ class HTMLasJS {
 //                   Variable Declarations
 //---------------------------------------------------------
 
+//Create an Array of Times
+//Const to Define Quantity of Participants
+const runners = 12;
+
+//Declare an Empty Array to Hold Participants' Times
+let runTimes = [];
+//Minimum Run Time
+const minTime = 1;
+//Max Run Time
+const maxTime = 4;
+
+//For Loop to Iterate per Participant
+for (let i = 0; i < runners; i++){
+    //Generate a Random Time (in Hours) from 1 to 4
+
+    //Math.random() produces a float from 0 to 1
+    //Standardize to Desired Range: Random Value * Range + Minimum
+    //Store Value into Array
+    runTimes[i] = Math.random() * (maxTime-minTime) + minTime;
+
+}//End of For Loop to Build Randomized runTimes Array
+
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
+
+/*
 //Construct a HTMLasJS Object to Represent the HTML Object in JS
 let divObj = new HTMLasJS(
     'div',
@@ -249,41 +276,60 @@ let divObj = new HTMLasJS(
         id:"divvy"
     },
     {
-        width: '400px',
-        height: '400px',
+        width: 'fit-content',
+        height: 'fit-content',
         margin: 'auto',
-        backgroundColor: '#00ffd0'}
+        padding: '10px',
+        backgroundColor: '#58ff8b',
+        textAlign: 'center'
+    },
+    'Runner Up'
 );
 
 //Log the Created Objected
 console.log("HTML as JS Object",divObj);
-
+*/
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
+//Call the minToMax Bubble Sort function to Sort the Array
+runTimes = minToMax(runTimes);
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
+//For Loop to Iterate through Sorted Array of Participant Times
+for(let index = 0; index < runTimes.length; index++)
+{
+    //ID of the Div to Be Created
+    let id = 'RunTime_'+(index+1).toString();
 
-//Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-    //Attach 'onmouseover' Event Listener that runs the changeColor Function
-    //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-    divObj.get().addEventListener('mouseover', function () {
-        console.log("Mouse Over!");
-        divObj.changeColor('black');
-    });//End of Anonymous Function
+    //InnerHTML of the Div = "{Place}: {Participant Time in 2 Digits} h"
+    //Number.toFixed is a method that sets the Number to Certain Amount of Digits
+    let innerHTML = (index+1).toString()+': '+runTimes[index].toFixed(2)+' h';
 
-    //Attach 'onmouseout' Event Listener that runs the changeColor Function
-    //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-    divObj.get().addEventListener('mouseout', function () {
-        console.log("Mouse Out!");
-        divObj.changeColor('#00FFD0');
-    });//End of Anonymous Function
+    //Use it as an attribute of the Window Object to Make the Objects Accessible Outside the Loop and to Dynamically create variables
+
+    //Instantiate a HTMLasJS Object per Time with
+    window[id] = new HTMLasJS(
+        'div',
+        {
+            id:id
+        },
+        {
+            width: 'fit-content',
+            height: 'fit-content',
+            margin: 'auto',
+            padding: '10px',
+            backgroundColor: '#58ff8b',
+            textAlign: 'center'
+        },
+        innerHTML
+    );
+    //console.log(window[id]);
+    //Build the HTML Document Entity from the JS Object's 'build' method
+    //Append the returned HTML Document Entity as the lastChild of the HTML Body Element
+    pageBody.appendChild(window[id]['build']());
+
+}//End of For Loop to Iterate Through the Sorted runTimes Array
 
 
 //------------------------------------------------------------
@@ -317,4 +363,8 @@ function minToMax (arrayToSort) {
         }//End of Inner Loop to Bubble Values
 
     } //End of Outer Loop to Inspect Each Index
+
+    //Return the Sorted Array
+    return arrayToSort;
+
 }//End of Bubble Sort Function 'minToMax'
