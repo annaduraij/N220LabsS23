@@ -1,4 +1,4 @@
-//Exercise 5.3 - Over and Out
+//Exercise 5.3 - Runner Up
 
 //---------------------------------------------------------
 //                        JS Classes
@@ -78,15 +78,6 @@ class HTMLasJS {
         //Scale the JS Object Size Attributes and Update the HTML
         this.scale = function(scalingFactor,scaleWidth = true,scaleHeight = true,existingObj = true)
         {
-
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
             //Create an Array of Numeric Style Properties to Scale
             let styles = [];
 
@@ -97,7 +88,7 @@ class HTMLasJS {
 
             //Increment through Style Properties and Apply Respective Methods to Sale
             for (let i = 0; i < styles.length; i++){
-                //Legacy Logs of Conversion Steps
+                //Legacy: Logs of Conversion Steps
                 //Log the Original Object
                 //console.log('JS Object', elementObj);
                 //Log the Style Object of the elementObj
@@ -130,73 +121,80 @@ class HTMLasJS {
                 //Log the Encoded Representation
                 //console.log('Encoded ',styles[i],elementObj['style'][strProperty]);
 
-                //Take JS Obj Property and Assign to actual HTML Element
-                elementHTML['style'][strProperty] = this['style'][strProperty];
-                //Log the HTML Representation
-                //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+                if (existingObj) {
+                    //Fetch the Actual HTML Element
+                    let elementHTML = this.get();
 
-                //If there is no Existing Object
+                    //Take JS Obj Property and Assign to actual HTML Element
+                    elementHTML['style'][strProperty] = this['style'][strProperty];
+                    //Log the HTML Representation
+                    //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                }//End of If Statement to Manage Existing HTML Object
+
                 //Update the Actual HTML Object encoded into the JS Object
-                if(!existingObj) { this.html = elementHTML; }
+                this.build(false,true);
 
             } //End of for Loop Function
 
         } //End of function scale()
 
 
-
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeColor = function (color,existingObj = true)
+        this.setColor = function (color,existingObj = true)
         {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
 
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
+            //Update the JS Object Instance with the New Style Property
             this.style.backgroundColor = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.backgroundColor = this.style.backgroundColor;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
-
-        // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeTextColor = function (color,existingObj = true)
-        {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
-                elementHTML = this.get();
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.backgroundColor = this.style.backgroundColor;
             }
 
-            //Set JS Obj's color Attribute to the Provided Color
+        } //End of 'setColor' Setter Method
+
+        // Changes the Text Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setTextColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
             this.style.color = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.color = this.style.color;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.color = this.style.color;
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
+        this.setInnerHTML = function (newInnerHTML, existingObj = true) {
+
+            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            this.innerHTML = newInnerHTML.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the innerHTML property of the existing HTML Obj to reflect updated JS Object
+                this.get().innerHTML = this.innerHTML;
+            }
+
+        }//End of innerHTML Setter Method
 
 
     }//End of HTMLasJS Obj Constructor
-
-
-
-
 
 
 //Static Methods
@@ -291,3 +289,32 @@ console.log("HTML as JS Object",divObj);
 //------------------------------------------------------------
 //                       JS Functions
 //------------------------------------------------------------
+
+//Bubble Sorts Elements within an Array from Minimum to Maximum
+function minToMax (arrayToSort) {
+    //True Bubble Sort
+    //Iterate Through the Array and Inspect Each Index
+    for (let outerIndex = 0; outerIndex < arrayToSort.length; outerIndex++) {
+
+        //Compare Value at the Index to the Next Index, and if it isn't correct, float it to the next Index until it is correct
+        for (let innerIndex = outerIndex; innerIndex < arrayToSort.length - 1; innerIndex++) {
+
+            //Bubble Algorithm
+            //Compare arrayToSort[outerIndex] to arrayToSort[outerIndex+1]
+            //If the first element is greater than the next element
+            if (arrayToSort[innerIndex] > arrayToSort[outerIndex + innerIndex]) {
+                //Temporarily store the current/'bubble' value
+                let bubble = arrayToSort[innerIndex];
+
+                //Move the next element into the current position
+                arrayToSort[innerIndex] = arrayToSort[innerIndex + 1];
+
+                //Move the current element to the next spot
+                //I.e. float the bubble to the next spot
+                arrayToSort[innerIndex + 1] = bubble;
+            }//End of Comparison Check
+
+        }//End of Inner Loop to Bubble Values
+
+    } //End of Outer Loop to Inspect Each Index
+}//End of Bubble Sort Function 'minToMax'
