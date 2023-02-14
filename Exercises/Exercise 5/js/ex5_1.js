@@ -78,15 +78,6 @@ class HTMLasJS {
         //Scale the JS Object Size Attributes and Update the HTML
         this.scale = function(scalingFactor,scaleWidth = true,scaleHeight = true,existingObj = true)
         {
-
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
             //Create an Array of Numeric Style Properties to Scale
             let styles = [];
 
@@ -97,7 +88,7 @@ class HTMLasJS {
 
             //Increment through Style Properties and Apply Respective Methods to Sale
             for (let i = 0; i < styles.length; i++){
-                //Legacy Logs of Conversion Steps
+                //Legacy: Logs of Conversion Steps
                 //Log the Original Object
                 //console.log('JS Object', elementObj);
                 //Log the Style Object of the elementObj
@@ -130,73 +121,80 @@ class HTMLasJS {
                 //Log the Encoded Representation
                 //console.log('Encoded ',styles[i],elementObj['style'][strProperty]);
 
-                //Take JS Obj Property and Assign to actual HTML Element
-                elementHTML['style'][strProperty] = this['style'][strProperty];
-                //Log the HTML Representation
-                //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+                if (existingObj) {
+                    //Fetch the Actual HTML Element
+                    let elementHTML = this.get();
 
-                //If there is no Existing Object
+                    //Take JS Obj Property and Assign to actual HTML Element
+                    elementHTML['style'][strProperty] = this['style'][strProperty];
+                    //Log the HTML Representation
+                    //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                }//End of If Statement to Manage Existing HTML Object
+
                 //Update the Actual HTML Object encoded into the JS Object
-                if(!existingObj) { this.html = elementHTML; }
+                this.build(false,true);
 
             } //End of for Loop Function
 
         } //End of function scale()
 
 
-
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeColor = function (color,existingObj = true)
+        this.setColor = function (color,existingObj = true)
         {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
 
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
+            //Update the JS Object Instance with the New Style Property
             this.style.backgroundColor = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.backgroundColor = this.style.backgroundColor;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
-
-        // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeTextColor = function (color,existingObj = true)
-        {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
-                elementHTML = this.get();
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.backgroundColor = this.style.backgroundColor;
             }
 
-            //Set JS Obj's color Attribute to the Provided Color
+        } //End of 'setColor' Setter Method
+
+        // Changes the Text Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setTextColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
             this.style.color = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.color = this.style.color;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.color = this.style.color;
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
+        this.setInnerHTML = function (newInnerHTML, existingObj = true) {
+
+            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            this.innerHTML = newInnerHTML.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the innerHTML property of the existing HTML Obj to reflect updated JS Object
+                this.get().innerHTML = this.innerHTML;
+            }
+
+        }//End of innerHTML Setter Method
 
 
     }//End of HTMLasJS Obj Constructor
-
-
-
-
 
 
 //Static Methods
@@ -251,35 +249,40 @@ let divObj = new HTMLasJS(
         id:"divvy"
     },
     {
-        width: '100px',
-        height: '100px',
+        width: '200px',
+        height: '200px',
         margin: 'auto',
+        padding: '10px',
         backgroundColor: '#58ff8b'
-    }
+    },
+    ''
 );
 
 //Log the Created Objected
 console.log("HTML as JS Object",divObj);
 
+//Append Element as Child Node to HTML Body
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
+
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
 
-//Build Event Listener for HTML Onclick
-    //Attach 'click' Event Listener that runs the Scale Function
-    //Use an Anonymous Function for the Scale Function
-    divObj.get().addEventListener('click', function () {
-        divObj.scale(1.1);
-    });//End of Anonymous Function inside Listener
+//Build Child Node using build method of Obj and then Append to HTML Body
+pageBody.appendChild(divObj.build());
 
+//Iterate from 0 to 5000 and increment 1000 on each cycle
+for(let num = 1000; num <= 5000 ; num += 1000) {
+
+    //Use JS Object's setInnerHTML method to set the JS's InnerHTML attribute to
+    //(existing value of innerHTML + line break + num)
+    divObj.setInnerHTML(divObj.innerHTML + '<br>' + num);
+
+} //End of For Loop
 
 
 
