@@ -17,7 +17,7 @@
 
     <!-- Start of Flex Container -->
 
-    <!-- Lab 1: Personal Composition -->
+    <!-- Exercise 0: Personal Composition -->
     <div class="flexContainerCol">
     <div class="sectionContainer">
         <div class="sectionHead"> <!-- Section Header -->
@@ -304,7 +304,7 @@
     <div class="flexContainerCol">
         <div class="sectionContainer">
             <div class="sectionHead"> <!-- Section Header -->
-                <div> Exercise 4: DOM </div>
+                <div> Exercise 4: DOM & CSS </div>
             </div>
 
 
@@ -312,6 +312,89 @@
 
             <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
                 <a href="../../Exercises/Exercise%204/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The HTML DOM Exercises are the first set of exercises to discard the p5.js library and rely entirely on vanilla Javascript. The goal of the exercise set is to establish the basics of interacting with the HTML Document Model hierarchy and its corresponding JS Object Model. This particular set modifies style properties of HTML elements utilizing event listeners.
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%204/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions.
+                    <br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    Within the specific exercise set, all exercises have the same program flow of defining a HTML object as a JS object and using signature methods within a corresponding HTML Event listener.
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    Ex4.1 was the basis of all the other exercises. The core functionality developed in Ex4.1 could be extended to encompass the functionality required in Ex4.2 and Ex4.3. As such, it was developed somewhat modularly. Initially, the Exercise used an algorithm as seen as in the pre-Application algorithm above: Create a JS Object Literal to represent attributes and properties of a HTML Object, Create the HTML Document Entity with the attributes of the JS Object, Create a Function to accomplish the desired functionality and enact it on the JS Object, and lastly update the HTML Document Entity.
+
+
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    The first issue came in the form of extraneous amounts of repetition. Each attribute and property was developed individually and the solution was to take advantage of the 'forIn' loop and iterate through Objects as if they were associative arrays. However, I needed to call specific JS Methods to alter the HTML element's properties. The only method I could gather from Googling was using the Window object and using array notation to call the methods. However, the Window object only stores global variables and usage of global variables created issues with scope. With Professor Faas's help, I realized array notation could be applied directly to objects and that rapidly improved my code.
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    The final iterative stage came in the form of shifting from an 'object literal with paired functions' approach to a 'instantiated object with instance methods' approach. This would maximize the modularity and minimize unique code. This conversion was a bit troublesome due to typecasting and my realization that classes do not benefit from the same program flow exception that functions do. Nevertheless, the class's completion dramatically minimized code outside the class. Any methods with moderate utility, such as the scale method of Ex4.1 and the colorChange method of Ex4.3 were directly implemented into the class. Extending the code from Ex4.1 to Ex4.2 resulted in a few errors mainly from artifacts of the initial functional approach but they were quickly resolved. Ex 4.2's signature 'mcDiv' function was modified to accept the HTMLasJS object rather than an HTML element.
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    Overall, I'm quite happy with my solutions to exercise set 4. While the final solutions do not look spectacular, and that is definitely an area for improvement, the backend is highly modular and can be iterated on for successive sets of exercises. The process in this week's code made me more intimate with the nature of JS and its objects. Functionality I thought that didn't exist was elucidated to me in the form of Objects and their array notation in JS. I'm very excited to see how this information can benefit my future exercises.
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 4 -->
+
+    <!-- Script to Hold Unfinished Exercises -->
+    <script> /*
+    <!-- Exercise 5: DOM & Arrays & Loops-->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise 5: Arrays </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%205/index.html">
                     <div> Ex1 | Ex2 | Ex3 > </div>
                 </a>
             </div>
@@ -340,12 +423,12 @@
                     The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
 
                     <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
-                        <a href="../../Exercises/Exercise%204/js/pre-app.js">
+                        <a href="../../Exercises/Exercise%205/js/pre-app.js">
                             <div> Algorithm Plan > </div>
                         </a>
                     </div>
                     <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
-                    All files do contain a similar structure of declaring variables outside of the setup() p5.js function, initializing them with values within p5.js's setup(), and then drawing pertinent and dynamic elements within p5.js's draw() function. Functions are written in a separate section after the p5.js draw() section. Furthermore, objects and their associated attributes are passed as arguments into the functions.
+                    ...
 
                 </div>
                 <!--End of Expandable Inner Section -->
@@ -371,7 +454,390 @@
             <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
 
         </div> <!-- End of Section -->
-    </div> <!-- End of flexContainerCol 4 -->
+    </div> <!-- End of flexContainerCol 5 -->
+
+    <!-- Exercise 6: MidTerm Review -->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise 6: MT Review </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%206/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD!
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%206/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions. 
+<br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    ...
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 6 -->
+
+    <!-- Exercise 7: User Input -->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise 7: Input </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%207/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD!
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%207/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions. 
+<br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    ...
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 7 -->
+
+    <!-- Exercise 8: Array Computation -->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise 8: Array Math </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%208/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD!
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%208/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions. 
+<br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    ...
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 8 -->
+
+    <!-- Exercise 9: HTML Events-->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise 9: HTML Events </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%209/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD!
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%209/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions. 
+<br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    ...
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 9 -->
+
+    <!-- Exercise 10: Final Project -->
+    <div class="flexContainerCol">
+        <div class="sectionContainer">
+            <div class="sectionHead"> <!-- Section Header -->
+                <div> Exercise: Final Project </div>
+            </div>
+
+
+            <hr class="sectionStart" > <!-- Initial Divider between Section Header and Body Content-->
+
+            <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                <a href="../../Exercises/Exercise%2010/index.html">
+                    <div> Ex1 | Ex2 | Ex3 > </div>
+                </a>
+            </div>
+
+            <div class="sectionBody"> <!-- Body Content -->
+
+                <!-- Example Expandable Section -->
+                <!--
+                <div class="innerSection inlineBold"> Section Header </div>
+
+                <div class="innerSectionBody"> &nbsp&nbsp&nbsp&nbsp
+                    Section Content...
+                </div>
+                -->
+
+                <div class="innerSection inlineBold"> Introduction </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD!
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Algorithms & Planning </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    The following is my pre-programming algorithms for Exercises 1, 2, and 3. Please note this button takes you directly to the '.js' file that contains comments.
+
+                    <div class="buttonExternal buttonContainer"> <!-- Button to Redirect the Lab -->
+                        <a href="../../Exercises/Exercise%2010/js/pre-app.js">
+                            <div> Algorithm Plan > </div>
+                        </a>
+                    </div>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    All files contain a similar structure of potential JS Classes followed by any general JS which is then ultimately followed by any JS functions. 
+<br>
+                    <!-- Tab -->&nbsp&nbsp&nbsp&nbsp
+                    ...
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+                <div class="innerSection inlineBold"> Reflection </div>
+                <!-- Start of Expandable Inner Section -->
+                <div class="innerSectionBody"> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                    <br><br> <!-- Tab --> &nbsp&nbsp&nbsp&nbsp
+
+                    TBD
+
+                </div>
+                <!--End of Expandable Inner Section -->
+
+            </div> <!-- End of Section Body -->
+
+            <hr class="sectionEnd"> <!-- Concluding Divider between Section Content and Section bottom edge -->
+
+        </div> <!-- End of Section -->
+    </div> <!-- End of flexContainerCol 10 -->
+
+    */
+    </script>
 
 </div> <!-- End of Primary Flex Container -->
 

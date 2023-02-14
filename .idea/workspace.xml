@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/pre-app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 6/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/Annadurai - Ex3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/Annadurai - Ex3.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/Annadurai - Ex4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/Annadurai - Ex4.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises/Exercise 4/js",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises",
     "settings.editor.selected.configurable": "preferences.editor",
     "vue.rearranger.settings.migration": "true"
   },
@@ -55,11 +65,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Exercises/Exercise 4/js" />
       <recent name="$PROJECT_DIR$/Exercises" />
+      <recent name="$PROJECT_DIR$/Exercises/Exercise 5/js" />
+      <recent name="$PROJECT_DIR$/Exercises/Exercise 4/js" />
       <recent name="$PROJECT_DIR$/Practices/W4 - Object" />
       <recent name="$PROJECT_DIR$/Exercises/Exercise 3/js" />
-      <recent name="$PROJECT_DIR$/Practices" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Practices/W3 - Function" />
@@ -81,7 +91,7 @@
       <workItem from="1675106170097" duration="6332000" />
       <workItem from="1675113491702" duration="67071000" />
       <workItem from="1675782163537" duration="17306000" />
-      <workItem from="1676331445263" duration="7579000" />
+      <workItem from="1676331445263" duration="12039000" />
     </task>
     <servers />
   </component>
