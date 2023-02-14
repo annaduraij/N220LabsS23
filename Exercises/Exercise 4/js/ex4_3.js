@@ -8,16 +8,21 @@
 class HTMLasJS {
     //Constructor
     //All Arguments can be Objects themselves
-    constructor(htmlTag,htmlAttributes,cssStyles) {
+    constructor(htmlTag = '',htmlAttributes = {},cssStyles = {},innerHTML = '', extraAttributes = {}) {
 
         //HTML Tag to Construct Element
         this.tag = htmlTag;
         //HTML Attributes such as ID & Class
         this.attributes = htmlAttributes;
 
-
         //Style Properties such as Width & Height
         this.style = cssStyles;
+
+        //InnerHTML Content of the HTML Div Element
+        this.innerHTML = innerHTML;
+
+        //Miscellaneous Properties
+        this.extras =  extraAttributes;
 
         //Instance Method to Build HTML Element from JS Object
         this.build = function (returnHTML = true, buildHTML = true)
@@ -25,6 +30,9 @@ class HTMLasJS {
 
             //Create HTML Element with correct tag and Implant into Carrier Variable
             let elementHTML = document.createElement(this.tag);
+
+            //Set HTML Element's InnerHTML content
+            elementHTML.innerHTML = this.innerHTML;
 
             //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
             for (let attribute in this.attributes){
@@ -230,6 +238,7 @@ class HTMLasJS {
     }//End of Static encodeUnit Method
 
 }//End of HTMLasJS Class
+
 
 //---------------------------------------------------------
 //                   Variable Declarations
