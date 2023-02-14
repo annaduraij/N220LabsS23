@@ -1,4 +1,4 @@
-//Exercise 4.1 - Peak Pixels
+//Exercise MT.1 - Peak Pixels
 
 //---------------------------------------------------------
 //                        JS Classes

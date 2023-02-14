@@ -1,5 +1,5 @@
 //------------------------------
-//   Ex4.1 - Peak Pixels:
+//   Ex9.1 - Peak Pixels:
 //------------------------------
 /*
 Peak Pixels
@@ -98,7 +98,7 @@ to set the height and width, set to varName + "px"
 //End JS
 
 //------------------------------
-//   Ex4.2 - McDiv'ns
+//   Ex9.2 - McDiv'ns
 //------------------------------
 /*
 McDiv'ns
@@ -191,7 +191,7 @@ Put a div on the page. When the div is clicked, append the text "mc" to whatever
 //End JS
 
 //------------------------------
-//   Ex4.3 - Over & Out
+//   Ex9.3 - Over & Out
 //------------------------------
 /*
 Over and Out

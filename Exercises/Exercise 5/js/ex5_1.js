@@ -1,4 +1,4 @@
-//Exercise 4.1 - Peak Pixels
+//Exercise 5.1 - Loop but Big
 
 //---------------------------------------------------------
 //                        JS Classes

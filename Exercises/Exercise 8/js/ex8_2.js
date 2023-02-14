@@ -1,4 +1,4 @@
-//Exercise 4.2 - McDiv'ns
+//Exercise 8.2 - McDiv'ns
 
 //---------------------------------------------------------
 //                        JS Classes
