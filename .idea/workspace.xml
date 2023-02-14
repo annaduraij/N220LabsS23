@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_4.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/js/ex7_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/js/ex9_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/js/pre-app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +47,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -98,7 +84,8 @@
       <workItem from="1675106170097" duration="6332000" />
       <workItem from="1675113491702" duration="67071000" />
       <workItem from="1675782163537" duration="17306000" />
-      <workItem from="1676331445263" duration="12488000" />
+      <workItem from="1676331445263" duration="21564000" />
+      <workItem from="1676388910744" duration="2798000" />
     </task>
     <servers />
   </component>
@@ -133,6 +120,12 @@
           <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_3.js</url>
           <line>24</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
