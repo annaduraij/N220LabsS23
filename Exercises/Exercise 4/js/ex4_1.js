@@ -244,6 +244,7 @@ let divObj = new HTMLasJS(
     {
         width: '100px',
         height: '100px',
+        margin: 'auto',
         backgroundColor: '#58ff8b'
     }
 );

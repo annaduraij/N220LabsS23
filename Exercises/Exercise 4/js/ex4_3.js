@@ -242,8 +242,9 @@ let divObj = new HTMLasJS(
         id:"divvy"
     },
     {
-        width: '100px',
-        height: '100px',
+        width: '400px',
+        height: '400px',
+        margin: 'auto',
         backgroundColor: '#00ffd0'}
 );
 
