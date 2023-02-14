@@ -249,13 +249,14 @@ let divObj = new HTMLasJS(
         id:"divvy"
     },
     {
-        width: '200px',
-        height: '200px',
+        width: 'fit-content',
+        height: 'fit-content',
         margin: 'auto',
         padding: '10px',
-        backgroundColor: '#58ff8b'
+        backgroundColor: '#58ff8b',
+        textAlign: 'center'
     },
-    ''
+    'Big Num:'
 );
 
 //Log the Created Objected
@@ -269,8 +270,6 @@ const pageBody = document.getElementsByTagName('body')[0];
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
-
-
 
 //Build Child Node using build method of Obj and then Append to HTML Body
 pageBody.appendChild(divObj.build());

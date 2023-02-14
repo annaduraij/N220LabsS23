@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_4.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_4.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/js/pre-app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +45,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -85,7 +83,8 @@
       <workItem from="1675113491702" duration="67071000" />
       <workItem from="1675782163537" duration="17306000" />
       <workItem from="1676331445263" duration="21564000" />
-      <workItem from="1676388910744" duration="2798000" />
+      <workItem from="1676388910744" duration="3109000" />
+      <workItem from="1676395143694" duration="671000" />
     </task>
     <servers />
   </component>
@@ -124,10 +123,13 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js</url>
           <line>7</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
