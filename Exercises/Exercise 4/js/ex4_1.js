@@ -76,7 +76,7 @@ class HTMLasJS {
 
             //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
             if (existingObj) {
-               elementHTML = this.get();
+                elementHTML = this.get();
             }
 
             //Create an Array of Numeric Style Properties to Scale
@@ -140,15 +140,16 @@ class HTMLasJS {
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
         this.changeColor = function (color,existingObj = true)
         {
-            //Grab the existing HTML Document entity if the existingObj Arg is True
+            //Get the HTML Object Stored in the Object's Attributes
+            let elementHTML = this.html;
+
+            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
             if (existingObj) {
-                let elementHTML = this.get();
-            } else {
-                let elementHTML = this.html;
+                elementHTML = this.get();
             }
 
             //Set JS Obj's backgroundColor Attribute to the Provided Color
-            this.style.backgroundColor = color;
+            this.style.backgroundColor = color.toString();
 
             //Set the style property of the HTML element to reflect updated JS Object
             elementHTML.style.backgroundColor = this.style.backgroundColor;
@@ -162,15 +163,16 @@ class HTMLasJS {
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
         this.changeTextColor = function (color,existingObj = true)
         {
-            //Grab the existing HTML Document entity if the existingObj Arg is True
+            //Get the HTML Object Stored in the Object's Attributes
+            let elementHTML = this.html;
+
+            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
             if (existingObj) {
-                let elementHTML = this.get();
-            } else {
-                let elementHTML = this.html;
+                elementHTML = this.get();
             }
 
             //Set JS Obj's color Attribute to the Provided Color
-            this.style.color = color;
+            this.style.color = color.toString();
 
             //Set the style property of the HTML element to reflect updated JS Object
             elementHTML.style.color = this.style.color;
@@ -232,33 +234,18 @@ class HTMLasJS {
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
-//Create Obj Literal for Square Div
-//Representation of an HTML Object as a JS Object
-/*
-let divObj1 = {
-    //HTML Tag
-    tag:'div',
-    //HTML Attributes as internal object
-    attributes: {
-        //Object DOM ID
-        id: 'squareDiv',
-    },//End of inner Attributes Object
-    style: {
-        //Object Size
-        width: '100px',
-        height: '100px',
-        //Object Background Color
-        backgroundColor: 'green'
-    },//End of inner Style Object
-
-}//End of JS Object Literal to represent HTML
-*/
 
 //Construct a HTMLasJS Object to Represent the HTML Object in JS
 let divObj = new HTMLasJS(
     'div',
-    {id:"divvy"},
-    {width: '100px', height: '100px',backgroundColor: 'green'}
+    {
+        id:"divvy"
+    },
+    {
+        width: '100px',
+        height: '100px',
+        backgroundColor: '#58ff8b'
+    }
 );
 
 //Log the Created Objected
