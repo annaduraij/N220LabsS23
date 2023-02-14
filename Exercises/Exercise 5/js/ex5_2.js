@@ -246,66 +246,71 @@ class HTMLasJS {
 let divObj = new HTMLasJS(
     'div',
     {
-        id:"McDiv"
+        id:"divvy"
     },
     {
-        width: '150px',
-        height: '150px',
+        width: 'fit-content',
+        height: 'fit-content',
         margin: 'auto',
         padding: '10px',
-        backgroundColor: '#704f09',
-        color: 'white',
+        backgroundColor: '#58ff8b',
+        textAlign: 'center'
     },
-    'The Chicken Said: ',
-    //Unique Property of Clicks
-    {clicks: 0}
+    'BeepBop:'
 );
 
 //Log the Created Objected
 console.log("HTML as JS Object",divObj);
 
+//Append Element as Child Node to HTML Body
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
+
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
+//Build Child Node using build method of Obj and then Append to HTML Body
+pageBody.appendChild(divObj.build());
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
-
-//Build Event Listener for HTML Onclick
-    //Attach 'click' Event Listener that runs the mcDiv function
-    //Use an Anonymous Function for the mcDiv function
-    divObj.get().addEventListener('click', function () {
-        mcDiv (divObj);
-    });//End of Anonymous Function inside Listener
+//Iterate from 1 to 25 and increment by one
+for(let num = 1; num <= 25; num ++) {
 
 
+    //Variable to Represent the entity to be appended to the page
+    //Initialize variable 'value' to 'num'
+    let value = num;
+
+    //Waterfall of If Statements to determine values divisibility by 3,5, and both 3 and 5
+    //If remainder of the value divided by 3 is zero
+    if (value%3 == 0){
+
+        //set value to 'beep'
+        value = 'beep';
+
+        //Then If remainder of the value divided by 5 is zero
+        if (value%5 == 0) {
+            //Then set value  to 'beepbop'
+            value += 'bop';
+        }
+
+    } else {
+
+        //Else if  remainder of the value divided by 5 is zero
+        if (value%5 == 0) {
+            //Then set value to 'bop'
+            value = 'bop';
+        }
+
+    }//End Control Structure
+
+    //Use JS Object's setInnerHTML method to set the JS's InnerHTML attribute to (existing value of innerHTML + line break + value)
+    divObj.setInnerHTML(divObj.innerHTML+'<br>'+value);
+
+}// End of For Loop
 
 //------------------------------------------------------------
 //                       JS Functions
 //------------------------------------------------------------
-// Signature Function of the Exercise
-// Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-// Built into Event Listener
-function mcDiv(HTMLasJSObj)
-{
-    //Increment existing JS Object's 'clicks' property
-    HTMLasJSObj.extras.clicks ++;
 
-    //Execute Control Structure to Check If Clicks >= 3
-    if (HTMLasJSObj.extras.clicks >= 3){
-        //If so, set JS Obj's innerHTML property to 'divdivdiv'
-        HTMLasJSObj.innerHTML = '<br> <br> <br> <br> divdivdiv';
-    } else {
-        //Otherwise, append ' mc' onto existing JS Object's innerHTML
-        HTMLasJSObj.innerHTML += '<br> mc';
-    }//End If Else
-
-    //Set the innerHTML of the HTML Document Entity to match JS Obj
-    HTMLasJSObj.get().innerHTML = HTMLasJSObj.innerHTML;
-
-} //End of function 'mcDiv'
