@@ -364,12 +364,12 @@ function minToMax (arrayToSort) {
     for (let outerIndex = 0; outerIndex < arrayToSort.length; outerIndex++) {
 
         //Compare Value at the Index to the Next Index, and if it isn't correct, float it to the next Index until it is correct
-        for (let innerIndex = outerIndex; innerIndex < arrayToSort.length - 1; innerIndex++) {
+        for (let innerIndex = 0; innerIndex < arrayToSort.length - 1; innerIndex++) {
 
             //Bubble Algorithm
             //Compare arrayToSort[outerIndex] to arrayToSort[outerIndex+1]
             //If the first element is greater than the next element
-            if (arrayToSort[innerIndex] > arrayToSort[outerIndex + innerIndex]) {
+            if (arrayToSort[innerIndex] > arrayToSort[innerIndex + 1]) {
                 //Temporarily store the current/'bubble' value
                 let bubble = arrayToSort[innerIndex];
 

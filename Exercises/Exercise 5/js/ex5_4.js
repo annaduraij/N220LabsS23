@@ -292,7 +292,7 @@ for(let index = 0; index < favorites.length; index++)
         },
         innerHTML
     );
-    
+
     //Build the HTML Document Entity from the JS Object's 'build' method
     //Append the returned HTML Document Entity as the lastChild of the HTML Body Element
     pageBody.appendChild(window[id]['build']());
