@@ -1,277 +1,481 @@
+
 //------------------------------
-//   ExMT.1 - Peak Pixels:
+//        Common Code
 //------------------------------
+//HTMLasJS Class
+//Builds a JS Object that represents a HTML Object
+//Previously Built and Shared Across All DOM Exercises
+
 /*
-Peak Pixels
+class HTMLasJS {
+    //Constructor
+    //All Arguments can be Objects themselves
+    constructor(htmlTag = '',htmlAttributes = {},cssStyles = {},innerHTML = '', extraAttributes = {}) {
 
-Write the markup and JS to place a square div on the page. 100px by 100px, green background.
-Make it so that when the div its clicked, it increases its size by 10% every time.
+        //HTML Tag to Construct Element
+        this.tag = htmlTag;
+        //HTML Attributes such as ID & Class
+        this.attributes = htmlAttributes;
 
-Hints:
+        //Style Properties such as Width & Height
+        this.style = cssStyles;
 
-Make a variable to store the height and with of the object
-to set the height and width, set to varName + "px"
-10% is .1 bigger,or 1.1 * the original size
- */
+        //InnerHTML Content of the HTML Div Element
+        this.innerHTML = innerHTML;
 
-//General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'green'}
+        //Miscellaneous Properties
+        this.extras =  extraAttributes;
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the Scale Function
-            //Use an Anonymous Function for the Scale Function
-            //divHTML.addEventListener('click', function () { scale (divObj); } );
-
-
-
-
-//Functions
-    // Build HTML Element from JS
-    /* function buildHTML(elementObj)
-    {
-        //Create HTML Element and Implant into Carrier Variable
-        let element = document.createElement(elementObj.tag);
-
-        //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-        for (let attribute in elementObj.attributes){
-
-            //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-            if (attribute == "backgroundColor") {
-                element.setAttribute(background-color,elementObj.attributes[attribute]);
-            }
-            //Set Element Attribute
-            else {
-                element.setAttribute(attribute,divObj.attributes[attribute]);
-            }
-
-        } //End of forIn Loop
-
-        //Return the Completed HTML Object
-        return element;
-
-    } //End of function buildHTML()
-    */
-
-    // Signature Function of the Exercise
-    // Scale the JS Object Size Attributes and Update the HTML
-    /* function scale(elementObj)
-    {
-        //Split 'px' Unit from JS Object's Height and Width Attributes
-            //Split String into Array of Segmented Strings
-            //Retain only the first part, [0], which should contain the number
-        elementObj.attributes.width = elementObj.attributes.width.split('px')[0];
-        elementObj.attributes.height = elementObj.attributes.height.split('px')[0];
-
-        //Scale existing JS Object's Height and Width by 10%
-        elementObj.attributes.width *= 1.1;
-        elementObj.attributes.height *= 1.1;
-
-        //Append 'px' unit back on to the end of JS Object's Height and Width Attributes
-        elementObj.attributes.width += 'px';
-        elementObj.attributes.height += 'px';
-
-        //Get the Document Element with ID
-        let docElement = document.getElementById(elementObj.attributes.id);
-
-        //Set the Document Elements' New Size Attributes
-        docElement.setAttribute('width', elementObj.attributes.width);
-        docElement.setAttribute('height', elementObj.attributes.width);
-
-    } //End of function scale()
-    */
-
-
-
-//End JS
-
-//------------------------------
-//   ExMT.2 - McDiv'ns
-//------------------------------
-/*
-McDiv'ns
-
-Put a div on the page. When the div is clicked, append the text "mc" to whatever is in its innerHTML. After 3 clicks, the div will show "divdivdiv"
- */
-
-//General JS
-    //Create Obj Literal for McDiv
-        //Properties of 'mcDivObj':
-            //tag: 'div'
-            //attributes: {id: 'mcDiv', color: black, backgroundColor: 'yellow'}
-            //innerHTML: ''
-            //clicks: 0
-
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(mcDivObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(mcDivObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the mcDiv function
-            //Use an Anonymous Function for the mcDiv
-            //divHTML.addEventListener('click', function () { mcDiv (mcDivObj); } );
-
-
-//Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
+        //Instance Method to Build HTML Element from JS Object
+        this.build = function (returnHTML = true, buildHTML = true)
         {
-            //Create HTML Element and Implant into Carrier Variable
-            let element = document.createElement(elementObj.tag);
+
+            //Create HTML Element with correct tag and Implant into Carrier Variable
+            let elementHTML = document.createElement(this.tag);
+
+            //Set HTML Element's InnerHTML content
+            elementHTML.innerHTML = this.innerHTML;
 
             //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+            for (let attribute in this.attributes){
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    element.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    element.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+                //Set elementHTML Attribute
+                elementHTML.setAttribute(
+                    //Name of Attribute to Set
+                    attribute,
+                    //Value of Attribute to Set
+                    this.attributes[attribute]);
 
-            } //End of forIn Loop
+            } //End of forIn Loop for Attributes
 
-            //Set Element InnerHTML as dictated by Object Literal
-            element.innerHTML = elementObj.innerHTML;
+            //Attach Style Properties to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
+            for (let property in this.style){
 
+                //Log the Initial Object Properties
+                console.log(property,this.style[property]);
+
+                //Can use the Javascript Object as an Array functionality
+                //Remember a named function is just a function bound to a name/var
+
+                elementHTML['style'][property.toString()] = this.style[property];
+
+            } //End of forIn Loop for Style Properties
+
+            //If the Method Argument requires Building the HTML Object
+            //Set the Attribute of the HTMLasJS Object to Include the HTML Object
+            if (buildHTML) { this.html = elementHTML;}
+
+            //If the Method Argument requires Returning the HTML Object
             //Return the Completed HTML Object
-            return element;
-
-        } //End of function buildHTML()
-        */
+            if (returnHTML) {return elementHTML;}
 
 
-    // Signature Function of the Exercise
-    // Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-    // Built into Event Listener
-        /* function mcDiv(elementObj)
+        } //End of method build()
+
+        //Method to Return the Document HTML Entity that Corresponds to this JS Object Entity
+        this.get = function() {
+            return document.getElementById(this.attributes.id);
+        }//End of get Method
+
+        //Scale the JS Object Size Attributes and Update the HTML
+        this.scale = function(scalingFactor,scaleWidth = true,scaleHeight = true,existingObj = true)
         {
-            //Increment existing JS Object's 'clicks' property
-            elementObj.clicks ++;
+            //Create an Array of Numeric Style Properties to Scale
+            let styles = [];
 
-            //Execute Control Structure to Check If Clicks >= 3
-            if (elementObj.clicks >= 3){
-                //If so, set JS Obj's innerHTML property to 'divdivdiv'
-                elementObj.innerHTML = 'divdivdiv';
-            } else {
-                //Otherwise, append ' mc' onto existing JS Object's innerHTML
-                elementObj.innerHTML += ' mc';
-            }//End If Else
+            //If Width Scaling is Enabled, Scale the Width
+            if (scaleWidth) { styles.push('width') }
+            //If Height Scaling is Enabled, Scale the Height
+            if (scaleHeight) { styles.push('height') }
 
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
+            //Increment through Style Properties and Apply Respective Methods to Sale
+            for (let i = 0; i < styles.length; i++){
+                //Legacy: Logs of Conversion Steps
+                //Log the Original Object
+                //console.log('JS Object', elementObj);
+                //Log the Style Object of the elementObj
+                //console.log('JS Object: Style', elementObj['style']);
+                //Log the Width of the Style Object of the elementObj
+                //console.log('JS Object: Style: Width', elementObj['style']['width']);
 
-            //Set the innerHTML of the HTML Document to match JS Obj
-            elementHTML.innerHTML = elementObj.innerHTML;
+                //Log the i value
+                //console.log(styles[i]);
 
-        } //End of function 'mcDiv'
-        */
+                //Convert the Property to a String
+                let strProperty = styles[i].toString();
 
+                let styleProperty = this['style'][strProperty];
+                //Log the Original Representation
+                //console.log('Original Value',styles[i],styleProperty);
+
+                //Parse the Unit into an Integer
+                styleProperty = this.constructor.decodeUnit(styleProperty);
+                //Log the Numeric Representation
+                //console.log('Numeric ',styles[i],styleProperty);
+
+                //Scale the Value by the Scaling Factor
+                styleProperty *= scalingFactor;
+                //Log the Scaled Numeric Representation
+                //console.log('Scaled Numeric ',styles[i],styleProperty);
+
+                //Encode the Value and Store into JS Obj
+                this['style'][strProperty] = this.constructor.encodeUnit(styleProperty);
+                //Log the Encoded Representation
+                //console.log('Encoded ',styles[i],elementObj['style'][strProperty]);
+
+                //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+                if (existingObj) {
+                    //Fetch the Actual HTML Element
+                    let elementHTML = this.get();
+
+                    //Take JS Obj Property and Assign to actual HTML Element
+                    elementHTML['style'][strProperty] = this['style'][strProperty];
+                    //Log the HTML Representation
+                    //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                }//End of If Statement to Manage Existing HTML Object
+
+                //Update the Actual HTML Object encoded into the JS Object
+                this.build(false,true);
+
+            } //End of for Loop Function
+
+        } //End of function scale()
+
+
+        // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
+            this.style.backgroundColor = color.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.backgroundColor = this.style.backgroundColor;
+            }
+
+        } //End of 'setColor' Setter Method
+
+        // Changes the Text Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setTextColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
+            this.style.color = color.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.color = this.style.color;
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Changes the Font Weight of the Provided JS Element Obj to Provided Weight and then Updates HTML Object
+        this.setFontWeight = function (fontWeight,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
+            this.style.fontWeight = fontWeight.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.fontWeight  = this.style.fontWeight
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
+        this.setInnerHTML = function (newInnerHTML, existingObj = true) {
+
+            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            this.innerHTML = newInnerHTML.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the innerHTML property of the existing HTML Obj to reflect updated JS Object
+                this.get().innerHTML = this.innerHTML;
+            }
+
+        }//End of innerHTML Setter Method
+
+
+    }//End of HTMLasJS Obj Constructor
+
+
+//Static Methods
+
+    //Function to split a property's value and its unit
+    static decodeUnit (intWithUnit,unit='px'){
+        //Force Unit Suffix to String
+        unit.toString();
+
+        //Split the String based on the suffix
+        //Return and store the first element aka [0]
+        //This should be an integer
+        let intWithoutUnit = intWithUnit.split(unit)[0];
+
+        //Trim any Extra Space on the Right
+        intWithoutUnit.trimEnd();
+
+        //Return the Integer
+        return intWithoutUnit;
+    }//End of Static decodeUnit Method
+
+    //Sister Function of decodeUnit that returns the Integer with the Unit
+    static encodeUnit (intWithoutUnit,unit='px'){
+        //Force Unit Suffix to String
+        unit.toString();
+
+        //Force intWithoutUnit to String
+        intWithoutUnit = intWithoutUnit.toString();
+
+        //Trim any Extra Space on the Right of the String
+        intWithoutUnit.trimEnd();
+
+        //Concatenate with String Addition
+        //Joins the integer (as a string) and the unit (as a string)
+        let intWithUnit = intWithoutUnit+unit;
+
+        //Return the Integer
+        return intWithUnit;
+    }//End of Static encodeUnit Method
+
+}//End of HTMLasJS Class
+*/
+
+
+
+
+//---------------------------------------
+//  ExMT.1 - UI Navigation Highlighter:
+//---------------------------------------
+/*
+Make an application with six divs on the screen, each with a different word.
+
+When any of the divs is clicked,
+
+    >highlight that div by changing its background color and making the text bold
+    >remove the bold/background highlight from any other divs
+    >add the clicked div's text into a seperate div at the top of the screen
+ */
+
+//JS Classes
+    //Extend HTMLasJS Class to create new Class called 'UIButton'
+    //https://javascript.info/class-inheritance
+    //Extended Class has Signature Methods, 'log', 'setHighlight', and 'unsetHighlight'
+
+        //Private Variable to Contain Highlight Status
+        //this.highlightStatus = false;
+
+        /*
+        //Method 'log' Adds the InnerHTML Value of the Current Div to a specified HTMLasJS Object
+        log(jsObj) {
+            //Append Specified Object's InnerHTML with the Content of the Instanced Object calling the Method
+           jsObj.setInnerHTML(jsObj.innerHTML + this.innerHTML);
+
+        }//End of 'log' Method
+
+        //Method 'setHighlight' sets the Style Properties of the Object to Match Exercise Specifications
+        setHighlight(highlightColor = '#60ff90', highlightWeight = 'bold') {
+
+            //Check Highlight Status, Only Execute if Highlight Status is False
+            if (!this.highlightStatus){
+                //Store the current color as a reserve color for when the highlight is unset
+                this.reserveColor = this.style.backgroundColor;
+                this.reserveWeight = this.style.fontWeight;
+
+                //Use 'super' keyword to use parent class's method
+                //Set the Color to a Highlight Color
+                super.setColor(highlightColor.toString());
+
+                //Set the Font Weight to a Bold
+                super.setFontWeight(highlightWeight.toString());
+
+                //Set the Highlight Status to True
+                this.highlightStatus = true;
+
+            }//End of If Statement
+
+        }//End of 'setHighlight' Method
+
+        //Method 'unsetHighlight' is a sister method to 'setHighlight' that unsets the Style Properties of the Object to the original Properties
+        unsetHighlight() {
+
+           //Check Highlight Status, Only Execute if Highlight Status is True
+            if (this.highlightStatus){
+
+                //Use 'super' keyword to use parent class's method
+                //Set the Color to a Highlight Color
+                super.setColor(this.reserveColor.toString());
+
+                //Set the Font Weight to a Bold
+                super.setFontWeight(this.reserveWeight.toString());
+
+                //Unset the Highlight Status to False
+                this.highlightStatus = false;
+
+            }//End of If Statement
+
+        }//End of 'unsetHighlight' Method
+
+         */
+
+
+//General JS
+    //Create Centered Div at the Top of the Screen for the 'Console' Div
+        //Create HTMLasJS instance
+        //Build the HTML Document Entity
+        //Bind the Document Body to a Variable
+        //Append it as LastChild of Document Body
+
+    //Create an Array of 6 Random Words
+
+    //Iterate through the Array of Words
+        //Build UIButton Objects, which extend HTMLasJS functionality
+        //Append the UIButton Objects to the end of the HTML Body
+        //Overwrite the Words with the UIButton Objects
+
+    //Use a forEach loop to Iterate through the Array of UIButton Objects
+        //Anonymous Function to Build Event Listeners for each UIButton
+            //Event Listeners execute another Anonymous Function
+                //Iterate through the array of UIButton Objects
+                    //unsetHighlight
+                //setHighlight for the UIButton Object Event Listener is Built on
+                //Use log method to log the value to the 'console' Div
 
 //End JS
 
-//------------------------------
-//   ExMT.3 - Over & Out
-//------------------------------
+//---------------------------------------
+//  ExMT.2 - Rock Paper Scissors (Guard)
+//---------------------------------------
 /*
-Over and Out
+Rock Paper Scissors (Guard)
 
-Write the markup and JavaScript to place a square div on the page (100px x 100px), with a blue background. Using onmouseover and onmouseout (instead of "onclick"), change the div's color to black when the mouse is over the div, and back to blue when the mouse leaves.
+Make a game of rock-paper-scissors using DIVs as the buttons to select one of four options: rock, paper, scissors, and guard.
+
+Add a space for a score display on the screen. Start the score at zero. (this will be tied to an application/global variable)
+
+When any of the divs are clicked, run the logic for this game -
+
+Generate a random move for the computer (rock/paper/scissors)
+If the play chose guard
+    Skip the RPS logic, and subtract half a point from their score
+Otherwise, run the RPS logic
+    Check to see if the player won against the computer
+        If so, add one to their score
+    Check if the player lost
+        If so subtract one from score
+    Check for tie
+        If so, do nothing to score
+Once the logic is complete,
+    show the results of the round: You chose X, computer chose Y.
+    update the score
  */
 
 //General JS
+    //Bind HTML Document Body to a Variable
 
-//General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'blue'}
+    //Create a HTMLasJS Object for the 'choicesContainer'
+    //Build Child Node using buildHTML function and then Append to HTML Body 'choicesContainer' as lastChild
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
+    //Create a HTMLasJS Object for the 'console'
+    //Build Child Node using buildHTML function and then Append to HTML Body 'choicesContainer' as lastChild
 
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
+    //Create an Array that Represents the Possible Choices
+        //[Rock,Paper,Scissors, and Guard]
 
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
+    //Build Array to Hold HTMLasJS Objects for Player Choices
 
-    //Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-        //Attach 'onmouseover' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-            //divHTML.addEventListener('onmouseover', function () { changeColor (divObj,'black'); } );
-
-        //Attach 'onmouseout' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-            //divHTML.addEventListener('onmouseout', function () { changeColor (divObj,'blue'); } );
-
+    //Iterate through the Array of Player Choices
+        //Build HTMLasJS Object for each
+            //Set ID to 'choice'+Value
+        //Bind HTMLasJS Object to the HTMLasJS Objects Array
+        //Build Child Node using buildHTML function and then Append to HTMLasJS Object 'choicesContainer' as lastChild
+        //Build EventListener on each HTMLasJS Object
+            //On Click, set the PlayerChoice Value to the Original Word
+            //Also execute function for Rock Paper Scissors Logic: rps()
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let elementHTML = document.createElement(elementObj.tag);
+    //Rock-Paper-Scissors Logic Function
+        //Generate Random Number from 0 to 3
+        //Use Number as an Index and get Value from Array of Choices
+        //Assign the Value to block-scope variable for Computer's Choice
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+        //Declare Block-Scope variable for ScoreDelta
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    elementHTML.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    elementHTML.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+        //Conditional Comparison
+        /*
+        //Player Choice and Computer Choice are the Same --> Tie
+        if (playerChoice === computerChoice) { ScoreDelta = 0;}
+        //Player Choice is 'Guard' --> Partial Loss
+        else if (playerChoice === 'Guard') { ScoreDelta = -0.5;}
 
-            } //End of forIn Loop
+        else {
+            //Player Choice: Rock
+            if (playerChoice === 'Rock') {
+                //Rock v Paper -> Loss
+                if(computerChoice === 'Paper') { ScoreDelta = -1; }
+                //Rock v Scissors -> Win
+                if(computerChoice === 'Scissors') {ScoreDelta = 1; }
+            }//End of Conditional Logic on Player Choosing Rock
 
-            //Return the Completed HTML Object
-            return elementHTML;
+            //Player Choice: Paper
+            if (playerChoice === 'Paper') {
+                //Paper v Rock -> Win
+                if(computerChoice === 'Rock') { ScoreDelta = 1; }
+                //Paper v Scissors -> Loss
+                if(computerChoice === 'Scissors') {ScoreDelta = -1; }
+            }//End of Conditional Logic on Player Choosing Paper
 
-        } //End of function buildHTML()
-        */
+            //Player Choice: Scissors
+            if (playerChoice === 'Scissors') {
+                //Scissors v Paper -> Win
+                if(computerChoice === 'Paper') { ScoreDelta = 1; }
+                //Scissors v Rock -> Loss
+                if(computerChoice === 'Rock') {ScoreDelta = -1; }
+            }//End of Conditional Logic on Player Choosing Scissors
 
+        }//End of Conditional Logic Branch to Determine Game Score
 
-    // Signature Function of the Exercise
-    // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-    // Built into Event Listener
-        /* function changeColor(elementObj,color)
-        {
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
-            elementObj.attributes.backgroundColor = color;
-
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
-
-            //Set the attribute of the HTML element to reflect Updated JS Object
-            elementHTML.setAttribute(background-color,elementObj.attributes.backgroundColor)
-
-        } //End of function 'changeColor'
-        */
+        //Log the Player and Computer Choices to the 'Console' Obj
 
 
-//End JS
+        //Log the Score to the 'Console' Obj
+        log(scoreDelta,consoleObj);
+
+
+    }//End of rps() function that contains the game logic
+
+    //log function to log a Value to HTMLasJS console Object
+    function log(msg,consoleObj) {
+
+        //If the Incoming Message is a Number, it's a Score Change
+        if (typeof msg === 'number') {
+            //Add the Incoming Score Change to the Existing Score
+            consoleObj.extra.score += msg;
+            //Create a Msg that States the Player's Score
+            msg = 'Player Score: ' + consoleObj.extra.score;
+        }//End of Condtional on Recieving a Num Msg
+
+        //Append Console Object's existing InnerHTML with a line break and then the incoming message
+           consoleObj.setInnerHTML(consoleObj.innerHTML + '<br>' + msg);
+
+    }//End of function 'log'
+
+
+         */
