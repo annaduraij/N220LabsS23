@@ -445,8 +445,6 @@ Then, write a loop that writes to a div element each of them, with the string ",
 //General JS
     //Create an Array of Strings with Favorite Things
 
-        //Call the minToMax Bubble Sort function to Sort the Array
-
     //Create a JS Obj to represent a HTML Div using the HTMLasJS Class
 
     //Grab Body Element via getElementsByTagName[0]
