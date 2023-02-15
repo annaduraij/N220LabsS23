@@ -148,12 +148,13 @@ class HTMLasJS {
             this.style.backgroundColor = color.toString();
 
             //Update the Actual HTML Object encoded into the JS Object
-            this.build(false,true);
+            //this.build(false,true);
 
             //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
                 //Set the style property of the existing HTML Obj to reflect updated JS Object
                 this.get().style.backgroundColor = this.style.backgroundColor;
+                //console.log(this.get());
             }
 
         } //End of 'setColor' Setter Method
@@ -179,7 +180,7 @@ class HTMLasJS {
         // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
         this.setInnerHTML = function (newInnerHTML, existingObj = true) {
 
-            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            //Set JS Object's innerHTML Attribute to the Provided innerHTML
             this.innerHTML = newInnerHTML.toString();
 
             //Update the Actual HTML Object encoded into the JS Object
@@ -242,48 +243,61 @@ class HTMLasJS {
 //                   Variable Declarations
 //---------------------------------------------------------
 
-//Construct a HTMLasJS Object to Represent the HTML Object in JS
-let divObj = new HTMLasJS(
-    'div',
-    {
-        id:"divvy"
-    },
-    {
-        width: '400px',
-        height: '400px',
-        margin: 'auto',
-        backgroundColor: '#00ffd0'}
-);
+//Create an Array of 'My Favorite Things'
+const favorites = [
+    'My Mom', 'My Dad', 'My Rabbit', 'My Car', 'My GS'
+];
 
-//Log the Created Objected
-console.log("HTML as JS Object",divObj);
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
 
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
+//For Loop to Iterate through Sorted Array of Participant Times
+for(let index = 0; index < favorites.length; index++)
+{
+    //Let List Order be Natural Language, 1 More than the Index
+    let order = index+1;
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
+    //ID of the Div to Be Created
+    let id = 'favorites_'+(order).toString();
 
-//Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-    //Attach 'onmouseover' Event Listener that runs the changeColor Function
-    //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-    divObj.get().addEventListener('mouseover', function () {
-        console.log("Mouse Over!");
-        divObj.changeColor('black');
-    });//End of Anonymous Function
+    //Suffix to Append to the End
+    let suffix = ', is one of my favorite things!'
 
-    //Attach 'onmouseout' Event Listener that runs the changeColor Function
-    //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-    divObj.get().addEventListener('mouseout', function () {
-        console.log("Mouse Out!");
-        divObj.changeColor('#00FFD0');
-    });//End of Anonymous Function
+    //InnerHTML of the Div = "{favorite thing}, is one of my favorite things"
+    let innerHTML = favorites[index] + suffix;
+
+    //Use it as an attribute of the Window Object to Make the Objects Accessible Outside the Loop and to Dynamically create variables
+
+    //Instantiate a HTMLasJS Object per Time with
+    window[id] = new HTMLasJS(
+        'div',
+        {
+            id:id
+        },
+        {
+            width: 'fit-content',
+            height: 'fit-content',
+            margin: '4px auto',
+            padding: '10px',
+
+            border: '1px solid black',
+            borderRadius: '10px',
+            backgroundColor: '#89e8a6',
+            textAlign: 'center'
+        },
+        innerHTML
+    );
+    
+    //Build the HTML Document Entity from the JS Object's 'build' method
+    //Append the returned HTML Document Entity as the lastChild of the HTML Body Element
+    pageBody.appendChild(window[id]['build']());
+
+}//End of For Loop to Iterate Through the Sorted runTimes Array
 
 
 //------------------------------------------------------------
