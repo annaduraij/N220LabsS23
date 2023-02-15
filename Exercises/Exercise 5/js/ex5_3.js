@@ -148,12 +148,13 @@ class HTMLasJS {
             this.style.backgroundColor = color.toString();
 
             //Update the Actual HTML Object encoded into the JS Object
-            this.build(false,true);
+            //this.build(false,true);
 
             //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
                 //Set the style property of the existing HTML Obj to reflect updated JS Object
                 this.get().style.backgroundColor = this.style.backgroundColor;
+                //console.log(this.get());
             }
 
         } //End of 'setColor' Setter Method
@@ -244,7 +245,7 @@ class HTMLasJS {
 
 //Create an Array of Times
 //Const to Define Quantity of Participants
-const runners = 12;
+const runners = 10;
 
 //Declare an Empty Array to Hold Participants' Times
 let runTimes = [];
@@ -268,43 +269,26 @@ for (let i = 0; i < runners; i++){
 //Note this Returns an Array, so just get the first Element aka [0]
 const pageBody = document.getElementsByTagName('body')[0];
 
-/*
-//Construct a HTMLasJS Object to Represent the HTML Object in JS
-let divObj = new HTMLasJS(
-    'div',
-    {
-        id:"divvy"
-    },
-    {
-        width: 'fit-content',
-        height: 'fit-content',
-        margin: 'auto',
-        padding: '10px',
-        backgroundColor: '#58ff8b',
-        textAlign: 'center'
-    },
-    'Runner Up'
-);
-
-//Log the Created Objected
-console.log("HTML as JS Object",divObj);
-*/
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
-
+console.log("PreSort:",runTimes);
 //Call the minToMax Bubble Sort function to Sort the Array
 runTimes = minToMax(runTimes);
+console.log("Sort:",runTimes)
 
 //For Loop to Iterate through Sorted Array of Participant Times
 for(let index = 0; index < runTimes.length; index++)
 {
+    //Position in the Race
+    let place = index+1;
+
     //ID of the Div to Be Created
-    let id = 'RunTime_'+(index+1).toString();
+    let id = 'RunTime_'+(place).toString();
 
     //InnerHTML of the Div = "{Place}: {Participant Time in 2 Digits} h"
     //Number.toFixed is a method that sets the Number to Certain Amount of Digits
-    let innerHTML = (index+1).toString()+': '+runTimes[index].toFixed(2)+' h';
+    let innerHTML = (place).toString()+': '+runTimes[index].toFixed(2)+' h';
 
     //Use it as an attribute of the Window Object to Make the Objects Accessible Outside the Loop and to Dynamically create variables
 
@@ -317,20 +301,31 @@ for(let index = 0; index < runTimes.length; index++)
         {
             width: 'fit-content',
             height: 'fit-content',
-            margin: 'auto',
+            margin: '4px auto',
             padding: '10px',
-            backgroundColor: '#58ff8b',
+
+            border: '1px solid black',
+            borderRadius: '10px',
+            backgroundColor: '#89e8a6',
             textAlign: 'center'
         },
         innerHTML
     );
-    //console.log(window[id]);
+
+    //If Place == 1, Set Color to Gold
+    if(place === 1){window[id]['setColor']('#ffd66d',false)}
+
+    //If Place == 2, Set Color to Silver
+    if(place === 2){window[id]['setColor']('#e1e9ea',false)}
+
+    //If Place == 3, Set Color to Bronze
+    if(place === 3){window[id]['setColor']('#9a6240',false)}
+
     //Build the HTML Document Entity from the JS Object's 'build' method
     //Append the returned HTML Document Entity as the lastChild of the HTML Body Element
     pageBody.appendChild(window[id]['build']());
 
 }//End of For Loop to Iterate Through the Sorted runTimes Array
-
 
 //------------------------------------------------------------
 //                       JS Functions
@@ -343,14 +338,16 @@ function minToMax (arrayToSort) {
     for (let outerIndex = 0; outerIndex < arrayToSort.length; outerIndex++) {
 
         //Compare Value at the Index to the Next Index, and if it isn't correct, float it to the next Index until it is correct
-        for (let innerIndex = outerIndex; innerIndex < arrayToSort.length - 1; innerIndex++) {
+        for (let innerIndex = 0; innerIndex < arrayToSort.length - 1; innerIndex++) {
 
             //Bubble Algorithm
             //Compare arrayToSort[outerIndex] to arrayToSort[outerIndex+1]
             //If the first element is greater than the next element
-            if (arrayToSort[innerIndex] > arrayToSort[outerIndex + innerIndex]) {
+            if (arrayToSort[innerIndex] > arrayToSort[innerIndex+1]) {
                 //Temporarily store the current/'bubble' value
                 let bubble = arrayToSort[innerIndex];
+                //Debug: Log the Bubble that is Floated
+                //console.log("Bubble: ",bubble);
 
                 //Move the next element into the current position
                 arrayToSort[innerIndex] = arrayToSort[innerIndex + 1];
@@ -361,6 +358,9 @@ function minToMax (arrayToSort) {
             }//End of Comparison Check
 
         }//End of Inner Loop to Bubble Values
+
+        //Debug: Check the Array after the Inner Loop Completes the Bubble 'Floating' Process
+        //console.log("Array Status ",arrayToSort);
 
     } //End of Outer Loop to Inspect Each Index
 
