@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="">
+    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,76 +16,34 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Labs/Lab01 - Personal Composition/js/protoDNA.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2KYV6DdqXZrvI8YwpFL5HpsccEE" />
+  <component name="ProjectId" id="2LoUJ097hqjMFEi3mhnHNBiwUr8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PHP"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Exercises" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise 5/js" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise 4/js" />
-      <recent name="$PROJECT_DIR$/Practices/W4 - Object" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise 3/js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Practices/W3 - Function" />
-      <recent name="$PROJECT_DIR$/Exercises/Exercise Proto/www" />
-      <recent name="$PROJECT_DIR$/Labs/Lab1 - Personal Composition" />
-      <recent name="$PROJECT_DIR$/Labs/Lab0/js" />
-      <recent name="$PROJECT_DIR$/www/pages" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1c5be2cd-72a2-45fb-a9c8-a01660b7e424" name="Changes" comment="" />
-      <created>1674151325155</created>
+      <changelist id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="" />
+      <created>1676536852870</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1674151325155</updated>
-      <workItem from="1674151326419" duration="75956000" />
-      <workItem from="1675106170097" duration="6332000" />
-      <workItem from="1675113491702" duration="67071000" />
-      <workItem from="1675782163537" duration="17306000" />
-      <workItem from="1676331445263" duration="21564000" />
-      <workItem from="1676388910744" duration="3109000" />
-      <workItem from="1676395143694" duration="20700000" />
+      <updated>1676536852870</updated>
+      <workItem from="1676536855353" duration="835000" />
     </task>
     <servers />
   </component>
@@ -100,35 +60,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
-          <line>46</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_2.js</url>
-          <line>97</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 2/js/ex2_3.js</url>
-          <line>24</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_2.js</url>
-          <line>7</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

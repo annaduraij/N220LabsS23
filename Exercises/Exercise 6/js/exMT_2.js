@@ -1,4 +1,4 @@
-//Exercise MT.2 - McDiv'ns
+//Exercise MT.2 - Rock Paper Scissors Guard
 
 //---------------------------------------------------------
 //                        JS Classes
@@ -78,15 +78,6 @@ class HTMLasJS {
         //Scale the JS Object Size Attributes and Update the HTML
         this.scale = function(scalingFactor,scaleWidth = true,scaleHeight = true,existingObj = true)
         {
-
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
             //Create an Array of Numeric Style Properties to Scale
             let styles = [];
 
@@ -97,7 +88,7 @@ class HTMLasJS {
 
             //Increment through Style Properties and Apply Respective Methods to Sale
             for (let i = 0; i < styles.length; i++){
-                //Legacy Logs of Conversion Steps
+                //Legacy: Logs of Conversion Steps
                 //Log the Original Object
                 //console.log('JS Object', elementObj);
                 //Log the Style Object of the elementObj
@@ -130,73 +121,98 @@ class HTMLasJS {
                 //Log the Encoded Representation
                 //console.log('Encoded ',styles[i],elementObj['style'][strProperty]);
 
-                //Take JS Obj Property and Assign to actual HTML Element
-                elementHTML['style'][strProperty] = this['style'][strProperty];
-                //Log the HTML Representation
-                //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+                if (existingObj) {
+                    //Fetch the Actual HTML Element
+                    let elementHTML = this.get();
 
-                //If there is no Existing Object
+                    //Take JS Obj Property and Assign to actual HTML Element
+                    elementHTML['style'][strProperty] = this['style'][strProperty];
+                    //Log the HTML Representation
+                    //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                }//End of If Statement to Manage Existing HTML Object
+
                 //Update the Actual HTML Object encoded into the JS Object
-                if(!existingObj) { this.html = elementHTML; }
+                this.build(false,true);
 
             } //End of for Loop Function
 
         } //End of function scale()
 
 
-
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeColor = function (color,existingObj = true)
+        this.setColor = function (color,existingObj = true)
         {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
 
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
+            //Update the JS Object Instance with the New Style Property
             this.style.backgroundColor = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.backgroundColor = this.style.backgroundColor;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
-
-        // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeTextColor = function (color,existingObj = true)
-        {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
-                elementHTML = this.get();
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.backgroundColor = this.style.backgroundColor;
             }
 
-            //Set JS Obj's color Attribute to the Provided Color
+        } //End of 'setColor' Setter Method
+
+        // Changes the Text Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setTextColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
             this.style.color = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.color = this.style.color;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.color = this.style.color;
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Changes the Font Weight of the Provided JS Element Obj to Provided Weight and then Updates HTML Object
+        this.setFontWeight = function (fontWeight,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
+            this.style.fontWeight = fontWeight.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.fontWeight  = this.style.fontWeight
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
+        this.setInnerHTML = function (newInnerHTML, existingObj = true) {
+
+            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            this.innerHTML = newInnerHTML.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the innerHTML property of the existing HTML Obj to reflect updated JS Object
+                this.get().innerHTML = this.innerHTML;
+            }
+
+        }//End of innerHTML Setter Method
 
 
     }//End of HTMLasJS Obj Constructor
-
-
-
-
 
 
 //Static Methods
@@ -239,9 +255,23 @@ class HTMLasJS {
 
 }//End of HTMLasJS Class
 
+
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
+
+    //Bind HTML Document Body to a Variable
+
+    //Create a HTMLasJS Object for the 'choicesContainer'
+    //Build Child Node using buildHTML function and then Append to HTML Body 'choicesContainer' as lastChild
+
+    //Create a HTMLasJS Object for the 'console'
+    //Build Child Node using buildHTML function and then Append to HTML Body 'choicesContainer' as lastChild
+
+    //Create an Array that Represents the Possible Choices
+        //[Rock,Paper,Scissors, and Guard]
+
+    //Build Array to Hold HTMLasJS Objects for Player Choices
 
 //Construct a HTMLasJS Object to Represent the HTML Object in JS
 let divObj = new HTMLasJS(
@@ -269,44 +299,98 @@ console.log("HTML as JS Object",divObj);
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
-
-//Build Event Listener for HTML Onclick
-    //Attach 'click' Event Listener that runs the mcDiv function
-    //Use an Anonymous Function for the mcDiv function
-    divObj.get().addEventListener('click', function () {
-        mcDiv (divObj);
-    });//End of Anonymous Function inside Listener
-
+    //Iterate through the Array of Player Choices
+        //Build HTMLasJS Object for each
+            //Set ID to 'choice'+Value
+        //Bind HTMLasJS Object to the HTMLasJS Objects Array
+        //Build Child Node using buildHTML function and then Append to HTMLasJS Object 'choicesContainer' as lastChild
+        //Build EventListener on each HTMLasJS Object
+            //On Click, set the PlayerChoice Value to the Original Word
+            //Also execute function for Rock Paper Scissors Logic: rps()
 
 
 //------------------------------------------------------------
 //                       JS Functions
 //------------------------------------------------------------
-// Signature Function of the Exercise
-// Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-// Built into Event Listener
-function mcDiv(HTMLasJSObj)
-{
-    //Increment existing JS Object's 'clicks' property
-    HTMLasJSObj.extras.clicks ++;
+//Rock-Paper-Scissors Logic Function
+function rps (playerChoice) {
+    //Generate Random Number from 0 to 3
+    //Use Number as an Index and get Value from Array of Choices
+    //Assign the Value to block-scope variable for Computer's Choice
 
-    //Execute Control Structure to Check If Clicks >= 3
-    if (HTMLasJSObj.extras.clicks >= 3){
-        //If so, set JS Obj's innerHTML property to 'divdivdiv'
-        HTMLasJSObj.innerHTML = '<br> <br> <br> <br> divdivdiv';
+    //Declare Block-Scope variable for ScoreDelta
+
+    //Conditional Comparison
+    //Player Choice and Computer Choice are the Same --> Tie
+    if (playerChoice === computerChoice) {
+        ScoreDelta = 0;
+    }
+    //Player Choice is 'Guard' --> Partial Loss
+    else if (playerChoice === 'Guard') {
+        ScoreDelta = -0.5;
     } else {
-        //Otherwise, append ' mc' onto existing JS Object's innerHTML
-        HTMLasJSObj.innerHTML += '<br> mc';
-    }//End If Else
+        //Player Choice: Rock
+        if (playerChoice === 'Rock') {
+            //Rock v Paper -> Loss
+            if (computerChoice === 'Paper') {
+                ScoreDelta = -1;
+            }
+            //Rock v Scissors -> Win
+            if (computerChoice === 'Scissors') {
+                ScoreDelta = 1;
+            }
+        }//End of Conditional Logic on Player Choosing Rock
 
-    //Set the innerHTML of the HTML Document Entity to match JS Obj
-    HTMLasJSObj.get().innerHTML = HTMLasJSObj.innerHTML;
+        //Player Choice: Paper
+        if (playerChoice === 'Paper') {
+            //Paper v Rock -> Win
+            if (computerChoice === 'Rock') {
+                ScoreDelta = 1;
+            }
+            //Paper v Scissors -> Loss
+            if (computerChoice === 'Scissors') {
+                ScoreDelta = -1;
+            }
+        }//End of Conditional Logic on Player Choosing Paper
 
-} //End of function 'mcDiv'
+        //Player Choice: Scissors
+        if (playerChoice === 'Scissors') {
+            //Scissors v Paper -> Win
+            if (computerChoice === 'Paper') {
+                ScoreDelta = 1;
+            }
+            //Scissors v Rock -> Loss
+            if (computerChoice === 'Rock') {
+                ScoreDelta = -1;
+            }
+        }//End of Conditional Logic on Player Choosing Scissors
+
+    }//End of Conditional Logic Branch to Determine Game Score
+
+//Log the Player and Computer Choices to the 'Console' Obj
+
+    //Log the Score to the 'Console' Obj
+    //log(scoreDelta,consoleObj);
+
+}//End of rps() function that contains the game logic
+
+
+//log function to log a Value to HTMLasJS console Object
+function log(msg,consoleObj) {
+
+//If the Incoming Message is a Number, it's a Score Change
+if (typeof msg === 'number') {
+    //Add the Incoming Score Change to the Existing Score
+    consoleObj.extra.score += msg;
+    //Create a Msg that States the Player's Score
+    msg = 'Player Score: ' + consoleObj.extra.score;
+}//End of Conditional on Receiving a Num Msg
+
+//Append Console Object's existing InnerHTML with a line break and then the incoming message
+   consoleObj.setInnerHTML(consoleObj.innerHTML + '<br>' + msg);
+
+}//End of function 'log'
+
+
+
