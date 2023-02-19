@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Practices/W6 - Arrays/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Practices/W6 - Arrays/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +32,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Practices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Practices" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676536852870</updated>
-      <workItem from="1676536855353" duration="835000" />
+      <workItem from="1676536855353" duration="14632000" />
     </task>
     <servers />
   </component>

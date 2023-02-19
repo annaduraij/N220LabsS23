@@ -50,7 +50,7 @@ class HTMLasJS {
             for (let property in this.style){
 
                 //Log the Initial Object Properties
-                console.log(property,this.style[property]);
+                //console.log(property,this.style[property]);
 
                 //Can use the Javascript Object as an Array functionality
                 //Remember a named function is just a function bound to a name/var
@@ -258,125 +258,275 @@ class HTMLasJS {
 //Extend HTMLasJS Class to create new Class called 'UIButton'
 //https://javascript.info/class-inheritance
 //Extended Class has Signature Methods, 'log', 'setHighlight', and 'unsetHighlight'
+class UIButton extends HTMLasJS {
 
-//Private Variable to Contain Highlight Status
-//this.highlightStatus = false;
+    //Specialized Constructor
+    constructor(htmlTag = '',
+                htmlAttributes = { },
+                cssStyles = {},
+                innerHTML = '',
+                extraAttributes = { },
+                active = false) {
 
-/*
-//Method 'log' Adds the InnerHTML Value of the Current Div to a specified HTMLasJS Object
-log(jsObj) {
-    //Append Specified Object's InnerHTML with the Content of the Instanced Object calling the Method
-   jsObj.setInnerHTML(jsObj.innerHTML + this.innerHTML);
+        //Call the Parent Constructor for Most of the Functionality and Pass the incoming values
+        super(htmlTag,
+            htmlAttributes,
+            cssStyles,
+            innerHTML,
+            extraAttributes
+        );
 
-}//End of 'log' Method
+        //Private Variable to Contain Highlight Status
+        this.highlightStatus = active;
 
-//Method 'setHighlight' sets the Style Properties of the Object to Match Exercise Specifications
-setHighlight(highlightColor = '#60ff90', highlightWeight = 'bold') {
+        //Method 'log' Adds the InnerHTML Value of the Current Div to a specified HTMLasJS Object
+        this.log = function (consoleObj) {
 
-    //Check Highlight Status, Only Execute if Highlight Status is False
-    if (!this.highlightStatus){
-        //Store the current color as a reserve color for when the highlight is unset
-        this.reserveColor = this.style.backgroundColor;
-        this.reserveWeight = this.style.fontWeight;
+            //Create a New Div and Log the InnerHTML of the UIButton inside the new div's innerHTML
+            let consoleElementObj = new HTMLasJS(
+                'div',
+                {
+                    class: 'consoleElement'
+                },
+                {
+                    width: 'available',
+                    height: 'fit-content',
+                    margin: '0px',
+                    padding: '6px',
 
-        //Use 'super' keyword to use parent class's method
-        //Set the Color to a Highlight Color
-        super.setColor(highlightColor.toString());
+                    border: '0px solid black',
+                    borderRadius: '0px',
+                    backgroundColor: '#000000',
 
-        //Set the Font Weight to a Bold
-        super.setFontWeight(highlightWeight.toString());
+                    fontSize: '0.8em',
+                    color: '#2dbb00',
+                    textAlign: 'left'
+                },
+                this.innerHTML
+            );
 
-        //Set the Highlight Status to True
-        this.highlightStatus = true;
+            //Insert the Console Element Into the Console Container Object
+            consoleObj.get().insertBefore(
+                //Build the Document Entity of the Console Element Obj
+                consoleElementObj.build(),
+                //Place Right Before the Console's First Child Element
+                //Keeps the Top of the Console Updated
+                consoleObj.get().firstElementChild
+            );
 
-    }//End of If Statement
 
-}//End of 'setHighlight' Method
+        }//End of 'log' Method
 
-//Method 'unsetHighlight' is a sister method to 'setHighlight' that unsets the Style Properties of the Object to the original Properties
-unsetHighlight() {
 
-   //Check Highlight Status, Only Execute if Highlight Status is True
-    if (this.highlightStatus){
+        //Method 'setHighlight' sets the Style Properties of the Object to Match Exercise Specifications
+        this.setHighlight = function (highlightColor = '#60ff90', highlightWeight = 'bold') {
 
-        //Use 'super' keyword to use parent class's method
-        //Set the Color to a Highlight Color
-        super.setColor(this.reserveColor.toString());
+            //Check Highlight Status, Only Execute if Highlight Status is False
+            if (!this.highlightStatus) {
+                //Store the current color as a reserve color for when the highlight is unset
+                this.reserveColor = this.get().style.backgroundColor;
+                this.reserveWeight = this.get().style.fontWeight;
 
-        //Set the Font Weight to a Bold
-        super.setFontWeight(this.reserveWeight.toString());
+                //Use 'super' keyword to use parent class's method
+                //Set the Color to a Highlight Color
+                this.setColor(highlightColor.toString());
 
-        //Unset the Highlight Status to False
-        this.highlightStatus = false;
+                //Set the Font Weight to a Bold
+                this.setFontWeight(highlightWeight.toString());
 
-    }//End of If Statement
+                //Set the Highlight Status to True
+                this.highlightStatus = true;
 
-}//End of 'unsetHighlight' Method
+            }//End of If Statement
 
-*/
+        }//End of 'setHighlight' Method
+
+        //Method 'unsetHighlight' is a sister method to 'setHighlight' that unsets the Style Properties of the Object to the original Properties
+        this.unsetHighlight = function () {
+
+            //Check Highlight Status, Only Execute if Highlight Status is True
+            if (this.highlightStatus) {
+
+                //Use 'super' keyword to use parent class's method
+                //Set the Color to a Highlight Color
+                this.setColor(this.reserveColor.toString());
+
+                //Set the Font Weight to a Bold
+                this.setFontWeight(this.reserveWeight.toString());
+
+                //Unset the Highlight Status to False
+                this.highlightStatus = false;
+
+            }//End of If Statement
+
+        }//End of 'unsetHighlight' Method
+
+    }//End of class 'UIButton' constructor
+
+}//End of class 'UIButton' which extends HTMLasJS
+
 
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
 
-//Create Centered Div at the Top of the Screen for the 'Console' Div
-    //Create HTMLasJS instance
-    //Build the HTML Document Entity
-    //Bind the Document Body to a Variable
-    //Append it as LastChild of Document Body
 
 //Create an Array of 6 Random Words
+let dictionary = [
+    'Scintillation',
+    'Jubilance',
+    'Empyrean',
+    'Evanescent',
+    'Oblivion',
+    'Zenith'
+];
 
 //Get and bind HTML Body Element using get Elements by Tag Name
 //Note this Returns an Array, so just get the first Element aka [0]
 const pageBody = document.getElementsByTagName('body')[0];
 
-//Construct a HTMLasJS Object to Represent the HTML Object in JS
-let divObj = new HTMLasJS(
+//Create a Wrapper for the Entire Page
+//Wrapper should flex the Containers into Divs
+let wrapperObj = new HTMLasJS(
     'div',
     {
-        id:"divvy"
+        id:'wrapper'
     },
     {
-        width: '100px',
-        height: '100px',
-        margin: 'auto',
-        backgroundColor: '#58ff8b'
-    }
+        display: 'flex',
+        flexFlow: 'row warp',
+        justifyContent: 'center'
+    },
+    ''
 );
 
-//Log the Created Objected
-console.log("HTML as JS Object",divObj);
+//Build the Wrapper Obj using the build method and then Append to HTML Body
+pageBody.appendChild(wrapperObj.build());
+
+//Create Centered Div at the Top of the Screen for the 'Console' Div
+//Create HTMLasJS instance to create JS object to represent the HTML
+let consoleObj = new HTMLasJS(
+    'div',
+    {
+        id:'console'
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '4px 20px',
+        padding: '10px',
+
+        border: '1px solid black',
+        borderRadius: '10px',
+        backgroundColor: '#404040',
+        color: 'white',
+        textAlign: 'center'
+    },
+    'Console:'
+);
+//Build the Console Obj using the build method and then Append to Wrapper Obj
+wrapperObj.get().appendChild(consoleObj.build());
+
+//Create Centered Div in the Middle of the Screen with the 'Dictionary' Div
+//Create HTMLasJS instance to create JS object to represent the HTML
+let dictionaryContainer = new HTMLasJS(
+    'div',
+    {
+        id:'dictionary'
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '4px 20px',
+        padding: '20px',
+
+        border: '1px solid black',
+        borderRadius: '10px',
+        backgroundColor: '#89e8a6',
+        textAlign: 'center'
+    },
+    ''
+);
+
+//Build the Word Container / 'Dictionary' Obj using the build method and then Append to Wrapper Obj
+wrapperObj.get().appendChild(dictionaryContainer.build());
+
 
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-
-
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
-
-//Build Event Listener for HTML Onclick
-    //Attach 'click' Event Listener that runs the Scale Function
-    //Use an Anonymous Function for the Scale Function
-    divObj.get().addEventListener('click', function () {
-        divObj.scale(1.1);
-    });//End of Anonymous Function inside Listener
-
 //Iterate through the Array of Words
-        //Build UIButton Objects, which extend HTMLasJS functionality
-        //Append the UIButton Objects to the end of the HTML Body
-        //Overwrite the Words with the UIButton Objects
+//Build UIButton Objects for each word, which extend HTMLasJS functionality
+//For Loop to Iterate through Sorted Array of Participant Times
+for(let index = 1; index <= dictionary.length; index++)
+{
+    //Bind Word to a Variable
+    //Note Array is 0-based
+    let word = dictionary[index-1];
 
-    //Use a forEach loop to Iterate through the Array of UIButton Objects
-        //Anonymous Function to Build Event Listeners for each UIButton
-            //Event Listeners execute another Anonymous Function
-                //Iterate through the array of UIButton Objects
-                    //unsetHighlight
-                //setHighlight for the UIButton Object Event Listener is Built on
-                //Use log method to log the value to the 'console' Div
+    //ID of the Div to Be Created
+    let wordID = 'word'+(index).toString();
+
+    //Use it as an attribute of the Window Object to Make the Objects Accessible Outside the Loop and to Dynamically create variables
+    //Instantiate a UIButton Object, extended from HTMLasJS, per Word
+    window[wordID] = new UIButton(
+        'div',
+        {
+            id: wordID,
+            class:'word'
+        },
+        {
+            width: 'fit-content',
+            height: 'fit-content',
+            margin: '4px auto',
+            padding: '10px',
+
+            border: '1px solid black',
+            borderRadius: '10px',
+            backgroundColor: '#dbe7ea',
+            textAlign: 'center'
+        },
+        word // <- InnerHTML Content set to the Word itself
+    );
+
+    //Build the HTML Document Entity from the JS Object's 'build' method
+    //Append the returned HTML Document Entity as the lastChild of the Dictionary Container Obj (can use the get() method to get the element)
+    dictionaryContainer.get().appendChild(window[wordID]['build']());
+
+    //Overwrite the Words in the Array with the UIButton Objects
+    dictionary[index-1] = window[wordID];
+
+}//End of For Loop to Iterate Through the Dictionary Array
+
+//Use a forEach loop to Iterate through the Array of UIButton Objects
+//Attach an Event Listener to each UIButton
+//dictionary.forEach(listener);
+
+//PROBLEM: IT THINKS THE OBJECT FROM THE ARRAY IS A STRING
+dictionary.forEach(function (wordObj) {
+    //Event Listeners execute another Anonymous Function
+    //Use the .get method of the HTMLasJS class and derivatives to get the associated HTML element
+    wordObj.get().addEventListener('click',function() {
+        //On Event, Iterate Through All 'Word' UIButton Objects
+        dictionary.forEach(function (otherWordObj) {
+            //Unset the Highlight
+            otherWordObj.unsetHighlight()
+        })
+
+        //Set the Highlight of the WordObj the Listener is Built on
+        wordObj.setHighlight();
+
+        //Log the Change to the Console Object Div
+        wordObj.log(consoleObj,wordObj.innerHTML);
+    })
+});
+
+//Function to Build Event Listener for the UIButton
+function listener(wordObj) {
+
+}
+
 
 //---------------------------------------------------------
 //                       JS Functions
