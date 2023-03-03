@@ -1,4 +1,4 @@
-//Exercise MT.1 - UI Navigator
+//Mid-Term Examination 2
 
 //---------------------------------------------------------
 //                        JS Classes
@@ -140,6 +140,19 @@ class HTMLasJS {
         } //End of function scale()
 
 
+        //Method to Change the Cursor upon Engaging with an Interactive Element
+        this.setInteractive = function () {
+            //Create an Event Handler that changes the Cursor to a Pointer on Hovering over the Button
+            this.get().addEventListener('mouseover',function () {
+                HTMLasJS.docBody.style.cursor = 'pointer';
+            })//End of mouseover handler
+
+            //Create an Event Handler that returns the Cursor to default on hovering out of the Button
+            this.get().addEventListener('mouseout',function () {
+                HTMLasJS.docBody.style.cursor = 'auto';
+            })//End of mouseout handler
+        }//End of Method to Set the Element as Interactive
+
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
         this.setColor = function (color,existingObj = true)
         {
@@ -214,6 +227,8 @@ class HTMLasJS {
 
     }//End of HTMLasJS Obj Constructor
 
+//Static Properties
+    static docBody = document.getElementsByTagName('body')[0];
 
 //Static Methods
 
@@ -232,6 +247,7 @@ class HTMLasJS {
 
         //Return the Integer
         return intWithoutUnit;
+
     }//End of Static decodeUnit Method
 
     //Sister Function of decodeUnit that returns the Integer with the Unit
@@ -247,283 +263,116 @@ class HTMLasJS {
 
         //Concatenate with String Addition
         //Joins the integer (as a string) and the unit (as a string)
-        let intWithUnit = intWithoutUnit+unit;
+        //let intWithUnit = intWithoutUnit+unit;
 
         //Return the Integer
-        return intWithUnit;
+        //return intWithUnit;
+
+        //Inline Return
+        return intWithoutUnit+unit;
+
     }//End of Static encodeUnit Method
 
+    //Static Method 'random' Chooses a Random Value Between Two Integers
+    //Inclusive of Both Values
+    static randomInt(minimum, maximum) {
+        //Set Minimum Value and Round It Up to the Next Value
+        minimum = Math.ceil(minimum);
+        //Set Maximum Value and Round It Down to the next Value
+        maximum = Math.floor(maximum);
+        //Generates Random Value
+        let baseRandom = Math.random()
+
+        //Normalized Random (Linear Adjustment), remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1
+        //Math.round() * Math.Random isn't used here because Math.round under-represents the endpoints
+            //Consider 0: to get 0, 0.00 - 0.49 is an accepted value | Consider 1: to get 1, 0.50 - 1.49 is an accepted value
+        //Note, if for whatever reason, Math.ceiling is using in the final adjustment, you'd subtract by 1 here to counteract the round up
+        let scaleRandom = maximum - minimum + 1
+
+        //Adjust the Value to the Minimum
+        let interceptRandom = minimum;
+
+        //Final Random
+        let randomInteger = Math.floor(baseRandom * scaleRandom + interceptRandom)
+
+        //Return Random
+        return randomInteger;
+
+    }//End of HTMLasJS Static Method 'randomInt'*/
+
 }//End of HTMLasJS Class
-
-//Extend HTMLasJS Class to create new Class called 'UIButton'
-//https://javascript.info/class-inheritance
-//Extended Class has Signature Methods, 'log', 'setHighlight', and 'unsetHighlight'
-class UIButton extends HTMLasJS {
-
-    //Specialized Constructor
-    constructor(htmlTag = '',
-                htmlAttributes = { },
-                cssStyles = {},
-                innerHTML = '',
-                extraAttributes = { },
-                active = false) {
-
-        //Call the Parent Constructor for Most of the Functionality and Pass the incoming values
-        super(htmlTag,
-            htmlAttributes,
-            cssStyles,
-            innerHTML,
-            extraAttributes
-        );
-
-        //Private Variable to Contain Highlight Status
-        this.highlightStatus = active;
-
-        //Method 'log' Adds the InnerHTML Value of the Current Div to a specified HTMLasJS Object
-        this.log = function (consoleObj) {
-
-            //Create a New Div and Log the InnerHTML of the UIButton inside the new div's innerHTML
-            let consoleElementObj = new HTMLasJS(
-                'div',
-                {
-                    class: 'consoleElement'
-                },
-                {
-                    width: 'available',
-                    height: 'fit-content',
-                    margin: '0px',
-                    padding: '6px',
-
-                    border: '0px solid black',
-                    borderRadius: '0px',
-                    backgroundColor: '#000000',
-
-                    fontSize: '0.8em',
-                    color: '#70ff60',
-                    textAlign: 'left'
-                },
-                this.innerHTML
-            );
-
-            //Insert the Console Element Into the Console Container Object
-            consoleObj.get().insertBefore(
-                //Build the Document Entity of the Console Element Obj
-                consoleElementObj.build(),
-                //Place Right Before the Console's First Child Element
-                //Keeps the Top of the Console Updated
-                consoleObj.get().firstElementChild
-            );
-
-
-        }//End of 'log' Method
-
-
-        //Method 'setHighlight' sets the Style Properties of the Object to Match Exercise Specifications
-        this.setHighlight = function (highlightColor = '#60ff90', highlightWeight = 'bold') {
-
-            //Check Highlight Status, Only Execute if Highlight Status is False
-            if (!this.highlightStatus) {
-                //Store the current color as a reserve color for when the highlight is unset
-                this.reserveColor = this.get().style.backgroundColor;
-                this.reserveWeight = this.get().style.fontWeight;
-
-                //Use 'super' keyword to use parent class's method
-                //Set the Color to a Highlight Color
-                this.setColor(highlightColor.toString());
-
-                //Set the Font Weight to a Bold
-                this.setFontWeight(highlightWeight.toString());
-
-                //Set the Highlight Status to True
-                this.highlightStatus = true;
-
-            }//End of If Statement
-
-        }//End of 'setHighlight' Method
-
-        //Method 'unsetHighlight' is a sister method to 'setHighlight' that unsets the Style Properties of the Object to the original Properties
-        this.unsetHighlight = function () {
-
-            //Check Highlight Status, Only Execute if Highlight Status is True
-            if (this.highlightStatus) {
-
-                //Use 'super' keyword to use parent class's method
-                //Set the Color to a Highlight Color
-                this.setColor(this.reserveColor.toString());
-
-                //Set the Font Weight to a Bold
-                this.setFontWeight(this.reserveWeight.toString());
-
-                //Unset the Highlight Status to False
-                this.highlightStatus = false;
-
-            }//End of If Statement
-
-        }//End of 'unsetHighlight' Method
-
-    }//End of class 'UIButton' constructor
-
-}//End of class 'UIButton' which extends HTMLasJS
-
 
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
 
-
-//Create an Array of 6 Random Words
-let dictionary = [
-    'Scintillation',
-    'Jubilance',
-    'Empyrean',
-    'Evanescent',
-    'Oblivion',
-    'Zenith'
-];
-
-//Get and bind HTML Body Element using get Elements by Tag Name
-//Note this Returns an Array, so just get the first Element aka [0]
-const pageBody = document.getElementsByTagName('body')[0];
-
-//Create a Wrapper for the Entire Page
-//Wrapper should flex the Containers into Divs
-let wrapperObj = new HTMLasJS(
-    'div',
+//Construct a HTMLasJS Object to Represent the HTML Object in JS
+let buttonObj = new HTMLasJS(
+    'button',
     {
-        id:'wrapper'
+        id:"Reveal"
     },
     {
-        display: 'flex',
-        flexFlow: 'row warp',
-        justifyContent: 'center'
-    },
-    ''
-);
-
-//Build the Wrapper Obj using the build method and then Append to HTML Body
-pageBody.appendChild(wrapperObj.build());
-
-//Create Centered Div at the Top of the Screen for the 'Console' Div
-//Create HTMLasJS instance to create JS object to represent the HTML
-let consoleObj = new HTMLasJS(
-    'div',
-    {
-        id:'console'
-    },
-    {
+        display: 'block',
         width: 'fit-content',
         height: 'fit-content',
-        margin: '4px 20px',
+        margin: 'auto',
         padding: '10px',
 
         border: '1px solid black',
         borderRadius: '10px',
-        backgroundColor: '#404040',
+        backgroundColor: '#000000',
         color: 'white',
         textAlign: 'center'
     },
-    'Console:'
-);
-//Build the Console Obj using the build method and then Append to Wrapper Obj
-wrapperObj.get().appendChild(consoleObj.build());
-
-//Create Centered Div in the Middle of the Screen with the 'Dictionary' Div
-//Create HTMLasJS instance to create JS object to represent the HTML
-let dictionaryContainer = new HTMLasJS(
-    'div',
-    {
-        id:'dictionary'
-    },
-    {
-        width: 'fit-content',
-        height: 'fit-content',
-        margin: '4px 20px',
-        padding: '20px',
-
-        border: '1px solid black',
-        borderRadius: '10px',
-        backgroundColor: '#89e8a6',
-        textAlign: 'center'
-    },
-    ''
+    'Revealed',
+    //Unique Property of Clicks
+    {clicks: 0}
 );
 
-//Build the Word Container / 'Dictionary' Obj using the build method and then Append to Wrapper Obj
-wrapperObj.get().appendChild(dictionaryContainer.build());
-
+//Log the Created Objected
+console.log("HTML as JS Object",buttonObj);
 
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Iterate through the Array of Words
-//Build UIButton Objects for each word, which extend HTMLasJS functionality
-//For Loop to Iterate through Sorted Array of Participant Times
-for(let index = 1; index <= dictionary.length; index++)
-{
-    //Bind Word to a Variable
-    //Note Array is 0-based
-    let word = dictionary[index-1];
+//Append Element as Child Node to HTML Body
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
 
-    //ID of the Div to Be Created
-    let wordID = 'word'+(index).toString();
+//Build Child Node using build method of Obj and then Append to HTML Body
+pageBody.appendChild(buttonObj.build());
 
-    //Use it as an attribute of the Window Object to Make the Objects Accessible Outside the Loop and to Dynamically create variables
-    //Instantiate a UIButton Object, extended from HTMLasJS, per Word
-    window[wordID] = new UIButton(
-        'div',
-        {
-            id: wordID,
-            class:'word'
-        },
-        {
-            width: 'fit-content',
-            height: 'fit-content',
-            margin: '4px auto',
-            padding: '10px',
-
-            border: '1px solid black',
-            borderRadius: '10px',
-            backgroundColor: '#dbe7ea',
-            textAlign: 'center'
-        },
-        word // <- InnerHTML Content set to the Word itself
-    );
-
-    //Build the HTML Document Entity from the JS Object's 'build' method
-    //Append the returned HTML Document Entity as the lastChild of the Dictionary Container Obj (can use the get() method to get the element)
-    dictionaryContainer.get().appendChild(window[wordID]['build']());
-
-    //Overwrite the Words in the Array with the UIButton Objects
-    dictionary[index-1] = window[wordID];
-
-}//End of For Loop to Iterate Through the Dictionary Array
-
-//Use a forEach loop to Iterate through the Array of UIButton Objects
-//Attach an Event Listener to each UIButton
-dictionary.forEach(listener);
-
-//Function to Build Event Listener for the UIButton
-function listener(wordObj) {
-    //Event Listeners execute another Anonymous Function
-    //Use the .get method of the HTMLasJS class and derivatives to get the associated HTML element
-    wordObj.get().addEventListener('click',function() {
-        //On Event, Iterate Through All 'Word' UIButton Objects
-        dictionary.forEach(function (otherWordObj) {
-            //Unset the Highlight
-            otherWordObj.unsetHighlight()
-        })
-
-        //Set the Highlight of the WordObj the Listener is Built on
-        wordObj.setHighlight();
-
-        //Log the Change to the Console Object Div
-        wordObj.log(consoleObj,wordObj.innerHTML);
-    })
-}
+//Build Event Listener for HTML Onclick
+//Attach 'click' Event Listener that runs the mcDiv function
+//Use an Anonymous Function for the mcDiv function
+buttonObj.get().addEventListener('click', function () {
+    revealer(buttonObj);
+});//End of Anonymous Function inside Listener
 
 
-//---------------------------------------------------------
+
+//------------------------------------------------------------
 //                       JS Functions
-//---------------------------------------------------------
+//------------------------------------------------------------
+// Signature Function of the Exercise
+// Built into Event Listener
+function revealer(HTMLasJSObj)
+{
+    //Increment existing JS Object's 'clicks' property
+    HTMLasJSObj.extras.clicks ++;
 
+    //Execute Control Structure to Check If Clicks >= 5
+    if (HTMLasJSObj.extras.clicks >= 5){
+        //If so, set JS Obj's innerHTML property to the amount of clicks
+        HTMLasJSObj.innerHTML = 'Clicks: '+ HTMLasJSObj.extras.clicks ;
+    } else {
+        //Otherwise, do nothing
+    }//End If Else
+
+    //Set the innerHTML of the HTML Document Entity to match JS Obj
+    HTMLasJSObj.get().innerHTML = HTMLasJSObj.innerHTML;
+
+} //End of function

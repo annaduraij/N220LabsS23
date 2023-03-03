@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Practices/W6 - Arrays/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/W6 - Arrays/index.html" afterDir="false" />
+    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="Updates">
+      <change afterPath="$PROJECT_DIR$/Exercises/Midterm/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Midterm/js/MT_1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Midterm/js/MT_2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Midterm/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercises/Midterm/js/pre-app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Practices/W7 - Midterm/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Practices/W7 - Midterm/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/N220LabsS23.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/Annadurai - ExMTdocx.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/Annadurai - ExMT.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/css/general.css" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/css/general.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/img/bg.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/img/bg.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/img/headshots/Jay.png" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/img/headshots/Jay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/labs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/me.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/www/pages/me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/bg.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/www/img/bg.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/headshots/Jay.png" beforeDir="false" afterPath="$PROJECT_DIR$/www/img/headshots/Jay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/me.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/me.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,27 +43,49 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jay Annadurai" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 4/js/ex4_2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 5/js/ex5_3.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 6/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_1.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 6/js/exMT_2.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Exercises/Exercise 6/js/pre-app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Practices/W6 - Arrays/app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Practices/W6 - Arrays/index.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="2LoUJ097hqjMFEi3mhnHNBiwUr8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Practices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Exercises/Midterm/js&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercises/Midterm/js" />
+      <recent name="$PROJECT_DIR$/Exercises" />
+      <recent name="$PROJECT_DIR$/Practices/W7 - Midterm" />
       <recent name="$PROJECT_DIR$/Practices" />
     </key>
   </component>
@@ -49,12 +97,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676536852870</updated>
-      <workItem from="1676536855353" duration="14632000" />
+      <workItem from="1676536855353" duration="19834000" />
+      <workItem from="1677150538480" duration="10038000" />
+      <workItem from="1677163796400" duration="17616000" />
+      <workItem from="1677816765591" duration="1140000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -66,5 +128,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates" />
   </component>
 </project>

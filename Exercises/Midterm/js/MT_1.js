@@ -1,4 +1,4 @@
-//Exercise MT.2 - Rock Paper Scissors Guard
+//Mid-Term Examination 1
 
 //---------------------------------------------------------
 //                        JS Classes
@@ -273,6 +273,33 @@ class HTMLasJS {
 
     }//End of Static encodeUnit Method
 
+    //Static Method 'random' Chooses a Random Value Between Two Integers
+    //Inclusive of Both Values
+    static randomInt(minimum, maximum) {
+        //Set Minimum Value and Round It Up to the Next Value
+        minimum = Math.ceil(minimum);
+        //Set Maximum Value and Round It Down to the next Value
+        maximum = Math.floor(maximum);
+        //Generates Random Value
+        let baseRandom = Math.random()
+
+        //Normalized Random (Linear Adjustment), remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1
+        //Math.round() * Math.Random isn't used here because Math.round under-represents the endpoints
+            //Consider 0: to get 0, 0.00 - 0.49 is an accepted value | Consider 1: to get 1, 0.50 - 1.49 is an accepted value
+        //Note, if for whatever reason, Math.ceiling is using in the final adjustment, you'd subtract by 1 here to counteract the round up
+        let scaleRandom = maximum - minimum + 1
+
+        //Adjust the Value to the Minimum
+        let interceptRandom = minimum;
+
+        //Final Random
+        let randomInteger = Math.floor(baseRandom * scaleRandom + interceptRandom)
+
+        //Return Random
+        return randomInteger;
+
+    }//End of HTMLasJS Static Method 'randomInt'*/
+
 }//End of HTMLasJS Class
 
 //Class to Create HTML Console Outputs
@@ -411,211 +438,16 @@ class Console extends HTMLasJS {
 
 }//End of Console Class
 
-//Class with Create Rock-Paper-Scissors-Guard Game Object
-class RPSG {
-    //Static Property with Available Options
-    static options = ['Rock','Paper','Scissors','Guard'];
-
-    //Static Property with Total Score
-    static score = 0;
-
-    //Static Property with Turns
-    static turns = 0;
-
-    //Static Property that is a 2D Object Literal with Scoring Rules
-    static reference =
-        //Outer Object Indexed by Player Choices
-        {
-            'Rock':
-            //Secondary Object for Computer Choices
-                {
-                    //Rock v Rock = Tie
-                    'Rock': 0,
-                    //Rock v Paper = Player Loss
-                    'Paper': -1,
-                    //Rock v Scissors = Player Win
-                    'Scissors': 1,
-                    //If Computer is Allowed to Guard = Partial Player Win
-                    'Guard': 0.5,
-                }, //End of Player Choice: 'Rock'
-
-            'Paper':
-            //Secondary Object for Computer Choices
-                {
-                    //Paper v Rock = Player Win
-                    'Rock': 1,
-                    //Paper v Paper = Player Tie
-                    'Paper': 0,
-                    //Paper v Scissors = Player Loss
-                    'Scissors': -1,
-                    //If Computer is Allowed to Guard = Partial Player Win
-                    'Guard': 0.5,
-                }, //End of Player Choice: 'Paper'
-            'Scissors':
-            //Secondary Object for Computer Choices
-                {
-                    //Scissors v Rock = Player Loss
-                    'Rock': -1,
-                    //Scissors v Paper = Player Win
-                    'Paper': 1,
-                    //Scissors v Scissors = Player Tie
-                    'Scissors': 0,
-                    //If Computer is Allowed to Guard = Partial Player Win
-                    'Guard': 0.5,
-                }, //End of Player Choice: 'Scissors'
-            'Guard':
-            //Secondary Object for Computer Choices
-                {
-                    //Regardless of Computer Choice, Response is Always Half a Loss
-                    'Rock': -0.5,
-                    'Paper': -0.5,
-                    'Scissors': -0.5,
-                    //If Computer is Allowed to Guard = Tie
-                    'Guard': 0,
-                } //End of Player Choice: 'Guard'
-        } //End of Object Literal 'reference' that Contains a 2D Object with Scoring
-
-    //Static Randomization Method
-    //function 'random' Chooses a Random Value Between Two Integers
-    //Inclusive of Both Values
-    static random(minimum, maximum) {
-        //Set Minimum Value and Round It Up to the Next Value
-        minimum = Math.ceil(minimum);
-        //Set Maximum Value and Round It Down to the next Value
-        maximum = Math.floor(maximum);
-        //Generates Random Value
-        let baseRandom = Math.random()
-
-        //Normalized Random (Linear Adjustment), remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1
-        //Math.round() * Math.Random isn't used here because Math.round under-represents the endpoints
-        //Consider 0: to get 0, 0.00 - 0.49 is an accepted value | Consider 1: to get 1, 0.50 - 1.49 is an accepted value
-        //Note, if for whatever reason, Math.ceiling is using in the final adjustment, you'd subtract by 1 here to counteract the round up
-        let scaleRandom = maximum - minimum + 1
-
-        //Adjust the Value to the Minimum
-        let interceptRandom = minimum;
-
-        //Final Random
-        //let random = Math.floor(baseRandom * scaleRandom + interceptRandom);
-
-        //Return Random Integer
-        //return random;
-
-        //Inline Return
-        return Math.floor(baseRandom * scaleRandom + interceptRandom);
-
-    }//End of Random Function
-
-    //Method to Generate Computer Choice
-    static generateComputerChoice (enableComputerGuard = false) {
-        //Declare randomIndex to Store Random Choice
-        let randomIndex;
-
-        //If enableComputerGuard is True, select a random option from the entire options array
-        if (enableComputerGuard) {
-            //Select a Random Number from 0 to the Array Length - 1
-            randomIndex = this.random(0,this.options.length-1);
-        }
-
-        //Otherwise, select a random element from the Array not including the Guard Element
-        else {
-            //Select a Random Number from 0 to the Array Length - 2, as the Guard Element is the Last Element
-            randomIndex = this.random(0,this.options.length - 2);
-        }
-
-        //Debug: Computer Choices
-        /*
-        console.log("Random Number:",randomIndex);
-        console.log("Random Element:",this.options[randomIndex]);
-        */
-
-        //Select an Option for the Computer's Choice using the randomized index
-        return this.options[randomIndex];
-    }
-
-    //Game Logic Method
-    static play(playerChoice,enableComputerGuard = false,enableVerboseOutput = true) {
-
-        //Error Handler - Ensure Player Choice is within the Options Array
-        if (!this.options.includes(playerChoice)){
-            //Alert the User of the Issue
-            alert('Invalid Player Selection!');
-            //Terminate the Function
-            return;
-        }
-
-        //Generate Computer Choice
-        let computerChoice = this.generateComputerChoice(enableComputerGuard);
-
-        //Increase Number of turns
-        this.turns++;
-
-        //Conditional Comparison utilizing Class 'reference' Object
-        let scoreDelta = this.reference[playerChoice][computerChoice];
-
-        //Apply scoreDelta to Class's Score
-        this.score += scoreDelta;
-
-        //If Verbose Output is Enabled, Return an Object Literal with Properties of Player Choice, Computer Choice, Score
-        if (enableVerboseOutput) {
-            //Log Message of Results in Natural Language
-            let msg;
-
-            //Switch to Evaluate the Match Score Results
-            switch (scoreDelta) {
-                case -1:
-                    msg = 'Loss =('
-                    break;
-                case -0.5:
-                    msg = 'Partial Loss =/'
-                    break;
-                case 0:
-                    msg = 'Tie'
-                    break;
-                case 0.5:
-                    msg = 'Partial Win =)'
-                    break;
-                case 1:
-                    msg = 'Win =D'
-                    break;
-                default:
-                    //Alert User of Error
-                    alert('Status of RPSG Game Unknown?');
-                    console.log('Error with Result Parse');
-                    break;
-            }
-
-            //Object Literal
-            let results = {
-                //Inner Object Literal with Player and Computer Choices
-                'choice': {
-                    'player': playerChoice,
-                    'computer': computerChoice
-                },
-                'result': {
-                    'turn': this.turns,
-                    'change': scoreDelta,
-                    'msg': msg,
-                    'score': this.score
-                }
-            }
-            //Log the Results to the Actual Console
-            console.log(`Turn ${this.turns} Results:`,results);
-
-            return results;
-        }//End of Verbose Output
-
-        //Otherwise Return New Score
-        else { return this.score; }
-
-    }//End of play() function that contains the game logic
-
-}//End of RPSG Class
-
 
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
+
+//Array of Words to Loop Through
+let clouds = ["Cirro","Cumulo","Nimbo","Strato"];
+
+//Contains the InnerHTML to Print
+let cloudHTML = [];
 
 //Get and bind HTML Body Element using get Elements by Tag Name
 //Note this Returns an Array, so just get the first Element aka [0]
@@ -636,26 +468,6 @@ let wrapperObj = new HTMLasJS(
     ''
 );
 
-//Create a HTMLasJS Object for the 'choicesContainer'
-//Create HTMLasJS instance to create JS object to represent the HTML
-let choicesContainer = new HTMLasJS(
-    'div',
-    {
-        id:'choices'
-    },
-    {
-        width: 'fit-content',
-        height: 'fit-content',
-        margin: '4px 20px',
-        padding: '20px',
-
-        border: '1px solid black',
-        borderRadius: '10px',
-        backgroundColor: '#89e8a6',
-        textAlign: 'center'
-    },
-    ''
-);
 
 //---------------------------------------------------------
 //                        General JS
@@ -664,94 +476,29 @@ let choicesContainer = new HTMLasJS(
 //Build the Wrapper Obj using the build method and then Append to HTML Body
 pageBody.appendChild(wrapperObj.build());
 
-//Build the Console Container into the HTML page
-//Append the HTMLasJS instance 'obj' inside the Console Class as the Last Child of the Page Wrapper
-wrapperObj.get().appendChild(Console.obj.build());
+//Create the Div to Display Text
+let cloudsObj = new HTMLasJS(
+    'div',
+    {
+        id:'clouds'
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '4px auto',
+        padding: '10px',
 
-//Attach the HTMLasJS Choices Container into the Page Wrapper as its last child
-wrapperObj.get().appendChild(choicesContainer.build());
+        border: '1px solid black',
+        borderRadius: '10px',
+        backgroundColor: '#dbe7ea',
+        textAlign: 'center'
+    },
+    iterate(clouds)
+);
 
-//Create and Array to Hold Player Choice UI Buttons
-let choiceButtons = []
+//Build the Clouds Div into the Wrapper Obj
+wrapperObj.get().appendChild(cloudsObj.build());
 
-//Build Choice Elements for User Interaction
-//Iterate through the Possible Options of the Rock-Paper-Scissors-Guard Class
-for (let choice of RPSG.options){
-    //Build the GUI Buttons as an attribute of the Window Object to Make the Objects Accessible Outside the Loop
-    //Instantiate a HTMLasJS Object, per Player Choice
-    window[choice] = new HTMLasJS(
-        'div',
-        {
-            //Set ID to 'choose'+choice
-            id: 'choose'+choice,
-            class:'playerChoice'
-        },
-        {
-            width: 'fit-content',
-            height: 'fit-content',
-            margin: '4px auto',
-            padding: '10px',
-
-            border: '1px solid black',
-            borderRadius: '10px',
-            backgroundColor: '#dbe7ea',
-            textAlign: 'center'
-        },
-        choice, // <- InnerHTML Content set to the Word itself
-        {'choice': choice} // <- Create an Extra Value Property that Reflects the Original RPSG choice
-    );
-
-    //Build the HTML Document Entity from the JS Object's 'build' method
-    //Append the returned HTML Document Entity as the lastChild of the Choice  Container Obj (can use the get() method to get the element)
-    choicesContainer.get().appendChild(window[choice]['build']());
-
-    //Place the Objects into the Player Choice UI Buttons as Well
-    choiceButtons.push(window[choice]);
-
-}//End of forOf Loop to Iterate through Rock-Paper-Scissors-Guard Options and Build HTML Object for Each
-
-//Build Event Listeners on the Array of Player Choice Button Objects
-for (let choiceObj of choiceButtons){
-    //Event Listeners execute another Anonymous Function
-    //Use the .get method of the HTMLasJS class and derivatives to get the associated HTML element
-    choiceObj.get().addEventListener('click',function() {
-        //Execute the RPSG Play Function and Bind the Results
-        let game = RPSG.play(choiceObj.extras.choice)
-
-        //Log the Message to the HTML Console Object
-        Console.log(
-            //Log the Player and Computer Choices to the 'Console' Obj
-            `
-             <div style="text-align: center; font-style: italic"> 
-             Turn ${game.result.turn} 
-             </div><hr>
-             Player Chose: ${game.choice.player} <br> 
-              Computer Chose: ${game.choice.computer} <hr>
-             Outcome: ${game.result.msg} <hr>
-             Score: ${game.result.score} <hr>
-            `
-        )
-        //End of Console Log Message
-
-        //If the outputLog's Length Exceeds the Maximum, Delete the first Element
-        const logMaxLength = 2;
-
-        //If the Console Log has more than the Stated Maximum
-        while (Console.outputLog.length>(logMaxLength+1)) {
-            //Remove any excess
-            //Remove the JS Object Instance from the Console Output Array
-            Console.outputLog.shift();
-            //Remove the HTML Object from the Page
-            Console.obj.get().removeChild(Console.obj.get().lastChild);
-        }//End of While Loop
-
-    }); //End of Anonymous Callback Function on User Click of the Player Choice Buttons
-
-    //Create an Event Handler that changes the Cursor to a Pointer on Hovering over the Button
-    //Method of HTMLasJS
-    choiceObj.setInteractive();
-
-}//End of Loop to Build Event Listeners for RPSG GUI
 
 
 
@@ -760,33 +507,23 @@ for (let choiceObj of choiceButtons){
 //------------------------------------------------------------
 //                       JS Functions
 //------------------------------------------------------------
+//Signature Function that Generates the HTML Content to Go Into the Page
+function iterate(arrayWords,repetitions=2){
 
-//function 'random' Chooses a Random Value Between Two Integers
-//Inclusive of Both Values
-//Transferred to Class RPSG
-/* function random(minimum, maximum) {
-    //Set Minimum Value and Round It Up to the Next Value
-    minimum = Math.ceil(minimum);
-    //Set Maximum Value and Round It Down to the next Value
-    maximum = Math.floor(maximum);
-    //Generates Random Value
-    let baseRandom = Math.random()
+    //Initialize the Return Variable
+    let msgCarrier = "";
 
-    //Normalized Random (Linear Adjustment), remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1
-    //Math.round() * Math.Random isn't used here because Math.round under-represents the endpoints
-        //Consider 0: to get 0, 0.00 - 0.49 is an accepted value | Consider 1: to get 1, 0.50 - 1.49 is an accepted value
-    //Note, if for whatever reason, Math.ceiling is using in the final adjustment, you'd subtract by 1 here to counteract the round up
-    let scaleRandom = maximum - minimum + 1
+    //Outer Loop to Iterate through Words
+    for (word of arrayWords){
+        //Inner Loop to Do Amount of Repetitions
+        for (let i=0;i<repetitions;i++){
 
-    //Adjust the Value to the Minimum
-    let interceptRandom = minimum;
+            //Add onto
+            msgCarrier += word+" ";
+        }//End of Inner Loop to Do Amount of Repetitions
 
-    //Final Random
-    let random = Math.floor(baseRandom * scaleRandom + interceptRandom)
+    }//End of Outer Loop to Iterate through Words
 
-    //Return Random
-    return random;
-
-}//End of Random Function */
-
-
+    //Return the Variable
+    return msgCarrier;
+}//End of Function Iterate
