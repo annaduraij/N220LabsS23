@@ -1,277 +1,130 @@
 //------------------------------
-//   Ex8.1 - Peak Pixels:
+//   Ex8.1 - Is Divisble By Seven:
 //------------------------------
 /*
-Peak Pixels
-
-Write the markup and JS to place a square div on the page. 100px by 100px, green background.
-Make it so that when the div its clicked, it increases its size by 10% every time.
-
-Hints:
-
-Make a variable to store the height and with of the object
-to set the height and width, set to varName + "px"
-10% is .1 bigger,or 1.1 * the original size
+Is Divisible By Seven
+Create an application that with an input and a button. When the user clicks on the button, update a div on the page to tell the user if what the user typed into the input is divisible by 7 or not. Use a separate function from the onclick function to discern if it is divisible. This function should return either true if it is divisible  or false if it is not.
  */
 
 //General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'green'}
+    //Create HTML Input of Type 'Number'
+    //Create Adjacent Button with onclick function
+    //Create HTML Div below the text input
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
+//Functions
+    //Parent Function to Fetch Input Value and Evaluate Expression
+    /* function evaluateInput (inputID,outputID,Divisor=7) {
 
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
+        //Bind HTML Input Element corresponding to inputID to a JS Variable
 
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
+        //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
-        //Attach 'click' Event Listener that runs the Scale Function
-            //Use an Anonymous Function for the Scale Function
-            //divHTML.addEventListener('click', function () { scale (divObj); } );
+        //Declare a variable to hold a message to eventually replace the Output Div's innerHTML content
 
+        //Fetch Value of Document Input Element
 
+        //Bind the boolean return from function divisible(value,divisor) to evaluate divisibility of the input value by 7
+
+        //If the Boolean is true,
+            //Update the msg variable to a string affirming the number's divisibility by seven
+
+        //Else, if the Boolean is false,
+            //Update the msg variable to a string rejecting the number's divisibility by seven
+
+        //Update the content
+    } //End of function 'evaluateInput' */
+
+    //Inner function to evaluate the divisibility of a number by seven
+    /* function divisible(dividend, divisor) {
+
+        //return (dividend%divisor === 0 )
+
+     } //End of function 'divisibleBySeven' */
+//End JS
+
+//------------------------------
+//   Ex8.2 - Make Random
+//------------------------------
+/*
+Make Random
+
+Create a function that generates and returns a random whole number between 0 and 10.
+Write a web page to test it by having a button that, when clicked runs a function that: - Uses that function to generate a random number. - Displays that number on the screen. Your final application should have two functions - one to make the random number, and one to handle the click.
+
+ */
+
+//General JS
+    //Button with onclick function
+    //Create HTML Div adjacent to the text input to display the random number
 
 
 //Functions
-    // Build HTML Element from JS
-    /* function buildHTML(elementObj)
-    {
-        //Create HTML Element and Implant into Carrier Variable
-        let element = document.createElement(elementObj.tag);
+    //Parent Function to Fetch Input Value and Evaluate Expression
+    /* function evaluate (outputID,min=0,max=10) {
 
-        //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-        for (let attribute in elementObj.attributes){
+        //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
-            //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-            if (attribute == "backgroundColor") {
-                element.setAttribute(background-color,elementObj.attributes[attribute]);
-            }
-            //Set Element Attribute
-            else {
-                element.setAttribute(attribute,divObj.attributes[attribute]);
-            }
+        //Bind a variable to the result of the randomInt(min,max) function
 
-        } //End of forIn Loop
+        //Update the content of the output div to the random value
 
-        //Return the Completed HTML Object
-        return element;
+    } //End of function 'evaluateInput' */
 
-    } //End of function buildHTML()
-    */
+    //Inner function to generate a random integer between two bounds
+    /* function randomInt(minimum, maximum) {
 
-    // Signature Function of the Exercise
-    // Scale the JS Object Size Attributes and Update the HTML
-    /* function scale(elementObj)
-    {
-        //Split 'px' Unit from JS Object's Height and Width Attributes
-            //Split String into Array of Segmented Strings
-            //Retain only the first part, [0], which should contain the number
-        elementObj.attributes.width = elementObj.attributes.width.split('px')[0];
-        elementObj.attributes.height = elementObj.attributes.height.split('px')[0];
+        //Generate Random Float from 0 to 1
 
-        //Scale existing JS Object's Height and Width by 10%
-        elementObj.attributes.width *= 1.1;
-        elementObj.attributes.height *= 1.1;
+        //Rebind Minimum Value as the maximum rounded value via Math.ceil
 
-        //Append 'px' unit back on to the end of JS Object's Height and Width Attributes
-        elementObj.attributes.width += 'px';
-        elementObj.attributes.height += 'px';
+        //Rebind Maximum Value as the minimum rounded value via Math.ceil
 
-        //Get the Document Element with ID
-        let docElement = document.getElementById(elementObj.attributes.id);
+        //Normalize Random with Linear Adjustment Scalar (Max - Min)
+        //Remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1 (Max - Min + 1)
 
-        //Set the Document Elements' New Size Attributes
-        docElement.setAttribute('width', elementObj.attributes.width);
-        docElement.setAttribute('height', elementObj.attributes.width);
+        //Linear Adjustment of the Random Float by Scalar*Float + Minimum
 
-    } //End of function scale()
-    */
+        //Round down the entire value to preserve accuracy
 
+        //Return the Random Integer
 
+     } //End of function 'randomInt' */
 
 //End JS
 
 //------------------------------
-//   Ex8.2 - McDiv'ns
+//   Ex8.3 - Cleanup
 //------------------------------
 /*
-McDiv'ns
+Make a function that takes a string, and removes every instance of "#" from the string, and returns the "cleaned up" version without the hashtags/octothorpes.
 
-Put a div on the page. When the div is clicked, append the text "mc" to whatever is in its innerHTML. After 3 clicks, the div will show "divdivdiv"
+Write a web page to test the function - one button and input, and one div. When the button is pressed, take the input, use the function to remove the hashtags, and show the result string on the page.d
  */
 
 //General JS
-    //Create Obj Literal for McDiv
-        //Properties of 'mcDivObj':
-            //tag: 'div'
-            //attributes: {id: 'mcDiv', color: black, backgroundColor: 'yellow'}
-            //innerHTML: ''
-            //clicks: 0
-
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(mcDivObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(mcDivObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the mcDiv function
-            //Use an Anonymous Function for the mcDiv
-            //divHTML.addEventListener('click', function () { mcDiv (mcDivObj); } );
-
+    //Create HTML Input of Type 'text'
+    //Create Adjacent Button with onclick function
+    //Create HTML Div below the text input
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let element = document.createElement(elementObj.tag);
+    //Parent Function to Fetch Input Value and Evaluate Expression
+    /* function evaluateInput (inputID,outputID,character = '#') {
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+        //Bind HTML Input Element corresponding to inputID to a JS Variable
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    element.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    element.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+        //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
-            } //End of forIn Loop
+        //Fetch Value of Document Input Element
 
-            //Set Element InnerHTML as dictated by Object Literal
-            element.innerHTML = elementObj.innerHTML;
+        //Update the innerHTML content of the Output Div from function removeChar(string, character)
 
-            //Return the Completed HTML Object
-            return element;
+    } //End of function 'evaluateInput' */
 
-        } //End of function buildHTML()
-        */
+    //Inner function to remove a specified character
+    /* function removeChar(stringInput, charToRemove) {
 
+        //return stringInput.replaceAll(charToRemove,"")
 
-    // Signature Function of the Exercise
-    // Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-    // Built into Event Listener
-        /* function mcDiv(elementObj)
-        {
-            //Increment existing JS Object's 'clicks' property
-            elementObj.clicks ++;
-
-            //Execute Control Structure to Check If Clicks >= 3
-            if (elementObj.clicks >= 3){
-                //If so, set JS Obj's innerHTML property to 'divdivdiv'
-                elementObj.innerHTML = 'divdivdiv';
-            } else {
-                //Otherwise, append ' mc' onto existing JS Object's innerHTML
-                elementObj.innerHTML += ' mc';
-            }//End If Else
-
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
-
-            //Set the innerHTML of the HTML Document to match JS Obj
-            elementHTML.innerHTML = elementObj.innerHTML;
-
-        } //End of function 'mcDiv'
-        */
-
-
-//End JS
-
-//------------------------------
-//   Ex8.3 - Over & Out
-//------------------------------
-/*
-Over and Out
-
-Write the markup and JavaScript to place a square div on the page (100px x 100px), with a blue background. Using onmouseover and onmouseout (instead of "onclick"), change the div's color to black when the mouse is over the div, and back to blue when the mouse leaves.
- */
-
-//General JS
-
-//General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'blue'}
-
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-    //Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-        //Attach 'onmouseover' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-            //divHTML.addEventListener('onmouseover', function () { changeColor (divObj,'black'); } );
-
-        //Attach 'onmouseout' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-            //divHTML.addEventListener('onmouseout', function () { changeColor (divObj,'blue'); } );
-
-
-//Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let elementHTML = document.createElement(elementObj.tag);
-
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
-
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    elementHTML.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    elementHTML.setAttribute(attribute,divObj.attributes[attribute]);
-                }
-
-            } //End of forIn Loop
-
-            //Return the Completed HTML Object
-            return elementHTML;
-
-        } //End of function buildHTML()
-        */
-
-
-    // Signature Function of the Exercise
-    // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-    // Built into Event Listener
-        /* function changeColor(elementObj,color)
-        {
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
-            elementObj.attributes.backgroundColor = color;
-
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
-
-            //Set the attribute of the HTML element to reflect Updated JS Object
-            elementHTML.setAttribute(background-color,elementObj.attributes.backgroundColor)
-
-        } //End of function 'changeColor'
-        */
-
+     } //End of function 'removeChar' */
 
 //End JS
