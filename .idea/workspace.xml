@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 10/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/Annadurai - Ex7.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/Annadurai - Ex7.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/Annadurai - Ex8.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/Annadurai - Ex8.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/Annadurai - Ex9.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 10/Annadurai - Ex9.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Midterm/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Midterm/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
-    </list>
+    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="Completion of Ex8 - User Input" />
     <list id="95906903-aae0-4e3c-8880-5fe41b2ca077" name="Corrupt" comment="">
       <change beforePath="$PROJECT_DIR$/../../../I211/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../I211/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/G2-I211" beforeDir="false" afterPath="$PROJECT_DIR$/../../../I211/Projects/G2-I211" afterDir="false" />
@@ -117,7 +95,7 @@
       <workItem from="1679574332694" duration="1610000" />
       <workItem from="1679592969199" duration="682000" />
       <workItem from="1679838475765" duration="599000" />
-      <workItem from="1680002736394" duration="19226000" />
+      <workItem from="1680002736394" duration="19540000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <created>1677817978154</created>
@@ -126,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677817978154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Completion of Ex8 - User Input">
+      <created>1680103781330</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680103781330</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +145,7 @@
     </ignored-roots>
     <MESSAGE value="Updates" />
     <MESSAGE value="General Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="General Update" />
+    <MESSAGE value="Completion of Ex8 - User Input" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completion of Ex8 - User Input" />
   </component>
 </project>
