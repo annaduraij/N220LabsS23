@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="Updates">
-      <change afterPath="$PROJECT_DIR$/../../../I211/Projects/Unit 4/P4-1/Annadurai - Homework 1 - BMPR2's Role in Dendrite Remodeling.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../I211/Projects/Unit 4/P4-1/Annadurai - Homework 1 - BMPR2's Role in Dendrite Remodeling.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/Relation/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/Relation/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/Scratchpad/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/Scratchpad/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/W8 - Inputs/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Practices/W8 - Inputs/index.html" afterDir="false" />
+    <list default="true" id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 10/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 5/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 6/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/Annadurai - Ex7.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/Annadurai - Ex7.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 7/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 7/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/Annadurai - Ex8.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/Annadurai - Ex8.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/ex8_3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/Annadurai - Ex9.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 10/Annadurai - Ex9.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 9/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 9/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Midterm/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Midterm/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Prototype Exercise/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Prototype Exercise/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/pages/labs.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/pages/labs.html" afterDir="false" />
+    </list>
+    <list id="95906903-aae0-4e3c-8880-5fe41b2ca077" name="Corrupt" comment="">
       <change beforePath="$PROJECT_DIR$/../../../I211/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../I211/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/G2-I211" beforeDir="false" afterPath="$PROJECT_DIR$/../../../I211/Projects/G2-I211" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/Unit 3/Lab 7/Classes 2/base_plus_commission_employee.class.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/Unit 3/Lab 7/Classes 2/employee.class.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/Unit 3/Lab 7/Classes 2/payable.class.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../I211/Projects/Unit 3/Lab 7/Classes 2/salaried_employee.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 6/Annadurai - ExMTdocx.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Exercise 8/js/pre-app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,16 +76,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Practices&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jannadurai/Library/CloudStorage/OneDrive-IndianaUniversity/Jay/Informatics/Projects/N220/Labs/N220LabsS23/Practices",
+    "settings.editor.selected.configurable": "web.server",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Practices" />
@@ -82,11 +93,17 @@
       <recent name="$PROJECT_DIR$/Exercises" />
       <recent name="$PROJECT_DIR$/Practices/W7 - Midterm" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ajaya\OneDrive - Indiana University\Jay\Informatics\Projects\N220\Labs\N220LabsS23\Exercises\Exercise 10" />
+      <recent name="C:\Users\ajaya\OneDrive - Indiana University\Jay\Informatics\Projects\N220\Labs\N220LabsS23\Exercises\Exercise 9" />
+      <recent name="C:\Users\ajaya\OneDrive - Indiana University\Jay\Informatics\Projects\N220\Labs\N220LabsS23\Exercises\Exercise 8" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="86226784-1fd7-4525-b199-6d497fa415e4" name="Changes" comment="" />
+      <changelist id="95906903-aae0-4e3c-8880-5fe41b2ca077" name="Corrupt" comment="" />
       <created>1676536852870</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -100,7 +117,7 @@
       <workItem from="1679574332694" duration="1610000" />
       <workItem from="1679592969199" duration="682000" />
       <workItem from="1679838475765" duration="599000" />
-      <workItem from="1680002736394" duration="4243000" />
+      <workItem from="1680002736394" duration="19226000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <created>1677817978154</created>
@@ -142,6 +159,7 @@
       <path value="$PROJECT_DIR$/../../../I211/Projects" />
     </ignored-roots>
     <MESSAGE value="Updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates" />
+    <MESSAGE value="General Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="General Update" />
   </component>
 </project>

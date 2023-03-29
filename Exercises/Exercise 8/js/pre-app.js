@@ -1,5 +1,5 @@
 //------------------------------
-//   Ex8.1 - Is Divisble By Seven:
+// Ex8.1 - Is Divisble By Seven:
 //------------------------------
 /*
 Is Divisible By Seven

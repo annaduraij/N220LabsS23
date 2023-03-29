@@ -1,4 +1,4 @@
-//Exercise 8.2 - McDiv'ns
+//Exercise 8.2 - Make Random
 
 //---------------------------------------------------------
 //                        JS Classes
@@ -50,7 +50,7 @@ class HTMLasJS {
             for (let property in this.style){
 
                 //Log the Initial Object Properties
-                console.log(property,this.style[property]);
+                //console.log(property,this.style[property]);
 
                 //Can use the Javascript Object as an Array functionality
                 //Remember a named function is just a function bound to a name/var
@@ -78,15 +78,6 @@ class HTMLasJS {
         //Scale the JS Object Size Attributes and Update the HTML
         this.scale = function(scalingFactor,scaleWidth = true,scaleHeight = true,existingObj = true)
         {
-
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
             //Create an Array of Numeric Style Properties to Scale
             let styles = [];
 
@@ -97,7 +88,7 @@ class HTMLasJS {
 
             //Increment through Style Properties and Apply Respective Methods to Sale
             for (let i = 0; i < styles.length; i++){
-                //Legacy Logs of Conversion Steps
+                //Legacy: Logs of Conversion Steps
                 //Log the Original Object
                 //console.log('JS Object', elementObj);
                 //Log the Style Object of the elementObj
@@ -130,74 +121,114 @@ class HTMLasJS {
                 //Log the Encoded Representation
                 //console.log('Encoded ',styles[i],elementObj['style'][strProperty]);
 
-                //Take JS Obj Property and Assign to actual HTML Element
-                elementHTML['style'][strProperty] = this['style'][strProperty];
-                //Log the HTML Representation
-                //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+                if (existingObj) {
+                    //Fetch the Actual HTML Element
+                    let elementHTML = this.get();
 
-                //If there is no Existing Object
+                    //Take JS Obj Property and Assign to actual HTML Element
+                    elementHTML['style'][strProperty] = this['style'][strProperty];
+                    //Log the HTML Representation
+                    //console.log('HTML CSS ',styles[i],elementObj['style'][strProperty]);
+                }//End of If Statement to Manage Existing HTML Object
+
                 //Update the Actual HTML Object encoded into the JS Object
-                if(!existingObj) { this.html = elementHTML; }
+                this.build(false,true);
 
             } //End of for Loop Function
 
         } //End of function scale()
 
 
+        //Method to Change the Cursor upon Engaging with an Interactive Element
+        this.setInteractive = function () {
+            //Create an Event Handler that changes the Cursor to a Pointer on Hovering over the Button
+            this.get().addEventListener('mouseover',function () {
+                HTMLasJS.docBody.style.cursor = 'pointer';
+            })//End of mouseover handler
+
+            //Create an Event Handler that returns the Cursor to default on hovering out of the Button
+            this.get().addEventListener('mouseout',function () {
+                HTMLasJS.docBody.style.cursor = 'auto';
+            })//End of mouseout handler
+        }//End of Method to Set the Element as Interactive
 
         // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeColor = function (color,existingObj = true)
+        this.setColor = function (color,existingObj = true)
         {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
 
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
-            if (existingObj) {
-                elementHTML = this.get();
-            }
-
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
+            //Update the JS Object Instance with the New Style Property
             this.style.backgroundColor = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.backgroundColor = this.style.backgroundColor;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
-
-        // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-        this.changeTextColor = function (color,existingObj = true)
-        {
-            //Get the HTML Object Stored in the Object's Attributes
-            let elementHTML = this.html;
-
-            //Override the elementHTML variable with the existing HTML Document entity if the existingObj Arg is True
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
             if (existingObj) {
-                elementHTML = this.get();
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.backgroundColor = this.style.backgroundColor;
             }
 
-            //Set JS Obj's color Attribute to the Provided Color
+        } //End of 'setColor' Setter Method
+
+        // Changes the Text Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
+        this.setTextColor = function (color,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
             this.style.color = color.toString();
 
-            //Set the style property of the HTML element to reflect updated JS Object
-            elementHTML.style.color = this.style.color;
-
-            //If there is no Existing Object
             //Update the Actual HTML Object encoded into the JS Object
-            if(!existingObj) { this.html = elementHTML; }
+            this.build(false,true);
 
-        } //End of function 'changeColor'
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.color = this.style.color;
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Changes the Font Weight of the Provided JS Element Obj to Provided Weight and then Updates HTML Object
+        this.setFontWeight = function (fontWeight,existingObj = true)
+        {
+
+            //Update the JS Object Instance with the New Style Property
+            this.style.fontWeight = fontWeight.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the style property of the existing HTML Obj to reflect updated JS Object
+                this.get().style.fontWeight  = this.style.fontWeight
+            }
+
+        } //End of 'setTextColor' Setter Method
+
+        // Sets the innerHTML of the JS Object and Updates the HTML Entity's innerHTML as Well
+        this.setInnerHTML = function (newInnerHTML, existingObj = true) {
+
+            //Set JS Obj's innerHTML Attribute to the Provided innerHTML
+            this.innerHTML = newInnerHTML.toString();
+
+            //Update the Actual HTML Object encoded into the JS Object
+            this.build(false,true);
+
+            //Overwrite the existing HTML Document entity with the new JS Object Info if the existingObj Arg is True
+            if (existingObj) {
+                //Set the innerHTML property of the existing HTML Obj to reflect updated JS Object
+                this.get().innerHTML = this.innerHTML;
+            }
+
+        }//End of innerHTML Setter Method
 
 
     }//End of HTMLasJS Obj Constructor
 
-
-
-
-
+//Static Properties
+    static docBody = document.getElementsByTagName('body')[0];
 
 //Static Methods
 
@@ -216,6 +247,7 @@ class HTMLasJS {
 
         //Return the Integer
         return intWithoutUnit;
+
     }//End of Static decodeUnit Method
 
     //Sister Function of decodeUnit that returns the Integer with the Unit
@@ -231,82 +263,340 @@ class HTMLasJS {
 
         //Concatenate with String Addition
         //Joins the integer (as a string) and the unit (as a string)
-        let intWithUnit = intWithoutUnit+unit;
+        //let intWithUnit = intWithoutUnit+unit;
 
         //Return the Integer
-        return intWithUnit;
+        //return intWithUnit;
+
+        //Inline Return
+        return intWithoutUnit+unit;
+
     }//End of Static encodeUnit Method
 
 }//End of HTMLasJS Class
+
+//Class to Create HTML Console Outputs
+//Extends HTMLasJS
+//Requires consoleObj to be Built into Page
+class Console extends HTMLasJS {
+    //Specialized Constructor
+    constructor(
+        htmlTag = '',
+        htmlAttributes = {},
+        cssStyles = {},
+        innerHTML = '',
+        extraAttributes = {},
+    ) {
+
+        //Call the Parent Constructor for Most of the Functionality and Pass the incoming values
+        super(
+            htmlTag,
+            htmlAttributes,
+            cssStyles,
+            innerHTML,
+            extraAttributes
+        );
+
+    }//End of Constructor
+
+    //Generate the Console
+    //Technically is the Container of the Console Output Objects
+    //Return HTMLasJS instance to create JS object to represent the HTML Console
+    static generateConsole (
+        htmlTag = 'div',
+        htmlAttributes = { id: 'console'},
+        cssStyles = {
+            width: 'fit-content',
+            height: 'fit-content',
+            margin: '10px auto',
+            padding: '10px',
+
+            border: '1px solid black',
+            borderRadius: '10px',
+            backgroundColor: '#404040',
+            color: 'white',
+            textAlign: 'center'
+        },
+        innerHTML = 'Console:',
+        extraAttributes = {},
+    ){
+        //Generate and Return the Console Object
+        return new HTMLasJS(
+            htmlTag,
+            htmlAttributes,
+            cssStyles,
+            innerHTML,
+            extraAttributes
+        );
+    } //End of Method to Generate Parent/Console Container
+
+    //Store the Individual Console Entries into the Class
+    static outputLog = [];
+
+    //Static Field to Hold Console Counter
+    static i = 0;
+
+    //Generate the Console Entries
+    //The Console Outputs that are then Placed into the Console Container
+    //Returns HTMLasJS instance to create JS object to represent the HTML Console
+    static generateConsoleEntry (
+        innerHTML,
+        logLines = true,
+        htmlAttributes = {
+            id: 'c' + Console.i,
+            class: 'consoleEntry'
+        },
+        extraAttributes = {
+            active: true
+        },
+        cssStyles = {
+            width: 'available',
+            height: 'fit-content',
+            margin: '5px 0px',
+            padding: '6px',
+
+            border: '0px solid black',
+            borderRadius: '5px',
+            backgroundColor: '#000000',
+
+            fontSize: '0.8em',
+            color: '#70ff60',
+            textAlign: 'left'
+        },
+        htmlTag = 'div'
+    ){
+        //Append the innerHTML to the console counter
+        if(logLines) { innerHTML = `${Console.i}: `+innerHTML;}
+
+        //Generate and Return the Console Object
+        return new HTMLasJS(
+            htmlTag,
+            htmlAttributes,
+            cssStyles,
+            innerHTML,
+            extraAttributes
+        );
+    } //End of Method to Generate Parent/Console Container
+
+    //Store the Console Object Directly into the Class
+    static obj = this.generateConsole();
+
+    //Static Method to Log Information to the Console
+    static log(consoleOutput) {
+
+        //Increment the Static Field Counter
+        Console.i++;
+
+        //Iterate Through All Existing Console Entries
+        for (let previousEntry of this.outputLog){
+            //If Any are Active, Inactive Them and Set Text Color to a Duller Color
+            if(previousEntry.extras.active) {
+                previousEntry.setTextColor('#316b2a');
+            }
+        }
+
+        //Generate the Console Entry
+        let entry = this.generateConsoleEntry(consoleOutput);
+
+        //Put the Console Entry into the Console Entry Log
+        this.outputLog.push(entry);
+
+        this.obj.get().insertBefore(
+            //Build the Document Entity of the Console Element Obj
+            entry.build(),
+
+            //Place Right Before the Console's First Child Element
+            //Keeps the Top of the Console Updated
+            this.obj.get().firstElementChild
+        );
+    }
+
+    //Static Method to Limit Size of Console
+    static limitLogSize(logMaxLength = 5) {
+        //If the Console Log has more than the Stated Maximum
+        while (Console.outputLog.length>(logMaxLength)) {
+            //Remove any excess
+            //Remove the JS Object Instance from the Console Output Array
+            Console.outputLog.shift();
+            //Remove the HTML Object from the Page
+            Console.obj.get().removeChild(Console.obj.get().lastChild);
+        }//End of While Loop
+    }
+
+
+
+
+
+}//End of Console Class
 
 //---------------------------------------------------------
 //                   Variable Declarations
 //---------------------------------------------------------
 
-//Construct a HTMLasJS Object to Represent the HTML Object in JS
-let divObj = new HTMLasJS(
+//Get and bind HTML Body Element using get Elements by Tag Name
+//Note this Returns an Array, so just get the first Element aka [0]
+const pageBody = document.getElementsByTagName('body')[0];
+
+//Create a Wrapper for the Entire Page
+//Wrapper should flex the Containers into Divs
+let wrapperObj = new HTMLasJS(
     'div',
     {
-        id:"McDiv"
+        id:'wrapper'
     },
     {
-        width: '150px',
-        height: '150px',
-        margin: 'auto',
-        padding: '10px',
-        backgroundColor: '#704f09',
-        color: 'white',
+        display: 'flex',
+        flexFlow: 'column warp',
+        justifyContent: 'center'
     },
-    'The Chicken Said: ',
-    //Unique Property of Clicks
-    {clicks: 0}
+    ''
 );
 
-//Log the Created Objected
-console.log("HTML as JS Object",divObj);
+//Create a HTMLasJS Object for the 'Number' Input
+//Create HTMLasJS instance to create JS object to represent the HTML
+let userInputMin = new HTMLasJS(
+    'input',
+    {
+        id:'userInputMin',
+        type:'number',
+        placeholder: 'Lower Bound'
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '10px 20px',
+        padding: '10px',
+
+        border: '1px solid black',
+        borderRadius: '10px',
+        color: '#9f0202',
+        backgroundColor: '#ffffff',
+        textAlign: 'center'
+    },
+    ''
+);
+
+//Create a HTMLasJS Object for the 'Number' Input Confirmation
+//Create HTMLasJS instance to create JS object to represent the HTML
+let userSubmit = new HTMLasJS(
+    'div',
+    {
+        id:'userSubmit',
+        //Event Listener for the Button
+        onclick: 'evaluateInput(userInputMin,userInputMax)',
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '10px 20px',
+        padding: '10px',
+
+        border: '1px solid black',
+        borderRadius: '10px',
+        color: '#0051cd',
+        backgroundColor: '#ffffff',
+        textAlign: 'center',
+
+        cursor: 'pointer'
+    },
+    'Randomize'
+);
+
+//Create a HTMLasJS Object for the 'Number' Input Maximum
+//Create HTMLasJS instance to create JS object to represent the HTML
+let userInputMax = new HTMLasJS(
+    'input',
+    {
+        id:'userInputMax',
+        type:'number',
+        placeholder: 'Upper Bound'
+    },
+    {
+        width: 'fit-content',
+        height: 'fit-content',
+        margin: '10px 20px',
+        padding: '10px',
+
+        border: '1px solid black',
+        borderRadius: '10px',
+        color: '#9f0202',
+        backgroundColor: '#ffffff',
+        textAlign: 'center'
+    },
+    ''
+);
 
 //---------------------------------------------------------
 //                        General JS
 //---------------------------------------------------------
 
-//Append Element as Child Node to HTML Body
-    //Get and bind HTML Body Element using get Elements by Tag Name
-        //Note this Returns an Array, so just get the first Element aka [0]
-    const pageBody = document.getElementsByTagName('body')[0];
+//Build the Wrapper Obj using the build method and then Append to HTML Body
+pageBody.appendChild(wrapperObj.build());
 
-    //Build Child Node using build method of Obj and then Append to HTML Body
-    pageBody.appendChild(divObj.build());
+//Attach the HTMLasJS Min Input into the Page Wrapper as a child element
+wrapperObj.get().appendChild(userInputMin.build());
 
-//Build Event Listener for HTML Onclick
-    //Attach 'click' Event Listener that runs the mcDiv function
-    //Use an Anonymous Function for the mcDiv function
-    divObj.get().addEventListener('click', function () {
-        mcDiv (divObj);
-    });//End of Anonymous Function inside Listener
+//Attach the HTMLasJS Submit into the Page Wrapper as a child element
+wrapperObj.get().appendChild(userSubmit.build());
 
+//Attach the HTMLasJS Max Input into the Page Wrapper as a child element
+wrapperObj.get().appendChild(userInputMax.build());
+
+//Build the Console Container into the HTML page
+//Append the HTMLasJS instance 'obj' inside the Console Class as the Last Child of the Page Wrapper
+pageBody.appendChild(Console.obj.build());
 
 
 //------------------------------------------------------------
 //                       JS Functions
 //------------------------------------------------------------
-// Signature Function of the Exercise
-// Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-// Built into Event Listener
-function mcDiv(HTMLasJSObj)
-{
-    //Increment existing JS Object's 'clicks' property
-    HTMLasJSObj.extras.clicks ++;
 
-    //Execute Control Structure to Check If Clicks >= 3
-    if (HTMLasJSObj.extras.clicks >= 3){
-        //If so, set JS Obj's innerHTML property to 'divdivdiv'
-        HTMLasJSObj.innerHTML = '<br> <br> <br> <br> divdivdiv';
-    } else {
-        //Otherwise, append ' mc' onto existing JS Object's innerHTML
-        HTMLasJSObj.innerHTML += '<br> mc';
-    }//End If Else
+//Parent Function to Fetch Input Value and Evaluate Expression
+function evaluateInput (minInput,maxInput) {
 
-    //Set the innerHTML of the HTML Document Entity to match JS Obj
-    HTMLasJSObj.get().innerHTML = HTMLasJSObj.innerHTML;
+    //Generate and Bind the Random Integer
+    let randInt = randomInt(minInput.get().value,maxInput.get().value);
 
-} //End of function 'mcDiv'
+    //Redefine randInt into a message
+    randInt = ` ${minInput.get().value} ≤ R ≤ ${maxInput.get().value} | R = ${randInt} `
+
+    //Log the rand Int to the Console
+    console.log(randInt)
+    //Log the rand Int directly to the Page via the Console
+    Console.log( randInt)
+    //Limit Console.log Size
+    Console.limitLogSize(10)
+
+} //End of function 'evaluateInput'
+
+//Static Randomization Function
+//'randomInt' Chooses a Random Value Between Two Integer Bounds
+//Inclusive of Both Values
+function randomInt(minimum, maximum) {
+    //Set Minimum Value and Round It Up to the Next Value
+    minimum = Math.ceil(minimum);
+    //Set Maximum Value and Round It Down to the next Value
+    maximum = Math.floor(maximum);
+    //Generates Random Value
+    let baseRandom = Math.random()
+
+    //Normalized Random (Linear Adjustment), remember final function is wrapped in Math.floor, so it's rounded down and to counteract that, must raise by 1
+    //Math.round() * Math.Random isn't used here because Math.round under-represents the endpoints
+    //Consider 0: to get 0, 0.00 - 0.49 is an accepted value | Consider 1: to get 1, 0.50 - 1.49 is an accepted value
+    //Note, if for whatever reason, Math.ceiling is using in the final adjustment, you'd subtract by 1 here to counteract the round up
+    let scaleRandom = maximum - minimum + 1
+
+    //Adjust the Value to the Minimum
+    let interceptRandom = minimum;
+
+    //Final Random
+    //let random = Math.floor(baseRandom * scaleRandom + interceptRandom);
+
+    //Return Random Integer
+    //return random;
+
+    //Inline Return
+    return Math.floor(baseRandom * scaleRandom + interceptRandom);
+
+}//End of Random Function
+
