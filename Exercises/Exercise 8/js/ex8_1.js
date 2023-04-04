@@ -523,7 +523,7 @@ wrapperObj.get().appendChild(userSubmit.build());
 pageBody.appendChild(Console.obj.build());
 
 //Build an Event Listener to Execute the Evaluation Function on key up
-window.onkeyup(evaluateInput(userInput,false));
+window.onkeydown(evaluateInput(userInput,false));
 
 //------------------------------------------------------------
 //                       JS Functions
@@ -538,12 +538,13 @@ function evaluateInput (inputObj,enableLogging=true, divisor=7) {
 
     //Bind the User Form Input Value
     let userNumber = inputObj.get().value;
+    console.log(userNumber+"Number");
 
     //Fetch Form Input Value as the Dividend Argument and the Parent Parameter as the Divisor Argument
     //If the Boolean is true,
-    if(divisible(userNumber,divisor)){
+    if(userNumber !== '' && divisible(userNumber,divisor)){
         //Update the message variable to a string affirming the number's divisibility by seven
-        eval = "";
+        eval = '';
         //Set the Input Object's text color to green
         inputObj.setTextColor('#00b170');
     }
