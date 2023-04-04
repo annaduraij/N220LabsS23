@@ -18,85 +18,38 @@ Removes the text from the input so the user can type in new numbers
  */
 
 //General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'green'}
-
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the Scale Function
-            //Use an Anonymous Function for the Scale Function
-            //divHTML.addEventListener('click', function () { scale (divObj); } );
-
-
-
+//Create HTML Text Area
+//Create Adjacent Button with onclick function
+//Create HTML Div below the text input
 
 //Functions
-    // Build HTML Element from JS
-    /* function buildHTML(elementObj)
-    {
-        //Create HTML Element and Implant into Carrier Variable
-        let element = document.createElement(elementObj.tag);
+//Parent Function to Fetch Input Value, Convert to Numeric Array, and Evaluate Sum
+/* function evaluateInput (inputID,outputID) {
 
-        //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-        for (let attribute in elementObj.attributes){
+    //Bind HTML Input Element corresponding to inputID to a JS Variable
+    //Bind the Value of the HTML Input Element to a variable
+    //Set the Value of the HTML Input Element to ''
 
-            //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-            if (attribute == "backgroundColor") {
-                element.setAttribute(background-color,elementObj.attributes[attribute]);
-            }
-            //Set Element Attribute
-            else {
-                element.setAttribute(attribute,divObj.attributes[attribute]);
-            }
-
-        } //End of forIn Loop
-
-        //Return the Completed HTML Object
-        return element;
-
-    } //End of function buildHTML()
-    */
-
-    // Signature Function of the Exercise
-    // Scale the JS Object Size Attributes and Update the HTML
-    /* function scale(elementObj)
-    {
-        //Split 'px' Unit from JS Object's Height and Width Attributes
-            //Split String into Array of Segmented Strings
-            //Retain only the first part, [0], which should contain the number
-        elementObj.attributes.width = elementObj.attributes.width.split('px')[0];
-        elementObj.attributes.height = elementObj.attributes.height.split('px')[0];
-
-        //Scale existing JS Object's Height and Width by 10%
-        elementObj.attributes.width *= 1.1;
-        elementObj.attributes.height *= 1.1;
-
-        //Append 'px' unit back on to the end of JS Object's Height and Width Attributes
-        elementObj.attributes.width += 'px';
-        elementObj.attributes.height += 'px';
-
-        //Get the Document Element with ID
-        let docElement = document.getElementById(elementObj.attributes.id);
-
-        //Set the Document Elements' New Size Attributes
-        docElement.setAttribute('width', elementObj.attributes.width);
-        docElement.setAttribute('height', elementObj.attributes.width);
-
-    } //End of function scale()
-    */
+    //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
 
+    //Explode HTML Input Value into an Array based on CSVs and rebind
+
+    //Declare a variable to hold the sum of the HTML Input Array
+
+    //Iterate through the Array of Input Values
+        //Use the Number() function to parse the Value of Each Element
+        //Increment the Sum by the value of the individual elements
+
+    //Declare a variable to hold the average of the HTML input array
+    //Assign it to the value of the sum
+    //Divide the value by the length of the input array and rebind
+
+    //Create a Message Var to Hold a Template Literal with the Sum of the Numbers and the Average of the Numbers
+
+    //Update the content of the HTML Output Div with the Message Content
+
+} //End of function 'evaluateInput' */
 
 //End JS
 
@@ -122,90 +75,43 @@ Clears out the text field so the user can input a new string
 
 For example, if the user input "clear water is clear", there are 3 bad words in the string.
  */
-
 //General JS
-    //Create Obj Literal for McDiv
-        //Properties of 'mcDivObj':
-            //tag: 'div'
-            //attributes: {id: 'mcDiv', color: black, backgroundColor: 'yellow'}
-            //innerHTML: ''
-            //clicks: 0
+//Create HTML Text Area
+//Create Adjacent Button with onclick function
+//Create HTML Div below the text input
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(mcDivObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(mcDivObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the mcDiv function
-            //Use an Anonymous Function for the mcDiv
-            //divHTML.addEventListener('click', function () { mcDiv (mcDivObj); } );
-
+//Declare a constant array with the bad words, both capitalized and uncapitalized
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let element = document.createElement(elementObj.tag);
+//Parent Function to Fetch Input Value, Convert to Numeric Array, and Evaluate Sum
+/* function evaluateInput (inputID,outputID,Array of Bad Words) {
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+    //Bind HTML Input Element corresponding to inputID to a JS Variable
+    //Bind the Value of the HTML Input Element to a variable
+    //Set the Value of the HTML Input Element to ''
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    element.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    element.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+    //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
-            } //End of forIn Loop
+    //Explode HTML Input Value into an Array based on Spaces
 
-            //Set Element InnerHTML as dictated by Object Literal
-            element.innerHTML = elementObj.innerHTML;
+    //Declare an incremental variable to hold the sum of the HTML Input Array
+    //Declare an array to hold any found Bad words
 
-            //Return the Completed HTML Object
-            return element;
+    //Iterate through the Array of Input Values
+        //Iterate through the Array of Bad Words
+            //If Input Value == A Bad Word
+                //Then add it to the array of Bad Words
+                //Increment the Counter Variable
 
-        } //End of function buildHTML()
-        */
+    //Declare Message Var to Hold a Template Literal with the Message
+    //If (BadWords>0) set a template literal confirming bad words were found with the count and array of bad words
+    //Else set a template literal confirming no bad words were found
 
+    //Update the content of the HTML Output Div with the Message Content
 
-    // Signature Function of the Exercise
-    // Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-    // Built into Event Listener
-        /* function mcDiv(elementObj)
-        {
-            //Increment existing JS Object's 'clicks' property
-            elementObj.clicks ++;
-
-            //Execute Control Structure to Check If Clicks >= 3
-            if (elementObj.clicks >= 3){
-                //If so, set JS Obj's innerHTML property to 'divdivdiv'
-                elementObj.innerHTML = 'divdivdiv';
-            } else {
-                //Otherwise, append ' mc' onto existing JS Object's innerHTML
-                elementObj.innerHTML += ' mc';
-            }//End If Else
-
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
-
-            //Set the innerHTML of the HTML Document to match JS Obj
-            elementHTML.innerHTML = elementObj.innerHTML;
-
-        } //End of function 'mcDiv'
-        */
-
-
+} //End of function 'evaluateInput' */
 //End JS
+
 
 //------------------------------
 //Ex9.3 - Array Bad word catcher
@@ -233,79 +139,68 @@ For example, if the user input "clear water is clear", there are 3 bad words in 
 
  */
 
-//General JS
+///General JS
+//Create HTML Text Area
+//Create Adjacent Button with onclick function
+//Create HTML Div below the text input
 
-//General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'blue'}
-
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-    //Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-        //Attach 'onmouseover' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-            //divHTML.addEventListener('onmouseover', function () { changeColor (divObj,'black'); } );
-
-        //Attach 'onmouseout' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-            //divHTML.addEventListener('onmouseout', function () { changeColor (divObj,'blue'); } );
-
+//Declare a constant array with the bad words, both capitalized and uncapitalized
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let elementHTML = document.createElement(elementObj.tag);
+//Parent Function to Fetch Input Value, Convert to Numeric Array, and Evaluate Sum
+/* function evaluateInput (inputID,outputID,Array of Bad Words) {
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+    //Bind HTML Input Element corresponding to inputID to a JS Variable
+    //Bind the Value of the HTML Input Element to a variable
+    //Set the Value of the HTML Input Element to ''
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    elementHTML.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    elementHTML.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+    //Bind HTML Output Div Element corresponding to outputID to a JS Variable
 
-            } //End of forIn Loop
+    //Explode HTML Input Value into an Array based on Spaces
 
-            //Return the Completed HTML Object
-            return elementHTML;
-
-        } //End of function buildHTML()
-        */
+    //Declare an incremental variable to hold the sum of the HTML Input Array
+    //Declare an array to hold any found Bad words
 
 
-    // Signature Function of the Exercise
-    // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-    // Built into Event Listener
-        /* function changeColor(elementObj,color)
-        {
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
-            elementObj.attributes.backgroundColor = color;
+    //Iterate through the Array of Bad Words
+        //If InputValuesArray.includes(BadWords.find)
+            //Then add it to the array of Bad Words
+            //Increment the Counter Variable
 
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
+    //Declare Message Var to Hold a Template Literal with the Message
+    //If (BadWords>0) set a template literal confirming bad words were found with the count and array of bad words
+    //Else set a template literal confirming no bad words were found
 
-            //Set the attribute of the HTML element to reflect Updated JS Object
-            elementHTML.setAttribute(background-color,elementObj.attributes.backgroundColor)
+    //Update the content of the HTML Output Div with the Message Content
 
-        } //End of function 'changeColor'
-        */
-
-
+ */
 //End JS
+
+
+//------------------------------
+//Ex9.3 - Make Divs
+//------------------------------
+/*
+Make Divs
+
+Given the array
+
+let objects = [
+
+ { color: "#FF0000", height: 100, width: 300 },
+
+ { color: "#FFFF00", height: 200, width: 200 },
+
+ { color: "#ff0000", height: 300, width: 100 },
+
+];
+
+Write a loop that creates three divs based on the data in the array. You should only have one document.createElement in your code.
+
+ */
+
+///General JS
+    //Bind HTML Body as a Variable
+    //Define an Array with the Object Literals
+    //Iterate through the Array of Object Literals
+    //Use HTMLasJS class's .build method to create the elements as children of the HTML Body
