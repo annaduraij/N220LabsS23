@@ -1,17 +1,20 @@
 //------------------------------
-//   Ex9.1 - Peak Pixels:
+//   Ex9.1 - It's Just Average
 //------------------------------
 /*
-Peak Pixels
+Its just average
 
-Write the markup and JS to place a square div on the page. 100px by 100px, green background.
-Make it so that when the div its clicked, it increases its size by 10% every time.
+Create an application that:
 
-Hints:
-
-Make a variable to store the height and with of the object
-to set the height and width, set to varName + "px"
-10% is .1 bigger,or 1.1 * the original size
+Takes in a list of comma-separated numbers from the user
+Splits that list into an array of numbers
+Converts the string version of the numbers into number versions
+Loops through the array and sums up the values
+Calculates the average of the array
+Displays to the user
+The average
+The sum
+Removes the text from the input so the user can type in new numbers
  */
 
 //General JS
@@ -98,12 +101,26 @@ to set the height and width, set to varName + "px"
 //End JS
 
 //------------------------------
-//   Ex9.2 - McDiv'ns
+//  Ex9.2 - Bad Word Catcher
 //------------------------------
 /*
-McDiv'ns
+Bad word catcher with loops
 
-Put a div on the page. When the div is clicked, append the text "mc" to whatever is in its innerHTML. After 3 clicks, the div will show "divdivdiv"
+For the purposes of this exercise, bad words are: clear, water, tires.
+
+Create an application that:
+
+Takes input from a user using a simple text input field.
+Splits the string on spaces
+Loops through  the array looking for bad words in the array
+Adds 1 to a tally count when a bad word is found
+Outputs to the document
+If any bad words were found (found / not found)
+How many bad words, in total, were found
+Clears out the text field so the user can input a new string
+
+
+For example, if the user input "clear water is clear", there are 3 bad words in the string.
  */
 
 //General JS
@@ -191,12 +208,29 @@ Put a div on the page. When the div is clicked, append the text "mc" to whatever
 //End JS
 
 //------------------------------
-//   Ex9.3 - Over & Out
+//Ex9.3 - Array Bad word catcher
 //------------------------------
 /*
-Over and Out
+Bad word catcher with array methods
+Recreate the below exercise, but using the array.find and array.includes methods.
 
-Write the markup and JavaScript to place a square div on the page (100px x 100px), with a blue background. Using onmouseover and onmouseout (instead of "onclick"), change the div's color to black when the mouse is over the div, and back to blue when the mouse leaves.
+For the purposes of this exercise, bad words are: clear, water, tires.
+
+Create an application that:
+
+Takes input from a user using a simple text input field.
+Splits the string on spaces
+Loops through  the array looking for bad words in the array
+Adds 1 to a tally count when a bad word is found
+Outputs to the document
+If any bad words were found (found / not found)
+How many bad words, in total, were found
+Clears out the text field so the user can input a new string
+
+
+For example, if the user input "clear water is clear", there are 3 bad words in the string.
+
+
  */
 
 //General JS
