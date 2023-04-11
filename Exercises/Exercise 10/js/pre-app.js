@@ -1,277 +1,233 @@
 //------------------------------
-//   Ex4.1 - Peak Pixels:
+//   Ex10.1 - Color Changer
 //------------------------------
 /*
-Peak Pixels
+Color Changer
 
-Write the markup and JS to place a square div on the page. 100px by 100px, green background.
-Make it so that when the div its clicked, it increases its size by 10% every time.
+Create an application with three grey, square divs, in a row. They should be 200px by 200px, and all floated left. Give them a margin of 5px.
 
-Hints:
-
-Make a variable to store the height and with of the object
-to set the height and width, set to varName + "px"
-10% is .1 bigger,or 1.1 * the original size
+Using only one event handler, write event listeners to respond to a click on each element. Each element should change to a different color: one red, one green, and one blue. Use a data attribute on the elements to store the color to be changed to.
  */
 
 //General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'green'}
+    //Create an Object with the New Colors
+    /* colors = {
+        //Red Colored Rectangle
+        rect1: 'rgb(240, 30, 70)',
+        //Green Colored Rectangle
+        rect2: 'rgb(0, 255, 140)',
+        //Blue Colored Rectangle
+        rect3: 'rgb(65, 20, 240)'
+    };
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-        //Attach 'click' Event Listener that runs the Scale Function
-            //Use an Anonymous Function for the Scale Function
-            //divHTML.addEventListener('click', function () { scale (divObj); } );
-
-
-
+    //Iterate through the Object
+        //Build Identical Rectangle Div
+            //200px by 200px
+            //floated left
+            //margin of 5px
+        //Set Dataset.colorShift Property to the Iterated Object Value
+        //Build an Onclick Event Listener with function evaluateInput(event)
+     */
 
 //Functions
-    // Build HTML Element from JS
-    /* function buildHTML(elementObj)
-    {
-        //Create HTML Element and Implant into Carrier Variable
-        let element = document.createElement(elementObj.tag);
+//Signature Function that utilizes the JS Event Object and JS Datasets to Dynamically Adjust the Event based on the pre-existing Data bound to the HTML Object
 
-        //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-        for (let attribute in elementObj.attributes){
+/* function evaluateInput (event) {
 
-            //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-            if (attribute == "backgroundColor") {
-                element.setAttribute(background-color,elementObj.attributes[attribute]);
-            }
-            //Set Element Attribute
-            else {
-                element.setAttribute(attribute,divObj.attributes[attribute]);
-            }
+    //Use event.target to get and bind the clicked element
+    //let elem = event.target;
+    //Set the background color of the clicked element to its dataset.colorshift property
+    //elem.style.backgroundColor = elem.dataset.colorShift;
 
-        } //End of forIn Loop
-
-        //Return the Completed HTML Object
-        return element;
-
-    } //End of function buildHTML()
-    */
-
-    // Signature Function of the Exercise
-    // Scale the JS Object Size Attributes and Update the HTML
-    /* function scale(elementObj)
-    {
-        //Split 'px' Unit from JS Object's Height and Width Attributes
-            //Split String into Array of Segmented Strings
-            //Retain only the first part, [0], which should contain the number
-        elementObj.attributes.width = elementObj.attributes.width.split('px')[0];
-        elementObj.attributes.height = elementObj.attributes.height.split('px')[0];
-
-        //Scale existing JS Object's Height and Width by 10%
-        elementObj.attributes.width *= 1.1;
-        elementObj.attributes.height *= 1.1;
-
-        //Append 'px' unit back on to the end of JS Object's Height and Width Attributes
-        elementObj.attributes.width += 'px';
-        elementObj.attributes.height += 'px';
-
-        //Get the Document Element with ID
-        let docElement = document.getElementById(elementObj.attributes.id);
-
-        //Set the Document Elements' New Size Attributes
-        docElement.setAttribute('width', elementObj.attributes.width);
-        docElement.setAttribute('height', elementObj.attributes.width);
-
-    } //End of function scale()
-    */
-
-
+} //End of function 'evaluateInput' */
 
 //End JS
 
 //------------------------------
-//   Ex4.2 - McDiv'ns
+//  Ex10.2 - Color Mixer
 //------------------------------
 /*
-McDiv'ns
+This is an application that will start a div at a black color, and as a user presses buttons associated with RGB, the div will change to new colors. The button presses should affect additively - that is. If a div is currently blue, pressing +red buttons will change the div to a purple color.
 
-Put a div on the page. When the div is clicked, append the text "mc" to whatever is in its innerHTML. After 3 clicks, the div will show "divdivdiv"
+9 buttons (associated with red green and blue). There should be a +1, +5, and +10 button for each color.
+1 div that will change colors to the rgb color calculated
+
+1 div that shows the current calculated rgb color
+
+You must use attributes on the buttons for the values to change the colors by.
  */
 
 //General JS
-    //Create Obj Literal for McDiv
-        //Properties of 'mcDivObj':
-            //tag: 'div'
-            //attributes: {id: 'mcDiv', color: black, backgroundColor: 'yellow'}
-            //innerHTML: ''
-            //clicks: 0
+    //Declare a constant array with the increment values
+    //const incValues = [-10,-5,-1,+1,+5,+10];
+    //Declare a constant array with the colors
+    //const colors = ['Red','Green','Blue'];
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
+    //Think about GUI Format
+    //   <div> that displays the Color
+    //   <div> that prints current Color values
+    // Red: (-10) (-5) (-1) (+1) (+5) (+10)
+    // Green: (-10) (-5) (-1) (+1) (+5) (+10)
+    // Blue: (-10) (-5) (-1) (+1) (+5) (+10)
 
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(mcDivObj));
+    //Build an output div
+        //Width is 80% of the viewport width
+        //Height is 40% of the viewport height
+        //Set Background color to 'rgb(0,0,0)'
 
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(mcDivObj.attributes.id);
+    //Build a div that prints the output div's current color
+        //Initial InnerHTML: ` (R: 0, G: 0, B: 0) `
 
-        //Attach 'click' Event Listener that runs the mcDiv function
-            //Use an Anonymous Function for the mcDiv
-            //divHTML.addEventListener('click', function () { mcDiv (mcDivObj); } );
+    //Build a Table <table>
+    //Outer Loop per Row: Colors
+        //Start New Row <tr>
 
+        //Create First Cell <td> with Template Literal
+            //`${color}:`
+        //End Cell </td>
+
+        //Inner Loop per Column: Buttons with Increments
+            //Create New Cell <td>
+            //Create New Div <div> with the Two Dataset Attributes
+            //data-color with the color from the outer foreach loop
+            //data-increment with the magnitude from the inner foreach loop
+            //Set Onclick Event Listener to evaluateInput(event) function
+
+            //End Div </div>
+            //End Cell </td>
+
+        //End Row </tr>
+
+    //End Table </table>
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let element = document.createElement(elementObj.tag);
+    //Signature Function to use the event listener's built in event.target property to reference the object and acquire its dataset values as arguments for the color shift
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+/* function evaluateInput (event, outputID='outputID',consoleID='consoleID') {
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    element.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    element.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+    //Bind HTML Output Display Element corresponding to outputID to a JS Variable
+    //Bind the HTML Output Display Element to a variable
+    //Bind the current background color of the HTML Output Display element to a variable
 
-            } //End of forIn Loop
+    //Bind HTML Output Console Element corresponding to consoleID to a JS Variable
+    //Bind the HTML Output Console Element to a variable
 
-            //Set Element InnerHTML as dictated by Object Literal
-            element.innerHTML = elementObj.innerHTML;
+    //Parse the string value of the Output Display's Background Color and Bind it Back to the Previous Var
 
-            //Return the Completed HTML Object
-            return element;
+    //Identify the Onclick Event Target's Dataset Parameters
+    //Use an Object Literal to contain the values
+        //Bind the event.target.dataset.color to shift.color
+        //Bind the event.target.dataset.increment to shift.mag
 
-        } //End of function buildHTML()
-        */
+    //Set the output display color object with the key based on shift.color and the increment based on shift.mag
+    //color[shift.color] += shift.mag
 
+    //Set the HTML Output Console Element's InnerHTML to a Template Literal
+    // `(R: ${color.red}, G: ${color.green}, B: ${color.blue})`
 
-    // Signature Function of the Exercise
-    // Insert 'mc' into InnerHTML when executed, and once executed 3 times, switch to 'divdivdiv'
-    // Built into Event Listener
-        /* function mcDiv(elementObj)
-        {
-            //Increment existing JS Object's 'clicks' property
-            elementObj.clicks ++;
+    //Convert the color object back into a color string
+    //color = `rgb(${color.red},${color.green},${color.blue})`
 
-            //Execute Control Structure to Check If Clicks >= 3
-            if (elementObj.clicks >= 3){
-                //If so, set JS Obj's innerHTML property to 'divdivdiv'
-                elementObj.innerHTML = 'divdivdiv';
-            } else {
-                //Otherwise, append ' mc' onto existing JS Object's innerHTML
-                elementObj.innerHTML += ' mc';
-            }//End If Else
+    //Set the HTML Output Display's New Background Color to the Color String
 
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
+} //End of function 'evaluateInput' */
 
-            //Set the innerHTML of the HTML Document to match JS Obj
-            elementHTML.innerHTML = elementObj.innerHTML;
+//Function that returns a parsed [r,g,b,a] array from a JS color
+//Argument is a string color in the format of 'rgb(r,g,b)' or 'rgba(r,g,b,a)' if the enableAlpha is set to true
+/*
+function parseColor(colorStr,enableAlpha = false){
 
-        } //End of function 'mcDiv'
-        */
+    //Trim any extra spaces from the Color String
+    colorStr = colorStr.trim();
 
+    //Error Handler- If the colorStr is Empty or Invalid
+    if(typeof colorStr !== "string" || colorStr === '') {
+        //Log the Error
+        console.log("Parsed Color was Invalid",colorStr);
+        //Return
+        return;
+    }
 
+    //Trim the 'rgba(' or 'rgb(' portion by splitting on '(' and grabbing the string after it
+    colorStr = colorStr.split("(")
+    colorStr = colorStr[1];
+
+    //Trim the ')' portion at the end by splitting on ')' and grabbing the string before it
+    colorStr = colorStr.split(")");
+    colorStr = colorStr[0];
+
+    //Split the string, which should be now comma separated values
+    colorStr = colorStr.split(",");
+    //The array should now correspond to [r,g,b,a]
+    //Grab the values and store as r, g, b values
+    let r = colorStr[0];
+    let g = colorStr[1];
+    let b = colorStr[2];
+    //Only look for the alpha element if the flag is true
+    if (enableAlpha) {
+        let a = colorStr[3];
+        //Return the rgba object
+        return {red: r, green: g, blue: b, alpha: a};
+    }
+    //Otherwise, Return the Color Values as an object
+    return {red: r, green: g, blue: b};
+
+}// End of parseColor function
+
+ */
 //End JS
 
+
 //------------------------------
-//   Ex4.3 - Over & Out
+//    Ex10.3 - Flash Cards
 //------------------------------
 /*
-Over and Out
+Flash Cards
 
-Write the markup and JavaScript to place a square div on the page (100px x 100px), with a blue background. Using onmouseover and onmouseout (instead of "onclick"), change the div's color to black when the mouse is over the div, and back to blue when the mouse leaves.
+An application with 3 buttons that ask questions. For instance, they might ask "What is the capital of Indiana?". Each button should have a data-answer attribute that lists the answer.
+
+When a button is clicked, display the answer to the button's question in a div. Use only one function, and that function must make use of the button's data-attribute.
+
  */
 
 //General JS
+//Create an Array of Objects with the Flash Cars
+/* flashcards = [
+    {q: 'What is Jay's favorite color?' , a: 'Black' },
+    {q: 'Who is Jay's favorite animal?' , a: 'Regulus' },
+    {q: 'What is Jay's favorite verb?', a: 'Scintillate' }
+];
 
-//General JS
-    //Create Obj Literal for Square Div
-        //Properties of 'divObj':
-            //tag: 'div'
-            //attributes: {id: 'squareDiv', width: '100px', height: '100px', backgroundColor: 'blue'}
+//Iterate through the Array
+    //Build Identical Rectangle Div
+        //200px by 200px
+        //floated left
+        //margin of 5px
+    //Set Dataset.question Property to the Iterated Object's 'q' property
+    //Set Dataset.answer Property to the Iterated Object's 'a' property
+    //Build an Onclick Event Listener with function evaluateInput(event)
 
-    //Append Element as Child Node to HTML Body
-        //Get and bind HTML Body Element using
-            //const pageBody = document.getElementsByTagName('body');
-
-        //Build Child Node using buildHTML function and then Append to HTML Body
-            //pageBody.appendChild(buildHTML(divObj));
-
-    //Build Event Listener for HTML Onclick
-        //Acquire Element via ID
-            //let divHTML = document.getElementById(divObj.attributes.id);
-
-    //Event Listeners and Functions such that the Div is Black during onMouseOver and Blue during onMouseOut
-        //Attach 'onmouseover' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'black'
-            //divHTML.addEventListener('onmouseover', function () { changeColor (divObj,'black'); } );
-
-        //Attach 'onmouseout' Event Listener that runs the changeColor Function
-            //Use an Anonymous Function for the changeColor with Arguments of divObj,'blue'
-            //divHTML.addEventListener('onmouseout', function () { changeColor (divObj,'blue'); } );
-
+    //Set InnerHTML to the Iterated Object's 'q' property
+ */
 
 //Functions
-    //Build HTML Element from JS
-        /* function buildHTML(elementObj)
-        {
-            //Create HTML Element and Implant into Carrier Variable
-            let elementHTML = document.createElement(elementObj.tag);
+//Signature Function that utilizes the JS Event Object and JS Datasets to Dynamically Adjust the Event based on the pre-existing Data bound to the HTML Object
+/* function evaluateInput (event) {
 
-            //Attach Attributes to the HTML Div using a for...in... loop [Equivalent of forEach in Associative Arrays]
-            for (let attribute in elementObj.attributes){
+    //Use event.target to get and bind the clicked element
+    //let fc = event.target;
 
-                //Add a If-Else Statement to Catch a CamelCase to KebabCase situation
-                if (attribute == "backgroundColor") {
-                    elementHTML.setAttribute(background-color,elementObj.attributes[attribute]);
-                }
-                //Set Element Attribute
-                else {
-                    elementHTML.setAttribute(attribute,divObj.attributes[attribute]);
-                }
+    //Check if the InnerHTML matches the Answer or Question Property
+    if(fc.innerHTML === elem.dataset.question) {
+        //Set the innerHTML of the clicked element to its dataset.answer property
+        fc.innerHTML = elem.dataset.answer;
+    } else {
+        //Otherwise set it to the Question
+        fc.innerHTML = elem.dataset.question;
+    }
 
-            } //End of forIn Loop
-
-            //Return the Completed HTML Object
-            return elementHTML;
-
-        } //End of function buildHTML()
-        */
-
-
-    // Signature Function of the Exercise
-    // Changes the Background Color of the Provided JS Element Obj to Provided Color and then Updates HTML Object
-    // Built into Event Listener
-        /* function changeColor(elementObj,color)
-        {
-            //Set JS Obj's backgroundColor Attribute to the Provided Color
-            elementObj.attributes.backgroundColor = color;
-
-            //Get the HTML Document Element with ID matching JS Object's ID
-            let elementHTML = document.getElementById(elementObj.attributes.id);
-
-            //Set the attribute of the HTML element to reflect Updated JS Object
-            elementHTML.setAttribute(background-color,elementObj.attributes.backgroundColor)
-
-        } //End of function 'changeColor'
-        */
-
+} //End of function 'evaluateInput' */
 
 //End JS
+
+
